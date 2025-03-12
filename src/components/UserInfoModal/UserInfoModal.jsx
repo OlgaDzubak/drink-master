@@ -1,0 +1,128 @@
+import { Box } from '@mui/material';
+import { Notify } from 'notiflix';
+import { Field, Formik } from 'formik';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectUser } from '../../redux/auth/authSelectors';
+import { StyledButton } from '../SignUp/SignUp.styled';
+import { ErrorMessage, SuccessMessage} from '../SignUp/FieldInputAuth/FieldInputAuth.styled';
+import { SkeletonAuth } from '../SignUp/Skeletons/SkeletonAuth';
+import { StyledAvatar, StyledBox, StyledCloseIcon, StyledEditIcon, StyledField, StyledForm, StyledLabel, StyledDialog } from './UserInfoModal.styled';
+import { updateUser } from '../../redux/auth/authOperations';
+import { ProfileSchema } from '../../helpers/validateForm/validate-profile';
+import addPhoto from '../../assets/images/userInfoModal/addPhoto.svg';
+
+export const UserInfoModal = ({ isOpen, handleClose }) => {
+
+  const [isLoading, setIsLoading] = useState(false);
+  const { name, avatarURL } = useSelector(selectUser);
+  const [avatar, setAvatar] = useState('');
+  const [fileAvatar, setFileAvatar] = useState('');
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (avatarURL) {
+      setAvatar(avatarURL);
+    }
+  }, [avatarURL]);
+
+  const handleChangeAvatar = ({ target }) => {
+    const file = target.files[0];
+    console.log(file);
+    const maxSizeFile = 5 * 1024 * 1024;
+    if (file.size > maxSizeFile) {
+      Notify.failure('Файл повинен бути менше 5Mb', {
+        position: 'center-top',
+        distance: '10px',
+      });
+      setFileAvatar('');
+      return;
+    }
+    setFileAvatar(file);
+    const objectURL = URL.createObjectURL(file);
+    setAvatar(objectURL);
+  };
+
+  const handleSubmit = async (values, { resetForm }) => {
+    const formData = new FormData();
+
+    formData.append('avatar', fileAvatar);
+    formData.append('name', values.name);
+
+    try {
+      setIsLoading(true);
+      await dispatch(updateUser(formData));
+      setIsLoading(false);
+
+      resetForm();
+      handleClose();
+    } catch (error) {
+      console.log('Помилка сабміту при оновлені профилю', error.message);
+    }
+    resetForm();
+  };
+
+  const initialValues = {
+    name,
+  };
+
+  return (
+    <StyledDialog
+      open={isOpen}
+      onClose={handleClose}
+      aria-labelledby="profile"
+      sx={{ backgroundColor: 'rgba(0, 0, 0, 0)' }}
+    >
+      {isLoading ? (
+        <SkeletonAuth totalRow={4} />
+      ) : (
+        <Formik
+          initialValues={initialValues}
+          onSubmit={handleSubmit}
+          validationSchema={ProfileSchema}
+        >
+          {({ errors, touched }) => (
+            <StyledForm>
+              <>
+                <StyledCloseIcon
+                  onClick={handleClose}
+                  sx={{ cursor: 'pointer' }}
+                />
+                <Box sx={{ position: 'relative' }}>
+                  <StyledAvatar id="profile" alt="avatar" src={avatar} />
+                  <StyledBox>
+                    <Field
+                      name="file"
+                      type="file"
+                      id="loadFile"
+                      hidden
+                      onChange={handleChangeAvatar}
+                    ></Field>
+                    <StyledLabel htmlFor="loadFile" role="button">
+                      <img
+                        src={addPhoto}
+                        alt="add avatar"
+                        width="28"
+                        height="28"
+                      />
+                    </StyledLabel>
+                  </StyledBox>
+                </Box>
+
+                <Box sx={{ position: 'relative' }}>
+                  <StyledField placeholder={initialValues.name} name="name" />
+                  <StyledEditIcon />
+                </Box>
+                
+                {errors.name && touched.name ? <ErrorMessage>{errors.name}</ErrorMessage> : null}
+                {touched.name && !errors.name ? <SuccessMessage>This is an CORRECT name</SuccessMessage> : null}
+
+                <StyledButton type="submit" sx={{ marginTop: '18px' }}>Save changes</StyledButton>
+              </>
+            </StyledForm>
+          )}
+        </Formik>
+      )}
+    </StyledDialog>
+  );
+};
