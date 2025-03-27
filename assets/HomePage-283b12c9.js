@@ -1,4 +1,4 @@
-import{n as i,L as d,j as e,r as s,B as m}from"./index-ff4ae5c7.js";import{P as x}from"./PageTitle-4b178aaf.js";import{g as p}from"./operationsDrinks-bd8d61d3.js";import{D as h}from"./DrinkCard-d2bea159.js";const g=i.section`
+import{n as i,L as d,j as e,r as s,B as m}from"./index-8d8c1de9.js";import{P as x}from"./PageTitle-b3e0e29c.js";import{g as p}from"./operationsDrinks-4c0c5b8f.js";import{D as h}from"./DrinkCard-dac62872.js";const g=i.section`
   display: flex;
 
   @media screen and (max-width: 767px) {
