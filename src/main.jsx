@@ -11,7 +11,7 @@ import GlobalStyles from './GlobalStyled.js';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/drinkMaster-frontend">
+    <BrowserRouter basename="/drink-master-frontend">
       <Provider store={store}>
         <PersistGate persistor={persistor}>
           <GlobalContextProvider>

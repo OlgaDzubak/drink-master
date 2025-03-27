@@ -3,12 +3,17 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://OlgaDzubak.github.io/drink-master-frontend",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "format": "prettier --write ./src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OlgaDzubak/drink-master-frontend.git"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
