@@ -24,7 +24,7 @@ const SubscriptionForm = () => {
                                           <StyledSubField type="text" id="email" name="email" placeholder="Enter the Email" />
                                         </SubFormContenWrapper>
                                         
-                                        { touched.email && errors.email ? <StyledSubError>{errors.email}</StyledSubError> : null }
+                                        { touched.email && errors.email ? <StyledSubError>{errors.email}</StyledSubError> : <StyledSubError></StyledSubError> }
 
                                         <StyledSubBtn type="submit">Subscribe</StyledSubBtn>
                                         

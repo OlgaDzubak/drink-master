@@ -32,9 +32,9 @@ export const LoaderContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 20px;
-  color: ${(props) => props.theme ? props.theme.mainTextColor : "#F3F3F3"};
-  fill: ${(props) => props.theme ? props.theme.mainTextColor : "#F3F3F3"};
-  stroke: ${(props) => props.theme ? props.theme.mainTextColor : "#F3F3F3"};
+  color: ${(props) => props.theme.mainTextColor || "#F3F3F3"};
+  fill: ${(props) => props.theme.mainTextColor || "#F3F3F3"};
+  stroke: ${(props) => props.theme.mainTextColor || "#F3F3F3"};
 `;
 
 export const LoaderSVG = styled(LoaderIcon)`
@@ -54,7 +54,7 @@ export const LoaderSVG = styled(LoaderIcon)`
 `;
 
 export const LoaderText = styled.p`
-  color: ${(props) => props.theme ? props.theme.mainTextColor : "#F3F3F3"};
+  color: ${(props) => props.theme.mainTextColor || "#F3F3F3"};
   font-size: 24px;
   font-weight: 600;
 `;

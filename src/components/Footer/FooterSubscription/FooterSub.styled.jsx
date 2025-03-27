@@ -46,19 +46,19 @@ export const StyledSubField = styled(Field)`
 `;
 
 export const StyledSubError = styled.p`
-  margin-top: 5px;
+  height: 14px;
+  margin-top: 2px;
   font-size: 12px;
   line-height: 1.67;
   text-align: center;
   color : ${(props) => props.theme.formErrorMsgColor};
- 
 `;
 
 export const StyledSubBtn = styled.button`
   width: 309px;
   height: 56px; 
   padding: 10px;
-  margin-top: 20px;
+  margin-top: 12px;
   font-size: 17px;
   font-weight: 600;
   line-height: 1.56;
