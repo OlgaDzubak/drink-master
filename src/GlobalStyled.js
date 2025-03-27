@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
 
+
 const GlobalStyles = css`
 *,
 *::before,
@@ -31,22 +32,21 @@ const GlobalStyles = css`
     font-style: normal;
   }
 
-    :root {
+  :root {
     --mainbackground-color: #0A0A11;
     --white-color: #F3F3F3;
     --whitefifty-color: rgba(243, 243, 243, 0.5);
     --whitefourty-color: rgba(243, 243, 243, 0.4);
-    --whitetwenty-color: rgba(243, 243, 243, 0.2);;
+    --whitetwenty-color: rgba(243, 243, 243, 0.2);
     --blue-color: #161F37;
     --bluefifty-color: rgba(22, 31, 55, 0.5);
-    --hovergreen-color: rgba(64, 112, 205, 0.5);
-    --welcomepagetext-color: #FAFAFA;    
+    --hovergreen-color: #4070cd;
+    --welcomepagetext-color: #FAFAFA;
     --buttoncancel-color: #434D67;
     --red-color: #DA1414;
     --green-color: #3CBC81;
-    
-    
-    --transition: 300ms ease-in; 
+    --transition: 400ms ease-in; 
+    --transition2000: 2000ms ease-in; 
   }
 
   body {
@@ -59,6 +59,11 @@ const GlobalStyles = css`
     overflow-x: hidden;
     color: var(--white-color);
     background-color: var(--mainbackground-color);
+}
+
+  div#root {
+    position: relative;
+    overflow-x: hidden;
   }
 
 h1,
@@ -71,18 +76,22 @@ p {
   margin: 0;
   padding: 0;
 }
+
 a {
   text-decoration: none;
   color: inherit;
 }
+
 ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
+
 img {
   display: block;
 }
+
 button {
   cursor: pointer;
   font-family: inherit;
@@ -97,14 +106,12 @@ button {
   select:-webkit-autofill,
   select:-webkit-autofill:hover,
   select:-webkit-autofill:focus {
-        -webkit-text-fill-color: var(--white-color);
-        -webkit-text-stroke-color: var(--white-color);
+        -webkit-text-fill-color: inherit;
+        -webkit-text-stroke-color: inherit;
         -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
-        caret-color: var(--white-color);
+        caret-color: inherit;
         transition: background-color 3000s ease-in-out 0s, color 3000s ease-in-out 0s;
-    }  
-  }
-}
+  }  
 `;
 
 export default GlobalStyles;

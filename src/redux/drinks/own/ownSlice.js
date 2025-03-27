@@ -8,11 +8,13 @@ const ownSlice = createSlice({
     items: [],
     isLoading: false,
     error: null,
+    added: false,
   },
   extraReducers: (builder) =>
     builder
       .addCase(fetchOwn.pending, (state) => {
         state.isLoading = true;
+        state.added = false;
       })
       .addCase(fetchOwn.fulfilled, (state, action) => {
         state.isLoading = false;
@@ -22,50 +24,52 @@ const ownSlice = createSlice({
       .addCase(fetchOwn.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
+        Notify.failure("Server error! Please reload the page.");
       })
 
       .addCase(addOwn.pending, (state) => {
         state.isLoading = true;
+        state.added = false;
       })
       .addCase(addOwn.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.items.push(action.payload);
-        document.querySelector('form').reset();
+        state.items = [ ...state.items, action.payload];
+        Notify.success(`Drink << ${action.payload.drink} >> was added to database!`, {position: 'center-top', timeout: '5000'});
+        state.added = true;
       })
       .addCase(addOwn.rejected, (state, action) => {
         state.isLoading = false;
+        state.added = false;
         state.error = action.payload;
-        
         switch (action.payload){
 
           case "Request failed with status code 400":
                       Notify.failure("Add drink failed! Missing data fields.");
                       break;
           case "Request failed with status code 409":
-                      Notify.failure("Add drink failed! Drink name is already in database.", {position: 'center-top', distance: '10px', });
+                      Notify.failure("Add drink failed! Drink name is already in database.", {position: 'center-top', timeout: '5000'});
                       break;
           default: 
                       Notify.failure("Server error! Please reload the page.");
                       break;
-      }
-
+        }
       })
+
       .addCase(deleteOwn.pending, (state) => {
         state.isLoading = true;
       })
       .addCase(deleteOwn.fulfilled, (state, action) => {
-        console.log(action);
         state.isLoading = false;
-        state.error = false;
-        const indexDelete = state.items.findIndex(
-          (drink) => drink._id === action.payload._id,
-        );
-        state.items.splice(indexDelete, 1);
+        state.error = null;
+        const indexDelete = state.items.findIndex((drink) => drink._id === action.payload._id);
+        state.items.splice(indexDelete, 1); 
       })
       .addCase(deleteOwn.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
+        state.success = false;
+        Notify.failure("Server error! Please reload the page.");
       }),
 });
 

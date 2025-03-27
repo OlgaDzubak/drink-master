@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 
-// / Кастомный хук для определения itemsPerPage в зависимости от ширины экрана
+// Хук для определения itemsPerPage в зависимости от ширины экрана
 function useItemsPerPage() {
-  const [itemsPerPage, setItemsPerPage] = useState(); // Значение по умолчанию
+  const [itemsPerPage, setItemsPerPage] = useState();
 
   useEffect(() => {
     function handleResize() {
@@ -13,13 +13,10 @@ function useItemsPerPage() {
       }
     }
 
-    // Добавьте слушателя события изменения размера экрана
     window.addEventListener('resize', handleResize);
 
-    // Вызовите функцию обработки изменения размера экрана при монтировании компонента
     handleResize();
 
-    // Уберите слушателя события при размонтировании компонента
     return () => {
       window.removeEventListener('resize', handleResize);
     };

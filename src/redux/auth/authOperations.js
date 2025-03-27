@@ -5,6 +5,7 @@ axios.defaults.baseURL = 'https://drink-master-server.onrender.com';
 
 const setAuthHeader = (token) => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  
 };
 const clearAuthHeader = () => {
   axios.defaults.headers.common.Authorization = '';
@@ -60,7 +61,6 @@ export const refresh = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
     return thunkAPI.rejectWithValue(e.message);
   }
 });
-
 
 export const getUser = createAsyncThunk('auth/getUser', async (_, thunkAPI) => {
   try {

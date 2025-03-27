@@ -5,7 +5,7 @@ import { selectIsLoading } from '../../redux/auth/authSelectors';
 
 import { StyledMain } from '../Welcome/Welcome.styled';
 import { StyledAuthContainer, StyledButton, StyledTitleAuth, FieldsInputAuthContainer, StyledButtonsContainer } from '../SignUp/SignUp.styled';
-import { SkeletonAuth } from '../SignUp/Skeletons/SkeletonAuth';
+import { SkeletonRows } from '../Skeletons/SkeletonRows';
 import { signin } from '../../redux/auth/authOperations';
 import { SignInSchema } from '../../helpers/validateForm/validate-login';
 import { FieldInputAuth } from '../SignUp/FieldInputAuth/FieldInputAuth';
@@ -43,7 +43,7 @@ const SignIn = () => {
                   <Form style={{ zIndex: 3 }}>
 
                     {isLoading 
-                      ? <SkeletonAuth totalRow={3} />
+                      ? <SkeletonRows totalRow={3} />
                       : <>
 
                           <FieldsInputAuthContainer>

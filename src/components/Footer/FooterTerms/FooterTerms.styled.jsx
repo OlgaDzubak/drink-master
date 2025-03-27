@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const LoweLiner = styled.div`
-  margin-top: 20px;
+  margin-top: 80px;
   width: 100%;
   display: flex;
   justify-content: space-between;

@@ -1,45 +1,39 @@
-import { HeaderEl, HeaderContainer } from './Header.styled';
+import { useSelector } from 'react-redux';
+import { useScreen } from '../../hooks/useScreen';
+import { selectIsBurgerModalOpen } from '../../redux/modal/modalSelectors';
 import { Logo } from './Logo/Logo';
 import { UserLogo } from './UserLogo/UserLogo';
-import { useEffect, useState } from 'react';
+import { ThemeSwitcher } from './ThemeSwitcher/ThemeSwiеcher';
 import { BurgerBtn } from './BurgerBtn/BurgerBtn';
 import Navigation from './Navigation/Navigation';
+import { HeaderEl, HeaderContainer, UserLogoAndBurger, ThemeAndUserLogo } from './Header.styled';
 
-// screenSize______________
-
-const screenChecker = () => {
-  const { innerWidth: width, innerHeight: height } = window;
-  
-  return { width, height, };
-};
-
-const useScreen = () => {
-  const [screenSize, setScreenSize] = useState(screenChecker());
-
-  useEffect(() => {
-    function handleResize() {
-      setScreenSize(screenChecker());
-    }
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  return screenSize;
-};
-
-// _______________________________
 
 const Header = () => {
   
-  const { width } = useScreen();
+  const isBurgerModalOpen = useSelector(selectIsBurgerModalOpen); 
+  const { width }= useScreen();
 
   return  <HeaderEl>
             <HeaderContainer>
+
               <Logo />
+
               {width >= 1280 && <Navigation />}
-              <UserLogo />
-              {width < 1280 && <BurgerBtn />}
+              
+              <UserLogoAndBurger>
+
+                <ThemeAndUserLogo>
+
+                  { (width >= 1280 || isBurgerModalOpen)  && <ThemeSwitcher/> }
+                  { !isBurgerModalOpen && <UserLogo />}
+
+                </ThemeAndUserLogo>
+
+                {width < 1280 && <BurgerBtn />}
+
+              </UserLogoAndBurger>
+
             </HeaderContainer>
           </HeaderEl>
 };

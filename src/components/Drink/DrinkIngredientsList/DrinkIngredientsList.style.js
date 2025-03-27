@@ -1,11 +1,11 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 export const IngredientsSection = styled.section`
   margin-bottom: 100px;
 `;
 
 export const Title = styled.h2`
-  color: var(--whitefifty-color);
+  color: ${(props)=>props.theme.seeMoreBtnTextColor};
   font-size: 16px;
   margin-bottom: 42px;
 

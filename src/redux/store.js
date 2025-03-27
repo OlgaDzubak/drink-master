@@ -3,6 +3,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { authReducer } from './auth/authSlice';
 import { ownReducer } from './drinks/own/ownSlice';
 import { favoritesReducer } from './drinks/favorites/favoritesSlice';
+import { modalReducer } from './modal/modalSlice';
 import storage from 'redux-persist/lib/storage';
 
 
@@ -19,6 +20,7 @@ export const store = configureStore({
     auth: persistedRootReducer,
     own: ownReducer,
     favorites: favoritesReducer,
+    modal: modalReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

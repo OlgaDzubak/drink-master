@@ -1,20 +1,23 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import Select from 'react-select';
+import { GlobalContext } from "../../../context/GlobalContext";
 import createSelectOptions from '../../../helpers/createSelectOptions';
 import { FilterForm, Styled_InputLabel, Styled_Input, LookUpSpan, 
          Styled_Span_for_Input_and_LookUpIcon, LookUpIcon, CreatableSelectStyles } from './Filter.styled';
-  
+import {DARK_THEME, LIGHT_THEME} from '../../../theme/theme';
 
 //компонент Filter для сторінки Drinks Page ---------------------------------------------------------------------------------
+  const Filter = ( {categoryList, ingredientList, onChangeFilter } ) => {
+    
+    const { theme } = useContext(GlobalContext);
+    const themeColors = (theme === "dark") ? {...DARK_THEME} : {...LIGHT_THEME};
 
-  const Filter = ( {categoryList, ingredientList, onChangeFilter} ) => {
-      
       //стан
       const [category, setCategory] = useState("");
       const [ingredient, setIngredient] = useState("");
 
       const handleInputChange = (e) => { 
-        onChangeFilter("keyword", e.target.value);
+        onChangeFilter("keyword", e.target.value.trim());
       }
 
       const handleCategoryChange = (option, action) => { 
@@ -27,9 +30,9 @@ import { FilterForm, Styled_InputLabel, Styled_Input, LookUpSpan,
         else onChangeFilter("ingredient","");
       }
 
+
       return  <FilterForm >
                 
-                {/* keyword input */}
                   <Styled_InputLabel>
 
                     <Styled_Span_for_Input_and_LookUpIcon>
@@ -48,26 +51,23 @@ import { FilterForm, Styled_InputLabel, Styled_Input, LookUpSpan,
                     </Styled_Span_for_Input_and_LookUpIcon>
 
                   </Styled_InputLabel>
-                              
 
-                {/* caregory select */}
                   <Select
                     isClearable
                     placeholder = "All categories"
                     options={createSelectOptions(categoryList)}
                     onChange={handleCategoryChange}
-                    styles={CreatableSelectStyles('300px','297px', category)} 
+                    styles={CreatableSelectStyles('300px','297px', category, themeColors)} 
                     name = {"categories"}
                   />
 
-                {/* ingredient select */}
                   <Select
                     isClearable
                     placeholder = "Ingredients"
                     options={createSelectOptions(ingredientList)}
                     defaultValue={"Ingredients"}
                     onChange={handleIngredientsChange}
-                    styles={CreatableSelectStyles('280px','276px', ingredient)}
+                    styles={CreatableSelectStyles('280px','276px', ingredient, themeColors)}
                     name = {"ingredients"}
                   />
         

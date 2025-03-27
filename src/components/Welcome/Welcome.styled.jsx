@@ -109,13 +109,13 @@ export const StyledWelcomeContainer = styled.div`
   }
 `;
 export const StyledTitle = styled.h1`
-  color: var(--welcomepagetext-color);
   font-feature-settings: 'liga' off;
   font-size: 28px;
   font-weight: 600;
   line-height: 1.14;
   margin-bottom: 14px;
   text-align: center;
+  color: var(--welcomepagetext-color);
 
   @media screen and (min-width: 768px) {
     font-size: 40px;
@@ -131,6 +131,7 @@ export const StyledText = styled.p`
   text-align: center;
   padding-left: 8px;
   padding-right: 8px;
+  color: var(--welcomepagetext-color);
 
   @media screen and (min-width: 768px) {
     font-size: 18px;
@@ -166,20 +167,14 @@ export const StyledButton = styled.button`
   border: 1px solid var(--whitetwenty-color);
   color: var(--white-color);
   transition: background-color var(--transition), color var(--transition), transform var(--transition);
-
-
-
-
-
-
-  && {
-    &:hover,
-    &:focus {
-      background-color: var(--white-color);
-      color: var(--blue-color);
-      transform: scale(1.05);
-    }
+ 
+  &:hover,
+  &:focus {
+    background-color: var(--white-color);
+    color: var(--blue-color);
+    transform: scale(1.05);
   }
+  
 
   @media screen and (min-width: 768px) {
     width: 140px;
@@ -193,20 +188,4 @@ export const StyledImage = styled.img`
   height: 100%;
   object-fit: cover;
   z-index: 5;
-`
-
-
-export const StyledBoxBig = styled.div`
-`;
-export const StyledBox = styled.div`
-  position: absolute;
-  top: 84px;
-  left: 42px;
-  width: 257px;
-  height: 247px;
-  flex-shrink: 0;
-  border-radius: 257px;
-  background: rgba(188, 230, 210, 0.4);
-  filter: blur(104.8543701171875px);
-  z-index: 2;
 `;

@@ -23,7 +23,7 @@ const authSlice = createSlice({
 
                                   .addCase(auth.signout.pending, handlePending)
                                   .addCase(auth.signout.fulfilled, handleFulfilled_signout)
-                                  .addCase(auth.signout.rejected, handleRejected)
+                                  .addCase(auth.signout.rejected, handleRejected_signout)
 
                                   .addCase(auth.refresh.pending, handlePending_refresh)
                                   .addCase(auth.refresh.fulfilled, handleFulfilled_refresh)
@@ -31,11 +31,17 @@ const authSlice = createSlice({
 
                                   .addCase(auth.updateUser.pending, handlePending)
                                   .addCase(auth.updateUser.fulfilled, handleFulfilled_udpate)
-                                  .addCase(auth.updateUser.rejected, handleRejected)
+                                  .addCase(auth.updateUser.rejected, handleRejected_update)
 
                                   .addCase(auth.getUser.pending, handlePending)
                                   //.addCase(user.getUser.fulfilled, handleFulfilled_get)
-                                  .addCase(auth.getUser.rejected, handleRejected)
+                                  .addCase(auth.getUser.rejected, handleRejected_getUser)
+
+                                  .addCase(auth.subscribeUser.pending, handlePending)
+                                  .addCase(auth.subscribeUser.fulfilled, handleFulfilled_subscribe)
+                                  .addCase(auth.subscribeUser.rejected, handleRejected_subscribe)
+                                  
+
                               },
 });
 
@@ -65,10 +71,10 @@ const handleFulfilled_signin = (state, action) => {
   state.error = null;
 };
 const handleFulfilled_signout = (state) => {
+  state.isLoading = false;
+  state.isLoggedIn = false;
   state.user = { name: '', email: '', avatarURL: '' };
   state.token = null;
-  state.isLoggedIn = false;
-  state.isLoading = false;
 };
 const handleFulfilled_refresh = (state, action) => {
   state.user = action.payload;
@@ -86,12 +92,15 @@ const handleFulfilled_udpate = (state, action) => {
       name: action.payload.name,
       avatarURL: action.payload.avatarURL,
     };
+    Notify.success('User profile updated!', {position: 'center-top', distance: '10px', timeout: 3000});
+};
+const handleFulfilled_subscribe = (state, action) => {
+    state.error = null;
+    state.isLoading = false;
+    Notify.success('You are about to subscribe to the "Drink Master" newsletter. We have sent a message to your email. Please confirm your subscription by clicking the link in the message.', {position: 'center-top', width: '500px', messageMaxLength: '300',timeout: 10000});
 };
 
-const handleRejected = (state, action) => {
-  state.error = action.payload;
-  state.isLoading = false;
-};
+
 const handleRejected_signup = (state, action) => {
    
   state.error = action.payload;
@@ -127,11 +136,48 @@ const handleRejected_signin = (state, action) => {
 }
   
 };
+const handleRejected_signout = (state, action) => {
+  state.error = action.payload;
+  state.isLoading = false;
+   Notify.failure("Server error! Please reload the page.", {position: 'center-top', distance: '10px', timeout: 3000});
+};
 const handleRejected_refresh = (state, action) => {
   state.error = action.payload; 
   state.isRefreshing = false
   state.isLoading = false;
 };
+const handleRejected_update = (state, action) => {
+  state.error = action.payload;
+  state.isLoading = false;
+
+  switch (action.payload){
+    case "Request failed with status code 422":
+                Notify.failure("User updating failed! Wrong avatar file format.");
+                break;
+    default: 
+                Notify.failure("Server error! Please reload the page.");
+                break;
+}
+};
+const handleRejected_getUser = (state, action) => {
+  state.error = action.payload;
+  state.isLoading = false;
+};
+const handleRejected_subscribe = (state, action) => {
+  state.error = action.payload;
+  state.isLoading = false;
+  
+  switch (action.payload){
+    case "Request failed with status code 401":
+                Notify.failure("Subscription failed! Please sign in.");
+                break;
+    default: 
+                Notify.failure("Server error! Please reload the page.");
+                break;
+}
+};
+
+
 //---------------------------------------------------------------------------
 
 export const authReducer = authSlice.reducer;

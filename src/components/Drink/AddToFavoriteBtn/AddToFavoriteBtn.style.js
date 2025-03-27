@@ -1,38 +1,33 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 export const Button = styled.button`
-
-
-@media (max-width: 374px) {
-      margin-left: 40px;
-      
-    }
-
   width: 222px;
-  color: var(--blue-color);
-  background-color: var(--white-color);
-  border-radius: 42px;
-  border-color: transparent;
-  font-size: 14px;
-  font-weight: 600;
   padding-bottom: 14px;
   padding-top: 14px;
   margin-bottom: 80px;
-  transition:
-    background-color var(--transition),
-    color var(--transition);
-
-
-
-  &:hover {
-    background-color: var(--blue-color);
-    color: var(--white-color);
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 42px;
+  border-color: transparent;
+  border: 2px solid ${(props) => props.theme.borderBtnColor};
+  background-color: ${(props) => props.theme.backGroundBtnColor};
+  color: ${(props) => props.theme.mainBackground};
+  transition: color var(--transition), background-color var(--transition), border var(--transition);
+  
+  &:hover, &:focus {
+    border: 2px solid ${(props) => props.theme.borderBtnColorHover};
+    background-color: ${(props) => props.theme.backGroundBtnColorHover};
+    color: ${(props) => props.theme.mainBackground};
   }
 
-  &:active {
-    background-color: var(--blue-color);
-    color: var(--white-color);
-    box-shadow: 0 0 10px var(--whitefifty-color);
+  &:active{
+    border: 2px solid ${(props) => props.theme.backGroundBtnColorActive};
+    background-color: ${(props) => props.theme.backGroundBtnColorActive};
+    color: ${(props) => props.theme.btnColorActive};
+  }
+
+  @media (max-width: 374px) {
+    margin-left: 40px;
   }
 
   @media (min-width: 768px) {

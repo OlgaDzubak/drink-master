@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getCoctailsByCategories } from '../../helpers/API/operationsDrinks';
 import { GallerySection, GalleryList, CategoryTitle, DrinkList, LinkDrinks } from './Home.styled';
-import { CardCoctali } from '../CardCoctail/CardCoctail';
+import { DrinkCard } from '../DrinkCard/DrinkCard';
 
 const HomeGallery = () => {
   
@@ -32,7 +32,12 @@ const HomeGallery = () => {
 
                     <DrinkList>
                       { 
-                          coctails.map(({ _id, drink, drinkThumb }) => <CardCoctali _id={_id} drink={drink} drinkThumb={drinkThumb} key={_id} />)
+                          coctails.map(({ _id, drink, drinkThumb }) => 
+                              <DrinkCard  location="home" 
+                                          key={_id} 
+                                          _id={_id} 
+                                          drink={drink} 
+                                          drinkThumb={drinkThumb} />)
                       }
                     </DrinkList>
 

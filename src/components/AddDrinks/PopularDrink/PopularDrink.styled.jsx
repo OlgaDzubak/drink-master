@@ -1,29 +1,4 @@
-import styled from 'styled-components';
-import { colorStyled } from '../../../helpers/colorStyled';
-// export const colorStyled = {
-//   colorStyled.colorWhite: '#F3F3F3',
-//   colorStyled.colorWhiteFifty: 'rgba(243, 243, 243, 0.5)',
-//   colorStyled.colorWhiteFourty: 'rgba(243, 243, 243, 0.4)',
-//   colorStyled.colorWhiteTwenty: 'rgba(243, 243, 243, 0.2)',
-//   colorStyled.colorBlue: '#161F37',
-//   colorStyled.colorBlueFifty: 'rgba(22, 31, 55, 0.5)',
-//   colorStyled.colorHover: 'rgba(64, 112, 205, 0.5)',
-//   colorStyled.welcomePageText: '#FAFAFA',
-//   colorStyled.backgroundBlackColor: '#0A0A11',
-//   colorStyled.buttonCancel: '#434D67',
-// };
-
-// @media (min-width: 375px) {
-//   width: 335px;
-// }
-
-// @media (min-width: 768px) {
-//   width: 342px;
-// }
-
-// @media (min-width: 1280px) {
-//   width: 400px;
-// }
+import styled from '@emotion/styled';
 
 export const PopularWrapper = styled.div`
   display: flex;
@@ -31,6 +6,7 @@ export const PopularWrapper = styled.div`
   flex-direction: column;
   gap: 24px;
   margin-bottom: 80px;
+
   @media (min-width: 768px) {
     margin-bottom: 140px;
     flex-direction: row;
@@ -43,14 +19,18 @@ export const PopularWrapper = styled.div`
   }
 `;
 export const PopularCoctailsTitle = styled.h4`
-  color: ${colorStyled.colorWhite};
   font-size: 18px;
-  font-family: Manrope;
   font-weight: 500;
-  line-height: 24px;
+  line-height: 1.33;
   word-wrap: break-word;
   margin-top: 40px;
   margin-bottom: 28px;
+  color: ${(props)=>props.theme.mainTextColor};
+  transition: color var(--transition);
+
+  @media screen and (min-width: 768px){
+    font-size: 24px;
+  }
 `;
 
 export const PopularCoctailsWrapper = styled.div`
@@ -60,6 +40,7 @@ export const PopularCoctailsWrapper = styled.div`
   gap: 14px;
   margin-bottom: 24px;
   overflow: hidden;
+
   @media (min-width: 768px) {
     width: 336px;
     margin-bottom: 0;
@@ -84,19 +65,21 @@ export const PopularCoctailsText = styled.div`
   gap: 8px;
 `;
 export const PopularCoctailsName = styled.p`
-  color: ${colorStyled.colorWhite};
   font-size: 16px;
   font-family: Manrope;
   font-weight: 500;
   line-height: 22px;
   word-wrap: break-word;
+  color: ${(props)=>props.theme.mainTextColor};
+  transition: color var(--transition);
 `;
 
 export const PopularCoctailsDescription = styled.p`
   height: 63px;
-  color: rgba(243, 243, 243, 0.5);
   font-size: 14px;
   font-family: Manrope;
   font-weight: 400;
   line-height: 19px;
+  color:  ${(props)=>props.theme.mainTextColor};
+  transition: color var(--transition);
 `;

@@ -1,25 +1,20 @@
-import { TotalWrapper, TotalLinkWrspper, AddDrinkTitle} from './AddDrinks.styled';
-import AddDrinkForm from './AddDrinkForm/AddDrinkForm';
-import FollowUs from './FollowUs/FollowUs';
-import PopularDrink from './PopularDrink/PopularDrink';
+import { AddDrinkForm } from './AddDrinkForm2/AddDrinkForm';
+import { FollowUs } from './FollowUs/FollowUs';
+import { PopularDrink } from './PopularDrink/PopularDrink';
+import { TotalWrapper, AsideLinksAndPopularDrinks } from './AddDrinks.styled';
 
 const AddDrinks = () => {
-  
-  return  <>
-            <AddDrinkTitle>Add drink</AddDrinkTitle>
-            
-            <TotalWrapper>
+
+  return  <TotalWrapper>
               
               <AddDrinkForm />
 
-              <TotalLinkWrspper>
+              <AsideLinksAndPopularDrinks>
                 <FollowUs />
                 <PopularDrink />
-              </TotalLinkWrspper>
+              </AsideLinksAndPopularDrinks>
 
-            </TotalWrapper>
-
-          </>
+          </TotalWrapper>
 };
 
 export default AddDrinks;

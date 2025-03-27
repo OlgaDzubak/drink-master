@@ -1,43 +1,14 @@
-import { useState, useEffect } from 'react';
-import { BurgerModal } from '../BurgerModal/BurgerModal';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectIsBurgerModalOpen } from '../../../redux/modal/modalSelectors';
+import { toggleIsBurgerModalOpen } from '../../../redux/modal/modalSlice';
 import { BurgerSVG, StyledBurgerBtn, CloseBurgerSVG } from './BurgerBtn.styled';
 
 export const BurgerBtn = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.key === 'Escape') {
-        setIsModalOpen(false);
-      }
-    };
+  const isBurgerModalOpen = useSelector(selectIsBurgerModalOpen);
+  const dispatch = useDispatch();
 
-    if (isModalOpen) {
-      document.body.style.overflow = 'hidden';
-      document.addEventListener('keydown', handleKeyDown);
-    } else {
-      document.body.style.overflow = 'auto';
-      document.removeEventListener('keydown', handleKeyDown);
-    }
-
-    return () => {
-      document.body.style.overflow = 'auto';
-      document.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [isModalOpen]);
-
-  const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
-  };
-
-  return (
-    <>
-      <StyledBurgerBtn onClick={toggleModal}>
-        {isModalOpen ? <CloseBurgerSVG /> : <BurgerSVG />}
-      </StyledBurgerBtn>
-      {isModalOpen && (
-        <BurgerModal isOpen={isModalOpen} onClose={toggleModal} />
-      )}
-    </>
-  );
+  return  <StyledBurgerBtn onClick={()=>dispatch(toggleIsBurgerModalOpen())}>
+            {isBurgerModalOpen ? <CloseBurgerSVG /> : <BurgerSVG />}
+          </StyledBurgerBtn>
 };

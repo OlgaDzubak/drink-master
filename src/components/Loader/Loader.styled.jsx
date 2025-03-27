@@ -27,12 +27,14 @@ const bounce = keyframes`
 
 export const LoaderContainer = styled.div`
   width: 100%;
-  //height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 20px;
+  color: ${(props) => props.theme ? props.theme.mainTextColor : "#F3F3F3"};
+  fill: ${(props) => props.theme ? props.theme.mainTextColor : "#F3F3F3"};
+  stroke: ${(props) => props.theme ? props.theme.mainTextColor : "#F3F3F3"};
 `;
 
 export const LoaderSVG = styled(LoaderIcon)`
@@ -52,7 +54,7 @@ export const LoaderSVG = styled(LoaderIcon)`
 `;
 
 export const LoaderText = styled.p`
-  color: var(--white-color);
+  color: ${(props) => props.theme ? props.theme.mainTextColor : "#F3F3F3"};
   font-size: 24px;
   font-weight: 600;
 `;

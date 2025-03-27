@@ -5,7 +5,7 @@ import { CoctailImg } from '../CoctailImg/CoctailImg';
 import { useDispatch, useSelector } from 'react-redux';
 import { addFavorite, deleteFavorite } from '../../../redux/drinks/favorites/favoritesOperations';
 import { selectFavoriteItems } from '../../../redux/drinks/favorites/favoriteSelectors';
-import PageTitle from '../../DefaultComponents/PageTitle/PageTitle';
+import PageTitle from '../../PageTitle/PageTitle';
 
 export const DrinkHero = ({ coctailInfo }) => {
   
@@ -27,7 +27,7 @@ export const DrinkHero = ({ coctailInfo }) => {
     }
   }, [favorits, id]);
 
-  const handleOnClick = () => {
+  const handleOnClick = ({target}) => {
     if (addedDrink) {
       dispatch(deleteFavorite(id));
     } else {
@@ -35,15 +35,16 @@ export const DrinkHero = ({ coctailInfo }) => {
     }
 
     setAddedDrink(!addedDrink);
+    target.blur();
   };
 
   return  <DrinkHeroSection>
 
             <BoxWrapper>
-              <PageTitle title={title} style={{ marginBottom: '10px' }} />
+              <PageTitle title={title} marginBottom='8px' />
               <SubTitle>{glass} / {alcoholic}</SubTitle>
               <ShortDescr>{description} </ShortDescr>
-              <AddToFavoriteBtn text={addedDrink ? 'Remove from favorites' : 'Add to favorite drinks'} onClick={handleOnClick}/>
+              <AddToFavoriteBtn text={addedDrink ? String.fromCharCode(10003) +' Added to favorites' : 'Add to favorite drinks'} onClick={handleOnClick}/>
             </BoxWrapper>
     
             <CoctailImg photo={image} />

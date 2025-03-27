@@ -5,6 +5,7 @@ export const NavList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 10px;
+
   @media screen and (max-width: 1279px) {
     margin-top: 30px;
     gap: 15px;
@@ -18,13 +19,12 @@ export const NavList = styled.ul`
 
 export const NavItem = styled.li`
   transition: var(--transition);
-  &:hover,
-  &:focus {
+  &:hover, &:focus {
     transform: scale(1.1);
   }
 `;
 
 export const NavLink = styled(Link)`
   text-decoration: none;
-  color: var(--white-color);
+  color: ${(props) => props.theme.footerTextColor};
 `;

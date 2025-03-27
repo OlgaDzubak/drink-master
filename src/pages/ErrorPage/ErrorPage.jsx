@@ -4,8 +4,9 @@ import image from '../../assets/images/NotFoundImg/error_blue_iced_tea_1.png';
 const ErrorPage = () => {
 
   return  <ContainerError>
-            <Title>Error 404. Page not found</Title>
+            <Title>4</Title>
             <Image src={image} alt="404"></Image>
+            <Title>4</Title>
           </ContainerError>
 };
 

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 export const DrinkHeroSection = styled.section`
   width:100%;
@@ -30,7 +30,7 @@ export const SubTitle = styled.p`
 
   margin-bottom: 20px;
   margin-top: 8px;
-  color: var(--whitefifty-color);
+  color: ${(props)=>props.theme.seeMoreBtnTextColor};
   font-size: 12px;
   font-weight: 400;
 
@@ -40,16 +40,14 @@ export const SubTitle = styled.p`
 `;
 
 export const ShortDescr = styled.p`
-
-@media (max-width: 374px) {
+  width: 335px;
+  font-size: 14px;
+  margin-bottom: 40px;
+  color:${(props)=>props.theme.mainTextColor};
+  
+  @media (max-width: 374px) {
     width: 310px;
   }
-
-  margin-bottom: 40px;
-  width: 335px;
-  color: var(--white-color);
-  font-size: 14px;
-  font-weight: 200;
 
   @media (min-width: 768px) {
     width: 593px;

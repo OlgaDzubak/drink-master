@@ -3,17 +3,18 @@ import styled from '@emotion/styled';
 export const HeaderEl = styled.header`
   position: relative;
   width: 100%;
-  padding-top: 22px;
-  padding-bottom: 22px;
-  background-color: var(--mainbackground-color);
-  border-bottom: 1px solid var(--whitetwenty-color);
-  z-index: 150;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid ${(props) => props.theme.borderHeaderColor};
+  z-index: 200;
+
 `;
 
 export const HeaderContainer = styled.div`
   max-width: 1440px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-left: auto;
   margin-right: auto;
 
@@ -31,4 +32,13 @@ export const HeaderContainer = styled.div`
     width: 1280px;
     padding: 0 20px;
   }
+`;
+export const UserLogoAndBurger = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const ThemeAndUserLogo = styled.div`
+  display: flex;
+  align-items: center;
 `;

@@ -1,10 +1,10 @@
 import { LogoLink, LogoSVG, LogoText } from './Logo.styled';
 
-export const Logo = () => {
+export const Logo = ({location}) => {
   return (
-    <LogoLink to="/">
+    <LogoLink to="/" location={location}>
       <LogoSVG />
-      <LogoText>Drink master</LogoText>
+      <LogoText>Drink Master</LogoText>
     </LogoLink>
   );
 };

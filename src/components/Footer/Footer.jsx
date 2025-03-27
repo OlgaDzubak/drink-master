@@ -1,13 +1,15 @@
 import { Logo } from '../Header/Logo/Logo';
-import { FooterEl, FooterContainer, FooterContentWrapper, FooterMedia, FooterMediaNavWrapper } from './Footer.styled';
-import { FooterMediaList } from './FooterMedia/FooterMediaList';
+import { MediaLinksList } from '../MediaLinks/MediaLinksList';
 import { FooterNav } from './FooterNav/FooterNavList';
 import { FooterSub } from './FooterSubscription/FooterSub';
 import { FooterTerms } from './FooterTerms/FooterTerms';
+import { FooterEl, FooterContainer, FooterContentWrapper, FooterMedia, FooterMediaNavWrapper } from './Footer.styled';
+import { BlurStyledBar4, BlurStyledBar5 } from '../BlurStyledBars/BlurStyledBars.styled';
 
 const Footer = () => {
   
   return  <FooterEl>
+
             <FooterContainer>
 
               <FooterContentWrapper>
@@ -15,8 +17,8 @@ const Footer = () => {
                 <FooterMediaNavWrapper>
 
                   <FooterMedia>
-                    <Logo />
-                    <FooterMediaList />
+                    <Logo location="footer"/>
+                    <MediaLinksList location="footer"/>
                   </FooterMedia>
 
                   <FooterNav />
@@ -30,6 +32,10 @@ const Footer = () => {
               <FooterTerms />
 
             </FooterContainer>
+
+            <BlurStyledBar4/>
+            <BlurStyledBar5/>
+
           </FooterEl>
 };
 

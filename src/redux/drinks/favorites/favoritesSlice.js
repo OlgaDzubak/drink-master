@@ -29,7 +29,7 @@ const favoritesSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(addFavorite.fulfilled, (state, action) => {
-        // console.log(action);
+        console.log(action);
         state.isLoading = false;
         state.error = null;
         state.items.push(action.payload);

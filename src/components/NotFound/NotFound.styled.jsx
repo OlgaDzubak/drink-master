@@ -6,16 +6,6 @@ export const Wrap = styled.div`
   justify-content: center;
   align-items: center;
   gap: 32px;
-  margin-top: 91px;
-
-  @media (min-width: 768px) {
-    margin-top: 100px;
-    margin-bottom: 60px;
-  }
-
-  @media (min-width: 1440px) {
-    margin-top: 67px;
-  }
 `;
 
 export const Card = styled.img`
@@ -37,7 +27,7 @@ export const Card = styled.img`
 
 export const Text = styled.p`
   width: 205px;
-  color: var(--white-color);
+  color: ${(props)=> props.theme.mainTextColor};
   text-align: center;
   font-size: 14px;
   font-weight: 500;

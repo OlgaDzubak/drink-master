@@ -39,12 +39,13 @@ export const BoxWrapper = styled.div`
 `;
 
 export const HeroTitle = styled.h1`
-  color: var(--white-color);
   font-size: 32px;
   font-weight: 500;
   line-height: 1.18;
   letter-spacing: 0;
   margin-bottom: 16px;
+  color: ${(props) => props.theme.mainTextColor};
+  transition: color var(--transition);
 
   @media screen and (min-width: 768px) {
     font-size: 56px;
@@ -64,7 +65,8 @@ export const Text = styled.p`
   font-size: 14px;
   line-height: 1.42;
   margin-bottom: 32px;
-  color: var(--white-color);
+  color: ${(props) => props.theme.mainTextColor};
+  transition: color var(--transition);
 
   @media screen and (min-width: 768px) {
     font-size: 18px;
@@ -80,28 +82,35 @@ export const Text = styled.p`
 
 export const BtnAddDrinks = styled(Link)`
   display: inline-block;
-  border-radius: 42px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.125;
   padding: 18px 44px;
   margin-bottom: 47px;
+  border-radius: 42px;
   cursor: pointer;
-  background-color: var(--white-color);
-  color: var(--blue-color);
-  transition: color var(--transition), background var(--transition);
+  background-color: ${(props) => props.theme.backGroundBtnColor};
+  color: ${(props) => props.theme.mainBackground};
+  border: 2px solid ${(props) => props.theme.borderBtnColor};
+  transition: color var(--transition), background-color var(--transition), border var(--transition);
 
-  &:hover,
-  &:focus {
-    background: var(--blue-color);
-    color: var(--white-color);
+  &:hover, &:focus {
+    border: 2px solid ${(props) => props.theme.borderBtnColorHover};
+    background-color: ${(props) => props.theme.backGroundBtnColorHover};
+    color: ${(props) => props.theme.mainBackground};
+  }
+
+  &:active{
+    border: 2px solid ${(props) => props.theme.backGroundBtnColorActive};
+    background-color: ${(props) => props.theme.backGroundBtnColorActive};
+    color: ${(props) => props.theme.btnColorActive};
   }
 
   @media screen and (min-width: 1280px) {
-    border-radius: 42px;
     padding: 18px 44px;
     margin-bottom: 0px;
-    cursor: pointer;
-    background: var(--white-color);
-    color: var(--blue-color);
   }
+
 `;
 
 export const ImgMain = styled.img`
@@ -140,6 +149,8 @@ export const CategoryTitle = styled.h2`
   margin-bottom: 40px;
   font-size: 40px;
   font-weight: 600;
+  color: ${(props) => props.theme.mainTextColor};
+  transition: color var(--transition);
 
   @media (max-width: 320px) {
     font-size: 26px;
@@ -191,20 +202,22 @@ export const DrinkList = styled.ul`
 `;
 
 export const LinkDrinks = styled(Link)`
+  padding: 18px 44px;  
   font-size: 16px;
-  padding: 18px 44px;
   font-weight: 600;
   line-height: 1.125;
   word-wrap: break-word;
   border-radius: 42px;
   cursor: pointer;
-  color: var(--blue-color);
-  background-color: var(--white-color);
-  transition: color var(--transition), background var(--transition);
+  background-color: ${(props) => props.theme.backGroundBtnColor};
+  color: ${(props) => props.theme.mainBackground};
+  border: 2px solid ${(props) => props.theme.borderBtnColor};
+  transition: color var(--transition), background-color var(--transition), border var(--transition);
 
   &:hover,
   &:focus {
-    background-color: var(--blue-color);
-    color: var(--white-color);
+    border: 2px solid ${(props) => props.theme.borderBtnColorHover};
+    background-color: ${(props) => props.theme.backGroundBtnColorHover};
+    color: ${(props) => props.theme.mainBackground};
   }
 `;

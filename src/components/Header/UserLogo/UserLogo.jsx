@@ -1,50 +1,22 @@
-import { useSelector } from 'react-redux/es/hooks/useSelector';
-import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux'; 
 import { selectUser } from '../../../redux/auth/authSelectors';
-
-import {
-  UserLogoBtn,
-  UserLogoImg,
-  UserLogoText,
-  UserLogoWrapper,
-} from './UserLogog.styled';
-import { UserModal } from '../UserModal/UserModal';
+import { toggleIsUserProfileModalOpen, toggleIsLogoutModalOpen } from '../../../redux/modal/modalSlice';
+import { UserLogoBtn, UserLogoImg, UserLogoText, UserLogoWrapper } from './UserLogog.styled';
 
 export const UserLogo = () => {
+
   const { name, avatarURL } = useSelector(selectUser);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.key === 'Escape') {
-        setIsModalOpen(false);
-      }
-    };
+  return  <UserLogoWrapper>
 
-    if (isModalOpen) {
-      document.addEventListener('keydown', handleKeyDown);
-    } else {
-      document.removeEventListener('keydown', handleKeyDown);
-    }
+              <UserLogoBtn onClick={()=>dispatch(toggleIsUserProfileModalOpen())}>
+                <UserLogoImg src={avatarURL} alt="user icon" />
+              </UserLogoBtn>
 
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [isModalOpen]);
-
-  const handleModal = () => {
-    setIsModalOpen((prev) => !prev);
-  };
-
-  return (
-    <UserLogoWrapper>
-      <UserLogoBtn onClick={handleModal}>
-        <UserLogoImg src={avatarURL} alt="user icon" />
-        <UserLogoText>{name}</UserLogoText>
-      </UserLogoBtn>
-      {isModalOpen && (
-        <UserModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
-      )}
-    </UserLogoWrapper>
-  );
+              <UserLogoBtn onClick={()=>dispatch(toggleIsLogoutModalOpen())}>
+                <UserLogoText>{name}</UserLogoText>
+              </UserLogoBtn>
+              
+          </UserLogoWrapper>
 };

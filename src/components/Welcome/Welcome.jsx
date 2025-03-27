@@ -1,11 +1,4 @@
-import {
-  StyledMain,
-  StyledWelcomeContainer,
-  StyledTitle,
-  StyledText,
-  StyledButtonBox,
-  StyledButton
-} from './Welcome.styled';
+import { StyledMain, StyledWelcomeContainer, StyledTitle, StyledText, StyledButtonBox, StyledButton } from './Welcome.styled';
 import { Link } from 'react-router-dom';
 
 const Welcome = () => {

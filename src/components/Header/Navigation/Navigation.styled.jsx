@@ -6,6 +6,7 @@ export const NavigationList = styled.nav`
   align-items: center;
   justify-content: center;
   gap: 16px;
+  
   @media screen and (max-width: 1279px) {
     flex-direction: column;
     height: 100%;
@@ -25,15 +26,13 @@ export const StyledLink = styled(NavLink)`
   font-weight: 500;
   text-decoration: none;
   border-radius: 40px;
-  border: 1px solid var(--whitetwenty-color);
-  padding: 8px 16px;
-  background-color: transparent;
-  transition: background-color var(--transition);
-  &.active {
-    background-color: var(--blue-color);
-  }
-  &:hover,
-  &:focus {
-    background-color: var(--blue-color);
+  color : ${(props) => props.theme.navTextColor};
+  border: 1px solid ${(props) => props.theme.navBorderColor};
+  background-color: ${(props) => props.theme.navBackgroundColor};
+  transition: color var(--transition), background-color var(--transition), border-color var(--transition); 
+
+  &:hover, &:focus, &.active {
+    color : ${(props) => props.theme.navTextColorHover};
+    background-color: ${(props) => props.theme.navBackgroundColorHover};
   }
 `;

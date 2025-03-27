@@ -3,23 +3,22 @@ import ReactPaginate from 'react-paginate';
 
 export const StyledReactPaginate = styled(ReactPaginate)`
   display: flex;
-  max-width: 295px;
+  width:100%;
   padding: 14px 0;
   margin: 0 auto;
   margin-botom: 80px;
   justify-content: space-between;
   align-items: center;
-  // gap: 24px;
-
+  
   @media (min-width: 768px) {
-    max-width: 436px;
+    max-width: 636px;
     padding: 14px 24px;
     margin-top: 80px;
     margin-botom: 100px;
   }
 
   li {
-    color: var(--white-color);
+    color: ${(props)=>props.theme.mainTextColor};
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,47 +27,52 @@ export const StyledReactPaginate = styled(ReactPaginate)`
     cursor: pointer;
 
     &:hover {
-      background-color: var(--hovergreen-color);
       border-radius: 50%;
     }
 
     &.active {
-      background-color: var(--hovergreen-color);
       border-radius: 50%;
     }
 
     &.selected {
-      background-color: var(--hovergreen-color);
+      background-color: ${(props)=>props.theme.paginationSelectedColor};
+      color:  ${(props)=>props.theme.footerLinkTextColor};
       border-radius: 50%;
     }
   }
 
   a {
-    text-decoration: none;
     display: inline-block;
     text-align: center;
-    color: var(--white-color);
     font-weight: 500;
     font-size: 12px;
+    text-decoration: none;
+    color: currentColor;
+
+    &:hover {
+      transform: scale(1.15);
+    }
   }
 
   .previous {
-    margin-right: 24px;
-
+    margin-right: 14px;
+    color:  ${(props)=>props.theme.paginationLabels};
     &:hover {
       background-color: transparent;
+      color:  ${(props)=>props.theme.paginationLabelsHover};
     }
 
     @media (min-width: 768px) {
-      margin-right: 16px;
+      margin-right: 11px;
     }
   }
 
   .next {
-    margin-left: 24px;
-
+    margin-left: 14px;
+    color:  ${(props)=>props.theme.paginationLabels};
     &:hover {
       background-color: transparent;
+      color:  ${(props)=>props.theme.paginationLabelsHover};
     }
 
     @media (min-width: 768px) {

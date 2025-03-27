@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import { StyledMain } from '../Welcome/Welcome.styled';
 import { SignupSchema } from '../../helpers/validateForm/validate-register';
-import { SkeletonAuth } from './Skeletons/SkeletonAuth';
+import { SkeletonRows } from '../Skeletons/SkeletonRows';
 import { StyledAuthContainer, StyledTitleAuth, StyledButtonsContainer, StyledButton, FieldsInputAuthContainer } from './SignUp.styled';
 import { FieldInputAuth } from './FieldInputAuth/FieldInputAuth';
 import { FieldInputAuthPass } from './FieldInputAuth/FieldInputAuthPass';
@@ -51,7 +51,7 @@ const SignUp = () => {
                   <Form style={{ zIndex: 3, minWidth: '335px' }}>
                     
                     {isLoading 
-                      ? (<SkeletonAuth totalRow={5} />)
+                      ? (<SkeletonRows totalRow={5} />)
                       : (<>
 
                           <FieldsInputAuthContainer>
