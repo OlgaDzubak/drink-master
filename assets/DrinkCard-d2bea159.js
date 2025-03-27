@@ -1,4 +1,4 @@
-import{n as i,L as c,g as d,j as t,P as h}from"./index-90abc04f.js";const x="/drinkMaster-Team-1/assets/trash-fc07c8dc.svg",m=i.li`
+import{n as i,L as c,g as d,j as t,P as h}from"./index-ff4ae5c7.js";const x="/drink-master-frontend/assets/trash-fc07c8dc.svg",m=i.li`
   flex-basis: 100%;
 
   @media screen and (min-width: 768px) and (max-width: 1439.9px) {
