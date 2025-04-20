@@ -1,5 +1,5 @@
 import { HeroSection, Box, BoxWrapper, HeroTitle, Text, BtnAddDrinks, ImgMain } from './Home.styled';
-import img from '../../assets/images/coctailPhoto1.jpg';
+import img from '../../assets/images/coctailPhoto.png';
 
 const HomeHero = () => {
 
