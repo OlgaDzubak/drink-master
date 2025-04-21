@@ -108,10 +108,11 @@ button {
   select:-webkit-autofill:focus {
         -webkit-text-fill-color: inherit;
         -webkit-text-stroke-color: inherit;
+        -webkit-border-before;
         -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
-        caret-color: inherit;
-        transition: background-color 3000s ease-in-out 0s, color 3000s ease-in-out 0s;
-  }  
+         caret-color: inherit;
+         transition: background-color 3000s ease-in-out 0s, color 3000s ease-in-out 0s;
+  }
 `;
 
 export default GlobalStyles;

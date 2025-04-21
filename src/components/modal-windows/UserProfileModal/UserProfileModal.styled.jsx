@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import {Field} from 'formik';
-import { ReactComponent as closeSvg } from '../../../assets/images/modal/closeIcon2.svg';
+import { ReactComponent as closeSvg } from '../../../assets/images/modal/closeIcon.svg';
 import { ReactComponent as plusSvg } from '../../../assets/images/modal/addPhoto.svg';
 import { BsPencil } from "react-icons/bs";
 
@@ -9,8 +9,8 @@ export const ProfileModal = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 335px;
-  height: 426px;
+  max-width: 335px;
+  width: 100%;
   padding: 50px 25px;
   border-radius: 16px;
   background-color: #161f37;
@@ -19,24 +19,29 @@ export const ProfileModal = styled.div`
   overflow: hidden;
 
   @media screen and (min-width: 768px) {
-    width: 500px;
-    padding: 50px 50px 75px 50px;
+    max-width: 500px;
+    padding: 50px 50px 70px 50px;
     color: var(--blue-color);
   }
 `;
 export const CloseBtn = styled.button`
   position: absolute;  
-  cursor: pointer;
   top: 14px;
   right: 14px;
-  width: 32px;
-  height: 32px;
-  padding: 8px;
+  width: 24px;
+  height: 24px;
+  padding: 4px;
   border-radius: 50%;
   border: none;
   background-color: transparent;
   stroke: var(--white-color);
   transition: background-color var(--transition), stroke var(--transition);
+  
+  @media screen and (min-width: 768px) {
+    width: 32px;
+    height: 32px;
+    padding: 8px;
+  }
 
   &:hover, &:focus{
     background-color: var(--white-color);
@@ -44,13 +49,8 @@ export const CloseBtn = styled.button`
   }`;
 
 export const CloseIcon = styled(closeSvg)`
-  width: 12px;
-  height: 12px;
-
-  @media screen and (min-width: 768px) {
-    width: 16px;
-    height: 16px;
-  }
+  width: 16px;
+  height: 16px;
 `;
 
 export const AvatarBox = styled.div`
@@ -59,6 +59,10 @@ export const AvatarBox = styled.div`
   height: 94px;
   margin-left: auto;
   margin-right: auto;
+
+  &:hover, &:focus{
+    transform: scale(1.02);
+  }
 
   @media screen and (min-width: 768px) {
     width: 100px;
@@ -79,7 +83,9 @@ export const AvatarInputBox = styled.div`
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  
+
+
+
   @media screen and (min-width: 768px) {
     width: 100px;
     height: 100px;
@@ -129,11 +135,22 @@ export const AvatarImage = styled.img`
 export const NameBox = styled.div`
   position: relative;
   width: 100%;
-  margin-top: 24px;
+  margin-top: 50px;
   margin-bottom: 18px;
+  color: var(--whitefifty-color);
+  svg{
+      fill: var(--whitefifty-color);
+      transition: fill var(--transition);
+  }
+
+  &:hover, &:focus, &:active{
+    color: var(--white-color);
+    svg{
+      fill: var(--white-color);
+    }
+  }
 
   @media screen and (min-width: 768px) {
-    margin-top: 50px;
     margin-bottom: 25px;
   }
 `;
@@ -145,22 +162,23 @@ export const NameInput = styled(Field)`
   padding: 14px 48px 14px 24px;
   font-size: 17px;
   line-height: 1.56;
-  border: 1px solid rgba(243, 243, 243, 0.5);
-  background-color: rgba(243, 243, 243, 0);
+  border: 1px solid currentColor;
+  background-color: transparent;
   border-radius: 200px;
-  color: #f3f3f3;
+  color: currentColor;
+  transition: background-color var(--transition), color var(--transition), border-color var(--transition);
 
+  
   ::placeholder {
     color var(--whitefifty-color);
   }
 `;
 export const Edit_icon = styled(BsPencil)`
-  width: 16px;
-  height: 16px;
-  fill: #f3f3f3;
-  position: absolute;
+  position: absolute;  
   top: 17px;
   right: 24px;
+  width: 16px;
+  height: 16px;
 
   @media screen and (min-width: 768px) {
     width: 20px;
@@ -177,12 +195,12 @@ export const FormError = styled.p`
 `;
 export const SubmitButton = styled.button`
   width: 100%;
-  padding: 18px 96px 18px 96px;
+  padding: 18px;
   border-radius: 200px;
   border: none;
   font-size: 16px;
   font-weight: 500;
-  light-height: 1.125;
+  line-height: 1.125;
   border: 1px solid var(--white-color);
   transition: color var(--transition), background-color var(--transition), border-color var(--transition);
 

@@ -20,6 +20,8 @@ import Footer from '../Footer/Footer';
 import Loader from '../Loader/Loader';
 
 import blockScroll from '../../helpers/blockScroll';
+
+
 //-------------------------------------------------------------------------------------
 
 const SharedLayout = () => {
@@ -36,7 +38,6 @@ const SharedLayout = () => {
   const dispatch = useDispatch();
   
   useEffect(() => {
-
     const handleKeyDown = (event) => {
       if (event.key === 'Escape') {
         isBurgerModalOpen && dispatch(toggleIsBurgerModalOpen());

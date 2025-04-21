@@ -45,8 +45,8 @@ export const ModalBackdrop = styled.div`
     width: 100%;
     height: 100%;    
     background-color: transparent;
-    z-index: 100;
-    overflow-y: auto;
+    z-index: 300;
+    overflow: auto;
 
     @media screen and (max-width: 767.8px){
       padding: 80px 20px 80px 20px;

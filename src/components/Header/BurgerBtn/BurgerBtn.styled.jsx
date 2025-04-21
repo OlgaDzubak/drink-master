@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { ReactComponent as BurgerIMG } from '../../../assets/images/burgermenu/burger.svg';
-import { ReactComponent as BurgerCloseIMG } from '../../../assets/images/modal/closeIcon_.svg';
+import { ReactComponent as BurgerCloseIMG } from '../../../assets/images/modal/closeIcon.svg';
 
 export const StyledBurgerBtn = styled.button`
   width: 38px;

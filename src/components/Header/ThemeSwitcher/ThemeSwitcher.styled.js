@@ -44,10 +44,6 @@ export const ThemeSwitchButton = styled.label`
     background-color: ${(props) => props.theme.themeSwitcherBackgroundColor};
   }
 
-  input:focus + span {
-    //box-shadow: 0 0 1px #2196f3;
-  }
-
   input:checked + span:before {
     -webkit-transform: translateX(-20px);
     -ms-transform: translateX(-20px);

@@ -7,14 +7,24 @@ export const UserLogo = () => {
 
   const { name, avatarURL } = useSelector(selectUser);
   const dispatch = useDispatch();
+  
+  const handleClickAvatar = (e) => {
+    dispatch(toggleIsUserProfileModalOpen());
+    e.currentTarget.blur(); 
+  }
+
+  const handleClickName = (e) => {
+    dispatch(toggleIsLogoutModalOpen());
+    e.currentTarget.blur();
+  }
 
   return  <UserLogoWrapper>
 
-              <UserLogoBtn onClick={()=>dispatch(toggleIsUserProfileModalOpen())}>
+              <UserLogoBtn onClick={handleClickAvatar}>
                 <UserLogoImg src={avatarURL} alt="user icon" />
               </UserLogoBtn>
 
-              <UserLogoBtn onClick={()=>dispatch(toggleIsLogoutModalOpen())}>
+              <UserLogoBtn onClick={handleClickName}>
                 <UserLogoText>{name}</UserLogoText>
               </UserLogoBtn>
               

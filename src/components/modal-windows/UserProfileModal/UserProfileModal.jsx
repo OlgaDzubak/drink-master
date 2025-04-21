@@ -1,11 +1,12 @@
 import { Formik, Form } from 'formik';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser, selectIsLoading } from '../../../redux/auth/authSelectors';
 import { updateUser } from '../../../redux/auth/authOperations';
 import { toggleIsUserProfileModalOpen } from '../../../redux/modal/modalSlice';
 import { ProfileSchema } from '../../../helpers/validateForm/validate-profile';
 import { SkeletonRows } from '../../Skeletons/SkeletonRows';
+import { ModalBackdrop } from '../../SharedLayout/SharedLayout.styled';
 import { ErrorMessage, SuccessMessage} from '../../SignUp/FieldInputAuth/FieldInputAuth.styled';
 import { ProfileModal, CloseBtn, CloseIcon, 
          AvatarBox, AvatarInputLabel, AvatarInputBox, AvatarInput, 
@@ -13,7 +14,7 @@ import { ProfileModal, CloseBtn, CloseIcon,
          NameBox, NameInputLabel, NameInput, Edit_icon, 
          SubmitButton, FormError } from './UserProfileModal.styled';
 import { BlurStyledBar6, BlurStyledBar7 } from '../../BlurStyledBars/BlurStyledBars.styled';
-
+import { disableTab, enableTab } from '../../../helpers/blockTab';
 
 export const UserProfileModal = () => {
 
@@ -22,6 +23,12 @@ export const UserProfileModal = () => {
 
   const isLoading= useSelector(selectIsLoading);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    disableTab();
+    return ()=>{enableTab()}
+  }, []) 
+  
   const initialValues = {name, avatar: ''};  // initial form values
  
 
@@ -49,73 +56,86 @@ export const UserProfileModal = () => {
    dispatch(toggleIsUserProfileModalOpen());
   };
 
+  const handleCancel = () => {
+      dispatch(toggleIsUserProfileModalOpen());
+  }
 
-  return  <ProfileModal aria-labelledby="profile">
+  const handleBackdropClick = (e) => {
+    if (e.target === e.currentTarget) {
+      handleCancel();
+    }
+  }
+
+  return  <ModalBackdrop onClick={handleBackdropClick}>
+    
+            <ProfileModal aria-labelledby="profile" className='modal'>
             
-            <CloseBtn onClick={()=>dispatch(toggleIsUserProfileModalOpen())}>
-              <CloseIcon />
-            </CloseBtn>
+              <CloseBtn onClick={handleCancel}>
+                <CloseIcon />
+              </CloseBtn>
 
-            {
-              isLoading 
-                  ? <SkeletonRows totalRow={3} heightArr={[150, 56, 56]}/>
-                  : <Formik 
-                        initialValues={initialValues} 
-                        validationSchema={ProfileSchema} 
-                        onSubmit={handleSubmit} 
-                    >
-                          {({ errors, touched, setFieldValue}) => (
+              {
+                isLoading 
+                    ? <SkeletonRows totalRow={3} heightArr={[150, 56, 56]}/>
+                    : <Formik 
+                          initialValues={initialValues} 
+                          validationSchema={ProfileSchema} 
+                          onSubmit={handleSubmit} 
+                      >
+                            {({ errors, touched, setFieldValue}) => (
 
-                              <Form>
+                                <Form>
 
-                                <AvatarBox>
-                                
-                                { selectedAvatarURL && <AvatarImage src={selectedAvatarURL} alt="selected user avatar"/> }
-
-                                  <AvatarInputLabel htmlFor="avatar">
-
-                                    <AvatarInputBox>
-
-                                      <AvatarInput
-                                        type="file"
-                                        id="avatar"
-                                        name="avatar"
-                                        onChange={(e) => handleAvatarChange(e.target, setFieldValue)}
-                                      />
-                                      
-                                    </AvatarInputBox>
-
-                                    <PlusSVGBtn type="button">
-                                        <PlusSVG/>
-                                    </PlusSVGBtn>
-
-                                  </AvatarInputLabel>
+                                  <AvatarBox>
                                   
-                                  </AvatarBox>
-                                  
-                                  { touched.avatar && errors.avatar ? <FormError>{errors.avatar}</FormError> : null }
+                                  { selectedAvatarURL && <AvatarImage src={selectedAvatarURL} alt="selected user avatar"/> }
 
-                                <NameBox>
+                                    <AvatarInputLabel htmlFor="avatar">
 
-                                  <NameInputLabel htmlFor='name'>
-                                    <NameInput id='name' placeholder={initialValues.name} name="name" />
-                                  </NameInputLabel>
-                                  <Edit_icon />
+                                      <AvatarInputBox>
 
-                                { errors.name && touched.name ? <ErrorMessage>{errors.name}</ErrorMessage> : null }
-                                { touched.name && !errors.name ? <SuccessMessage>This is an CORRECT name</SuccessMessage> : null }
+                                        <AvatarInput
+                                          type="file"
+                                          id="avatar"
+                                          name="avatar"
+                                          onChange={(e) => handleAvatarChange(e.target, setFieldValue)}
+                                        />
+                                        
+                                      </AvatarInputBox>
 
-                                </NameBox>
+                                      <PlusSVGBtn type="button">
+                                          <PlusSVG/>
+                                      </PlusSVGBtn>
 
-                                <SubmitButton type="submit" sx={{ marginTop: '18px' }}>Save changes</SubmitButton>
+                                    </AvatarInputLabel>
+                                    
+                                    </AvatarBox>
+                                    
+                                    { touched.avatar && errors.avatar ? <FormError>{errors.avatar}</FormError> : null }
 
-                              </Form>)
-                          }
-                    </Formik>
-            }
+                                  <NameBox>
 
-            <BlurStyledBar6/>
-            <BlurStyledBar7/>
+                                    <NameInputLabel htmlFor='name'>
+                                      <NameInput id='name' placeholder={initialValues.name} name="name" />
+                                    </NameInputLabel>
+                                    <Edit_icon />
 
-          </ProfileModal>
+                                  { errors.name && touched.name ? <ErrorMessage>{errors.name}</ErrorMessage> : null }
+                                  { touched.name && !errors.name ? <SuccessMessage>This is an CORRECT name</SuccessMessage> : null }
+
+                                  </NameBox>
+
+                                  <SubmitButton type="submit" sx={{ marginTop: '18px' }}>Save changes</SubmitButton>
+
+                                </Form>)
+                            }
+                      </Formik>
+              }
+
+              <BlurStyledBar6/>
+              <BlurStyledBar7/>
+
+            </ProfileModal>
+    
+          </ModalBackdrop>
 };

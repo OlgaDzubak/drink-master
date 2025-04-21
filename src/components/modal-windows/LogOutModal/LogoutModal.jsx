@@ -1,5 +1,5 @@
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { selectIsLogoutModalOpen } from '../../../redux/modal/modalSelectors';
 import { toggleIsLogoutModalOpen } from '../../../redux/modal/modalSlice';
 import { selectIsLoading } from '../../../redux/auth/authSelectors';
 import { signout } from '../../../redux/auth/authOperations';
@@ -7,22 +7,35 @@ import { SkeletonLogout } from '../../Skeletons/SkeletonLogout';
 import { ModalBackdrop } from '../../SharedLayout/SharedLayout.styled';
 import { LogOutWrapper,  MessageText, ButtonsWrapper, LogOutModalBtn } from './LogoutModal.styled';
 import { CloseBtn, CloseIcon } from '../UserProfileModal/UserProfileModal.styled';
+import { disableTab, enableTab } from '../../../helpers/blockTab';
+
 
 export const LogoutModal = () => {
   
   const isLoading = useSelector(selectIsLoading);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    disableTab();
+    return ()=>{enableTab()}
+  }, []) 
+  
   const handleLogout = async () => {
     dispatch(signout()); 
     dispatch(toggleIsLogoutModalOpen());
   }
-  const handleCancel = () => {
-    dispatch(toggleIsLogoutModalOpen());
+  const handleCancel = (e) => {
+      dispatch(toggleIsLogoutModalOpen());
   }
 
-  return  <ModalBackdrop>
-            <LogOutWrapper >
+  const handleBackdropClick = (e) => {
+    if (e.target === e.currentTarget) {
+      handleCancel();
+    }
+  }
+
+  return <ModalBackdrop onClick={handleBackdropClick}>
+            <LogOutWrapper className='modal'>
               { 
                  isLoading 
                     ? <SkeletonLogout/>
@@ -36,7 +49,7 @@ export const LogoutModal = () => {
                         <ButtonsWrapper>
 
                           <LogOutModalBtn onClick={handleLogout}>Log Out</LogOutModalBtn>
-                          <LogOutModalBtn onClick={handleCancel}>Cancel</LogOutModalBtn>
+                          <LogOutModalBtn onClick={handleCancel} autoFocus>Cancel</LogOutModalBtn>
                           
                         </ButtonsWrapper>
                       </>
