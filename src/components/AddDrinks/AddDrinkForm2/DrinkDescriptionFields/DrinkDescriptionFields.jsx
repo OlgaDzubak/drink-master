@@ -6,7 +6,7 @@ import {  DescriptionDiv, ImgAndErrorDiv, DataAndErrorDiv,
           DescriptionImageDiv, DrinkImage, ImageInputLabel, ImageInput, 
           AddImageDiv, PlusSVGDiv, PlusSVG, AddImageP,
           InputDiv, NameInputLabel, DescriptionInputLabel, Input, 
-          SelectInputDiv, SelectLabel, selectStyles,
+          SelectInputDiv, SelectLabelP, selectStyles,
           RadioDiv, RadioLabel, RadioInput, RadioSpan } from './DrinkDescriptionFields.styled';
 
 
@@ -170,10 +170,10 @@ export const DrinkDescriptionFields = ({values, errors, touched, handleChange, h
 
               <InputDiv className="drink-categories">
                 <SelectInputDiv>
-                  <SelectLabel htmlFor="categories" selectedCategory={selectedCategoriesOption.label}>Category</SelectLabel>
+                  <SelectLabelP selectedCategory={selectedCategoriesOption.label}>Category</SelectLabelP>
                   <Select
                     isClearable
-                    id="categories"
+                    name="drink-categories"
                     options={categoryOptions}
                     value={selectedCategoriesOption}
                     onChange={(selectedCategoriesOption) => handleSelectCategoriesChange(selectedCategoriesOption)}

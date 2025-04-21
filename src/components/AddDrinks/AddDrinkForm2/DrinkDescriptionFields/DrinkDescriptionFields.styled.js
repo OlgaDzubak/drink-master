@@ -205,7 +205,7 @@ export const SelectInputDiv = styled.div`
     font-size: 16px;
   }
 `;
-export const SelectLabel = styled.label`
+export const SelectLabelP = styled.p`
   left: 10px;
   transform-origin: left;
   transform: translateY(${(props)=> props.selectedCategory ? '-10px' : '10px'});
