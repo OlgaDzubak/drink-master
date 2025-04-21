@@ -105,16 +105,16 @@ export const BtnAddDrinks = styled(Link)`
   background-color: ${(props) => props.theme.backGroundBtnColor};
   color: ${(props) => props.theme.mainBackground};
   border: 2px solid ${(props) => props.theme.borderBtnColor};
-  transition: color var(--transition), background-color var(--transition), border var(--transition);
+  transition: color var(--transition), background-color var(--transition), border-color var(--transition);
 
   &:hover, &:focus {
-    border: 2px solid ${(props) => props.theme.borderBtnColorHover};
+    border-color: ${(props) => props.theme.borderBtnColorHover};
     background-color: ${(props) => props.theme.backGroundBtnColorHover};
     color: ${(props) => props.theme.mainBackground};
   }
 
   &:active{
-    border: 2px solid ${(props) => props.theme.backGroundBtnColorActive};
+    border-color: ${(props) => props.theme.backGroundBtnColorActive};
     background-color: ${(props) => props.theme.backGroundBtnColorActive};
     color: ${(props) => props.theme.btnColorActive};
   }
@@ -228,7 +228,7 @@ export const GalleryList = styled.ul`
   }
 `;
 
-export const CategoryTitle = styled.h3`
+export const CategoryTitle = styled.h2`
   margin-bottom: 40px;
   font-size: 40px;
   font-weight: 600;

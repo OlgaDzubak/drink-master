@@ -24,6 +24,7 @@ const HomeHero = () => {
                 <BtnAddDrinks to="/add">Add drink</BtnAddDrinks>
                 
               </HeroTextDiv>
+    
               <GlassPictureDiv themeName={theme}/>
                     
           </HeroSection>
