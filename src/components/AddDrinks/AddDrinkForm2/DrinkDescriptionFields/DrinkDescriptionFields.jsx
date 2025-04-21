@@ -170,10 +170,10 @@ export const DrinkDescriptionFields = ({values, errors, touched, handleChange, h
 
               <InputDiv className="drink-categories">
                 <SelectInputDiv>
-                  <SelectLabel htmlFor="drink-categories" selectedCategory={selectedCategoriesOption.label}>Category</SelectLabel>
+                  <SelectLabel htmlFor="categories" selectedCategory={selectedCategoriesOption.label}>Category</SelectLabel>
                   <Select
                     isClearable
-                    id="drink-categories"
+                    id="categories"
                     options={categoryOptions}
                     value={selectedCategoriesOption}
                     onChange={(selectedCategoriesOption) => handleSelectCategoriesChange(selectedCategoriesOption)}
