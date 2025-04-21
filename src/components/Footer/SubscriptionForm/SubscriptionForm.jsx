@@ -21,7 +21,7 @@ const SubscriptionForm = () => {
 
                                         <SubFormContenWrapper>
                                           <StyledSubLabel htmlFor="email">Email:</StyledSubLabel>
-                                          <StyledSubField type="text" id="email" name="email" placeholder="Enter the Email" />
+                                          <StyledSubField type="text" id="email" name="email" placeholder="Enter the Email" autocomplete="email"/>
                                         </SubFormContenWrapper>
                                         
                                         { touched.email && errors.email ? <StyledSubError>{errors.email}</StyledSubError> : <StyledSubError></StyledSubError> }
