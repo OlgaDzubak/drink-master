@@ -173,7 +173,7 @@ export const DrinkDescriptionFields = ({values, errors, touched, handleChange, h
                   <SelectLabel htmlFor="drink-categories" selectedCategory={selectedCategoriesOption.label}>Category</SelectLabel>
                   <Select
                     isClearable
-                    name="drink-categories"
+                    id="drink-categories"
                     options={categoryOptions}
                     value={selectedCategoriesOption}
                     onChange={(selectedCategoriesOption) => handleSelectCategoriesChange(selectedCategoriesOption)}
