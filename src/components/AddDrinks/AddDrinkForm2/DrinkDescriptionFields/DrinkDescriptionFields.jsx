@@ -186,7 +186,7 @@ export const DrinkDescriptionFields = ({values, errors, touched, handleChange, h
 
               <InputDiv className="drink-glasses">
                 <SelectInputDiv>
-                  <SelectLabel htmlFor="drink-glasses" selectedCategory={selectedGlassesOption.label}>Glass</SelectLabel>
+                  <SelectLabelP selectedCategory={selectedGlassesOption.label}>Glass</SelectLabelP>
                   <Select
                     isClearable
                     name="drink-glasses"
