@@ -14,7 +14,7 @@ export const ThemeSwitcher = () => {
   const onChangeTheme = () => themeSwitchHandler(theme === "dark" ? "light" : "dark");
 
   return  <ThemeSwitchButton >
-            <input type="checkbox" onChange={onChangeTheme} aria-label="light and dark theme switcher"/>
+            <input type="checkbox" onChange={onChangeTheme} name='switcher' aria-label="light and dark theme switcher"/>
             <span></span>
           </ThemeSwitchButton>;
 }
