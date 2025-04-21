@@ -1,4 +1,4 @@
-import PageTitle from '../components/PageTitle/PageTitle';
+import PageTitle from '../components/Titles/PageTitle';
 import AddDrinks from '../components/AddDrinks/AddDrinks';
 
 const AddDrinksPage = () => {

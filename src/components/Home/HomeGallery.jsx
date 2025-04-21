@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getCoctailsByCategories } from '../../helpers/API/operationsDrinks';
 import { GallerySection, GalleryList, CategoryTitle, DrinkList, LinkDrinks } from './Home.styled';
+import  SectionTitle  from '../Titles/SectionTitle';
 import { DrinkCard } from '../DrinkCard/DrinkCard';
 
 const HomeGallery = () => {
@@ -23,7 +24,9 @@ const HomeGallery = () => {
   }, []);
 
   return  <GallerySection>
-
+            
+            <SectionTitle title='Drink gallery by categories' hidden={true}/>
+    
             <GalleryList>
               {drinks.map( ([title, coctails]) => 
                 <li key={title}>

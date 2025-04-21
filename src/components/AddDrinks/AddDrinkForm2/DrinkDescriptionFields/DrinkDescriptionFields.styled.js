@@ -30,19 +30,19 @@ export const DescriptionImageDiv = styled.div`
   border-radius: 8px;
   overflow: hidden;
   color: ${(props)=>props.theme.mainBackground};
-  background-color: ${(props)=>props.theme.imageBackground};
+  background-color: ${(props) => props.theme.imageBackground};
   transition: background-color var(--transition), color var(--transition);
   cursor: pointer;
 
   .add-div {
-    transition: background-color var(--transition);
+    color: ${(props)=>props.theme.addImgSvgColor};
+    transition: background-color var(--transition), color var(--transition);
   }
 
   &:hover {
-
    .add-div {
-      background-color: ${(props)=>props.theme.imageBackgroundHover};
-      color: ${(props)=>props.theme.mainTextColor}
+      background-color: ${(props) => props.theme.addImgBackgroundHover};
+      color: ${(props) => props.theme.addImgSvgColorHover};
     }
   }
 
@@ -86,6 +86,7 @@ export const ImageInput = styled.input`
 export const AddImageDiv = styled.div`
 
 `;
+
 export const PlusSVGDiv = styled.div`
   width: 50px;
   height: 50px;
@@ -96,7 +97,7 @@ export const PlusSVGDiv = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 6px;
-  background-color: ${(props)=>props.theme.authButtonColor};
+  background-color: ${(props) => props.theme.addImgBackground};
 `;
 export const PlusSVG = styled(plusSvg)`
   width: 28px;

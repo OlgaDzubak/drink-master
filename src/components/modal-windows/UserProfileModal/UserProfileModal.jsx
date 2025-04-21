@@ -14,6 +14,7 @@ import { ProfileModal, CloseBtn, CloseIcon,
          SubmitButton, FormError } from './UserProfileModal.styled';
 import { BlurStyledBar6, BlurStyledBar7 } from '../../BlurStyledBars/BlurStyledBars.styled';
 
+
 export const UserProfileModal = () => {
 
   const { name, avatarURL } = useSelector(selectUser);
@@ -35,19 +36,17 @@ export const UserProfileModal = () => {
   };
 
   const handleSubmit = async (values, { resetForm }) => {
-
     if ((values.name && (values.name !== name)) || values.avatar) {
-
+            
       const formData = new FormData();
 
       formData.append('avatar', values.avatar);
       formData.append('name', values.name);
-    
-      await dispatch(updateUser(formData));
+      
+      dispatch(updateUser(formData));
     }
-
-    resetForm();
-    dispatch(toggleIsUserProkfileModalOpen());
+   resetForm();
+   dispatch(toggleIsUserProfileModalOpen());
   };
 
 

@@ -1,11 +1,15 @@
-import { Title, ContainerError, Image } from './ErrorPage.styled';
-import image from '../../assets/images/NotFoundImg/error_blue_iced_tea_1.png';
+import { useContext } from 'react';
+import { GlobalContext } from '../../context/GlobalContext';
+import { Title, ContainerError } from './ErrorPage.styled';
+import { GlassPictureDiv } from '../../components/Home/Home.styled';
 
 const ErrorPage = () => {
+  
+  const { theme } = useContext(GlobalContext);
 
   return  <ContainerError>
             <Title>4</Title>
-            <Image src={image} alt="404"></Image>
+            <GlassPictureDiv themeName={theme}/>
             <Title>4</Title>
           </ContainerError>
 };

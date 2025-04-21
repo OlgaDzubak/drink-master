@@ -1,10 +1,15 @@
-import Img from '../../assets/images/NotFoundImg/asr_blue_iced_tea_1.png';
-import { Wrap, Card, Text } from './NotFound.styled';
+import { useContext } from 'react';
+import { GlobalContext } from '../../context/GlobalContext';
+import { Wrap, Text } from './NotFound.styled';
+import { GlassPictureDiv } from '../Home/Home.styled';
 
-const NotFound = ({text}) => {
+const NotFound = ({ text }) => {
+  
+  const { theme } = useContext(GlobalContext);
+
   return (
     <Wrap>
-      <Card src={Img} alt="blue iced tea" />
+      <GlassPictureDiv themeName={theme}/>
       <Text> {text}</Text>
     </Wrap>
   );

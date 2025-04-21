@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchFavorites } from '../redux/drinks/favorites/favoritesOperations';
 import { selectIsLoading, selectFavoriteItems } from '../redux/drinks/favorites/favoriteSelectors';
 import { MyDrinks } from '../components/MyDrinks/MyDrinks';
-import PageTitle from '../components/PageTitle/PageTitle';
+import PageTitle from '../components/Titles/PageTitle';
 import Loader  from '../components/Loader/Loader';
 
 const FavoriteDrinksPage = () => {

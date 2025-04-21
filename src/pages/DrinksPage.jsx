@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getCategories, getIngredients} from '../helpers/API/operationsFilters';
-import PageTitle from '../components/PageTitle/PageTitle';
+import PageTitle from '../components/Titles/PageTitle';
 import Drinks from '../components/Drinks/Drinks';
 
 // Сторінка Drinks page: рендерить заголовок сторінки та компонент Drinks -------------------------------------------------

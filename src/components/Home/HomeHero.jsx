@@ -1,12 +1,14 @@
-import { HeroSection, Box, BoxWrapper, HeroTitle, Text, BtnAddDrinks, ImgMain } from './Home.styled';
-import img from '../../assets/images/coctailPhoto_1.png';
+import { useContext } from 'react';
+import { GlobalContext } from '../../context/GlobalContext';
+import { HeroSection, HeroTextDiv, HeroTitle, Text, BtnAddDrinks, GlassPictureDiv } from './Home.styled';
 
 const HomeHero = () => {
-
-  return  <HeroSection>
-            <Box>
+  
+  const { theme } = useContext(GlobalContext);
+  
+  return  <HeroSection >
               
-              <BoxWrapper>
+              <HeroTextDiv>
                 
                 <HeroTitle>
                   Craft Your Perfect 
@@ -21,11 +23,9 @@ const HomeHero = () => {
 
                 <BtnAddDrinks to="/add">Add drink</BtnAddDrinks>
                 
-              </BoxWrapper>
-
-              <ImgMain src={img} alt="main-coctail" />
-              
-            </Box>
+              </HeroTextDiv>
+              <GlassPictureDiv themeName={theme}/>
+                    
           </HeroSection>
 };
 

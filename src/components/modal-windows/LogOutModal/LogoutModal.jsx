@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { selectIsLogoutModalOpen } from '../../../redux/modal/modalSelectors';
+// import { selectIsLogoutModalOpen } from '../../../redux/modal/modalSelectors';
 import { toggleIsLogoutModalOpen } from '../../../redux/modal/modalSlice';
 import { selectIsLoading } from '../../../redux/auth/authSelectors';
 import { signout } from '../../../redux/auth/authOperations';
@@ -14,7 +14,7 @@ export const LogoutModal = () => {
   const dispatch = useDispatch();
 
   const handleLogout = async () => {
-    await dispatch(signout()); 
+    dispatch(signout()); 
     dispatch(toggleIsLogoutModalOpen());
   }
   const handleCancel = () => {
@@ -24,7 +24,7 @@ export const LogoutModal = () => {
   return  <ModalBackdrop>
             <LogOutWrapper >
               { 
-                isLoading 
+                 isLoading 
                     ? <SkeletonLogout/>
                     : <>
                         <CloseBtn onClick={()=>dispatch(toggleIsLogoutModalOpen())}>
@@ -40,7 +40,7 @@ export const LogoutModal = () => {
                           
                         </ButtonsWrapper>
                       </>
-                }
+              }
             </LogOutWrapper>
           </ModalBackdrop>
 };

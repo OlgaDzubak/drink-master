@@ -5,7 +5,7 @@ import { CoctailImg } from '../CoctailImg/CoctailImg';
 import { useDispatch, useSelector } from 'react-redux';
 import { addFavorite, deleteFavorite } from '../../../redux/drinks/favorites/favoritesOperations';
 import { selectFavoriteItems } from '../../../redux/drinks/favorites/favoriteSelectors';
-import PageTitle from '../../PageTitle/PageTitle';
+import PageTitle from '../../Titles/PageTitle';
 
 export const DrinkHero = ({ coctailInfo }) => {
   

@@ -1,13 +1,11 @@
+import styled from '@emotion/styled';
+import {Field} from 'formik';
 import { ReactComponent as closeSvg } from '../../../assets/images/modal/closeIcon2.svg';
 import { ReactComponent as plusSvg } from '../../../assets/images/modal/addPhoto.svg';
-import {Field} from 'formik';
-import styled from '@emotion/styled';
-import EditIcon from '@mui/icons-material/Edit';
+import { BsPencil } from "react-icons/bs";
 
 export const ProfileModal = styled.div`
   position: fixed;
-  // right: 20px;
-  // top: 90px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -156,11 +154,10 @@ export const NameInput = styled(Field)`
     color var(--whitefifty-color);
   }
 `;
-export const Edit_icon = styled(EditIcon)`
+export const Edit_icon = styled(BsPencil)`
   width: 16px;
   height: 16px;
-  stroke: #f3f3f3;
-  stroke-width: 2;
+  fill: #f3f3f3;
   position: absolute;
   top: 17px;
   right: 24px;

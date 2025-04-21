@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchOwn } from '../redux/drinks/own/ownOperations';
 import { selectIsLoading, selectOwnItems } from '../redux/drinks/own/ownSelector';
 import { MyDrinks } from '../components/MyDrinks/MyDrinks';
-import PageTitle from '../components/PageTitle/PageTitle';
+import PageTitle from '../components/Titles/PageTitle';
 import Loader  from '../components/Loader/Loader';
 
 const MyDrinksPage = () => {

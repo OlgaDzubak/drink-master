@@ -5,8 +5,8 @@ import { TotalWrapper, AsideLinksAndPopularDrinks } from './AddDrinks.styled';
 
 const AddDrinks = () => {
 
-  return  <TotalWrapper>
-              
+  return <TotalWrapper>
+    
               <AddDrinkForm />
 
               <AsideLinksAndPopularDrinks>

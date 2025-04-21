@@ -25,7 +25,8 @@ const COLORS = {
   color24 : "rgb(170, 170, 170)", 
   color25  : "rgba(243, 243, 243, 0.8)",
   color26: "#3CBC81",
-  color27  : "rgba(243, 243, 243, 0.65)",
+  color27: "rgba(243, 243, 243, 0.65)",
+  color28: "rgba(64, 112, 205, 0.5)",
   
 }
 
@@ -82,6 +83,10 @@ export const DARK_THEME = {
   inputLabelColorNoValue : COLORS.color7,
   scrollUpBtnColor: COLORS.color14,
   scrollUpBtnColorHover: COLORS.color2,
+  addImgBackground: COLORS.color3,
+  addImgBackgroundHover: COLORS.color28,
+  addImgSvgColor: COLORS.color1,
+  addImgSvgColorHover: COLORS.color3,
 };
 
 
@@ -139,4 +144,8 @@ export const LIGHT_THEME = {
   inputLabelColorNoValue : COLORS.color14,
   scrollUpBtnColor: COLORS.color27,
   scrollUpBtnColorHover: COLORS.color3,
+  addImgBackground: COLORS.color3,
+  addImgBackgroundHover: COLORS.color28,
+  addImgSvgColor: COLORS.color1,
+  addImgSvgColorHover: COLORS.color3,
 };

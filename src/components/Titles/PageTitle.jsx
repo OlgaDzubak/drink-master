@@ -1,4 +1,4 @@
-import { Title } from './PageTitle.styled';
+import { Title } from './Titles.styled';
 
 const PageTitle = ({ title, hidden, marginBottom }) => {
 

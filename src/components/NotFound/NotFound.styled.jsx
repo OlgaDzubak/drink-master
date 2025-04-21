@@ -43,3 +43,4 @@ export const Text = styled.p`
     // margin-top: 27px;
   }
 `;
+

@@ -13,7 +13,7 @@ import { AddDrinkFormSection, SubmitButton } from './AddDrinkForm.styled';
 import { DrinkDescriptionFields } from './DrinkDescriptionFields/DrinkDescriptionFields';
 import { DrinkIngredientsFields } from './DrinkIngredientsFields/DrinkIngredientsFields';
 import { RecipePreparation } from './RecipePreparation/RecipePreparation';
-
+import SectionTitle from "../../Titles/SectionTitle";
 
 export const AddDrinkForm = () => {
 
@@ -61,8 +61,10 @@ export const AddDrinkForm = () => {
     drinkThumb: '',
   };
 
-  return  <AddDrinkFormSection>
-
+  return <AddDrinkFormSection>
+    
+            <SectionTitle title={"Add drink form"} hidden={true} />
+    
             <Formik
               initialValues={initialValues}
               validationSchema={addDrinkSchema}

@@ -40,8 +40,6 @@ const authSlice = createSlice({
                                   .addCase(auth.subscribeUser.pending, handlePending)
                                   .addCase(auth.subscribeUser.fulfilled, handleFulfilled_subscribe)
                                   .addCase(auth.subscribeUser.rejected, handleRejected_subscribe)
-                                  
-
                               },
 });
 

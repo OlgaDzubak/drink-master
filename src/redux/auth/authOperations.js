@@ -72,9 +72,9 @@ export const getUser = createAsyncThunk('auth/getUser', async (_, thunkAPI) => {
 });
 
 export const updateUser = createAsyncThunk('auth/updateUser', async (newUser, thunkAPI) => {
-
+  
     try {
-      const { data } = await axios.patch(`/users/update`, newUser, {headers: {'Content-Type': 'multipart/form-data'}});
+      const { data } = await axios.patch(`/users/update`, newUser, { headers: { 'Content-Type': 'multipart/form-data' } });
       return data;
 
     } catch (e) {

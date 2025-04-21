@@ -3,7 +3,6 @@ import { Outlet } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Global, css, ThemeProvider } from '@emotion/react';
 import { BtnUpScroll } from '../BtnUpScroll/BtnUpScroll';
-// import GlobalStyles from '../../GlobalStyled';
 
 import { BurgerModal } from '../modal-windows/BurgerModal/BurgerModal';
 import { UserProfileModal } from '../modal-windows/UserProfileModal/UserProfileModal';
@@ -22,13 +21,6 @@ import Loader from '../Loader/Loader';
 
 import blockScroll from '../../helpers/blockScroll';
 //-------------------------------------------------------------------------------------
-const GlobalStyle = css`
-  body {
-    color: ${(props) => props.theme.mainTextColor};
-    background-color: ${(props) => props.theme.mainBackground};
-  }
-`;
-
 
 const SharedLayout = () => {
 
