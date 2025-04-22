@@ -42,7 +42,7 @@ export const UserProfileModal = () => {
     }
   };
 
-  const handleSubmit = async (values, { resetForm }) => {
+  const handleSubmit = (values, { resetForm }) => {
     if ((values.name && (values.name !== name)) || values.avatar) {
             
       const formData = new FormData();

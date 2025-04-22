@@ -17,8 +17,9 @@ const SignIn = () => {
   const isLoading = useSelector(selectIsLoading);
   const dispatch = useDispatch();
 
-  const handleSubmit = async (values, { resetForm }) => {
+  const handleSubmit = (values, { resetForm }) => {
     dispatch(signin(values));
+    console.log("handleSubmit");
     resetForm();
   }
 

@@ -19,7 +19,7 @@ const SignUp = () => {
   const isLoading = useSelector(selectIsLoading);
   const dispatch = useDispatch();
 
-  const handleSubmit = async (values, { resetForm }) => {
+  const handleSubmit = (values, { resetForm }) => {
     
     const birthdate = changeDateStr(values.birthdate);
     

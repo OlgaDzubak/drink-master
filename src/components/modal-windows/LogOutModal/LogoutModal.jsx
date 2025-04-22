@@ -20,7 +20,7 @@ export const LogoutModal = () => {
     return ()=>{enableTab()}
   }, []) 
   
-  const handleLogout = async () => {
+  const handleLogout = () => {
     dispatch(signout()); 
     dispatch(toggleIsLogoutModalOpen());
   }
