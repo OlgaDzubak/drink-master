@@ -59,9 +59,10 @@ export const AvatarBox = styled.div`
   height: 94px;
   margin-left: auto;
   margin-right: auto;
+  transition: transform var(--transition);
 
   &:hover, &:focus{
-    transform: scale(1.02);
+    transform: scale(1.05);
   }
 
   @media screen and (min-width: 768px) {

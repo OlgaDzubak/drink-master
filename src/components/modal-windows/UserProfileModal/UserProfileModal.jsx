@@ -52,8 +52,8 @@ export const UserProfileModal = () => {
       
       dispatch(updateUser(formData));
     }
-   resetForm();
-   dispatch(toggleIsUserProfileModalOpen());
+    resetForm();
+    dispatch(toggleIsUserProfileModalOpen());
   };
 
   const handleCancel = () => {
@@ -76,59 +76,56 @@ export const UserProfileModal = () => {
 
               {
                 isLoading 
-                    ? <SkeletonRows totalRow={3} heightArr={[150, 56, 56]}/>
+                    ? <SkeletonRows row={3} heightArr={[150, 56, 56]}/>
                     : <Formik 
                           initialValues={initialValues} 
                           validationSchema={ProfileSchema} 
                           onSubmit={handleSubmit} 
                       >
-                            {({ errors, touched, setFieldValue}) => (
+                        {({ errors, touched, setFieldValue }) => (
+                          <Form>
+                            <AvatarBox>
+                                                                      
+                              {selectedAvatarURL && <AvatarImage src={selectedAvatarURL} alt="selected user avatar" />}
 
-                                <Form>
+                              <AvatarInputLabel htmlFor="avatar">
 
-                                  <AvatarBox>
-                                  
-                                  { selectedAvatarURL && <AvatarImage src={selectedAvatarURL} alt="selected user avatar"/> }
+                                <AvatarInputBox>
 
-                                    <AvatarInputLabel htmlFor="avatar">
+                                  <AvatarInput
+                                    type="file"
+                                    id="avatar"
+                                    name="avatar"
+                                    onChange={(e) => handleAvatarChange(e.target, setFieldValue)}
+                                  />
+                                                                            
+                                </AvatarInputBox>
 
-                                      <AvatarInputBox>
+                                <PlusSVGBtn type="button">
+                                  <PlusSVG />
+                                </PlusSVGBtn>
 
-                                        <AvatarInput
-                                          type="file"
-                                          id="avatar"
-                                          name="avatar"
-                                          onChange={(e) => handleAvatarChange(e.target, setFieldValue)}
-                                        />
-                                        
-                                      </AvatarInputBox>
+                              </AvatarInputLabel>
+                                                                        
+                            </AvatarBox>
+                                                                        
+                            {touched.avatar && errors.avatar ? <FormError>{errors.avatar}</FormError> : null}
 
-                                      <PlusSVGBtn type="button">
-                                          <PlusSVG/>
-                                      </PlusSVGBtn>
+                            <NameBox>
 
-                                    </AvatarInputLabel>
-                                    
-                                    </AvatarBox>
-                                    
-                                    { touched.avatar && errors.avatar ? <FormError>{errors.avatar}</FormError> : null }
+                              <NameInputLabel htmlFor='name'>
+                                <NameInput id='name' placeholder={initialValues.name} name="name" />
+                              </NameInputLabel>
+                              <Edit_icon />
 
-                                  <NameBox>
+                              {errors.name && touched.name ? <ErrorMessage>{errors.name}</ErrorMessage> : null}
+                              {touched.name && !errors.name ? <SuccessMessage>This is an CORRECT name</SuccessMessage> : null}
 
-                                    <NameInputLabel htmlFor='name'>
-                                      <NameInput id='name' placeholder={initialValues.name} name="name" />
-                                    </NameInputLabel>
-                                    <Edit_icon />
+                            </NameBox>
 
-                                  { errors.name && touched.name ? <ErrorMessage>{errors.name}</ErrorMessage> : null }
-                                  { touched.name && !errors.name ? <SuccessMessage>This is an CORRECT name</SuccessMessage> : null }
-
-                                  </NameBox>
-
-                                  <SubmitButton type="submit" sx={{ marginTop: '18px' }}>Save changes</SubmitButton>
-
-                                </Form>)
-                            }
+                            <SubmitButton type="submit" sx={{ marginTop: '18px' }}>Save changes</SubmitButton>
+                          </Form>
+                        )}
                       </Formik>
               }
 

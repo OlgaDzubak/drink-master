@@ -16,6 +16,7 @@ const GlobalContextProvider = (props) => {
 
 
   const themeSwitchHandler = (themeType) => {
+    console.log('themeSwitchHandler');
     setCurrentTheme(themeType);
   };
 

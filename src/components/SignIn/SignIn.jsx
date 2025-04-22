@@ -2,7 +2,6 @@ import { Formik, Form } from 'formik';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsLoading } from '../../redux/auth/authSelectors';
-
 import { StyledMain } from '../Welcome/Welcome.styled';
 import { StyledAuthContainer, StyledButton, StyledTitleAuth, FieldsInputAuthContainer, StyledButtonsContainer } from '../SignUp/SignUp.styled';
 import { SkeletonRows } from '../Skeletons/SkeletonRows';
@@ -19,7 +18,6 @@ const SignIn = () => {
 
   const handleSubmit = (values, { resetForm }) => {
     dispatch(signin(values));
-    console.log("handleSubmit");
     resetForm();
   }
 
@@ -41,12 +39,11 @@ const SignIn = () => {
               >
                 {({ errors, touched }) => (
                   
-                  <Form style={{ zIndex: 3 }}>
+                  <Form style={{ width:"100%", zIndex: 3 }}>
 
                     {isLoading 
-                      ? <SkeletonRows totalRow={3} />
+                      ? <SkeletonRows rows={3} heightArr={[56]} />
                       : <>
-
                           <FieldsInputAuthContainer>
 
                             <FieldInputAuth name="email" placeholder="Email" errors={errors} touched={touched} showCheckIcon={true}/>
@@ -63,7 +60,6 @@ const SignIn = () => {
                             </Link>
                           
                           </StyledButtonsContainer>
-
                         </>
                     }
 

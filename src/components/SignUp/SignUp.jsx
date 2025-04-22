@@ -49,10 +49,9 @@ const SignUp = () => {
                 {({ errors, touched, setFieldValue }) => (
 
                   <Form style={{ zIndex: 3, minWidth: '335px' }}>
-                    
                     {isLoading 
-                      ? (<SkeletonRows totalRow={5} />)
-                      : (<>
+                      ? <SkeletonRows rows={5} heightArr={[56]}/>
+                      : <>
 
                           <FieldsInputAuthContainer>
 
@@ -76,8 +75,7 @@ const SignUp = () => {
 
                           </StyledButtonsContainer>
 
-                          </>
-                        )
+                        </>
                     }
 
                   </Form>

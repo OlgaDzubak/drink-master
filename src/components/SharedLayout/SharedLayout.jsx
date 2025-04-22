@@ -11,8 +11,8 @@ import { selectIsBurgerModalOpen, selectIsUserProfileModalOpen, selectIsLogoutMo
 import { toggleIsBurgerModalOpen, toggleIsUserProfileModalOpen, toggleIsLogoutModalOpen} from '../../redux/modal/modalSlice';
 
 import { Main, Container } from './SharedLayout.styled';
-import {BlurStyledBar1, BlurStyledBar2 } from '../BlurStyledBars/BlurStyledBars.styled';
-import {DARK_THEME, LIGHT_THEME} from '../../theme/theme';
+import { BlurStyledBar1, BlurStyledBar2 } from '../BlurStyledBars/BlurStyledBars.styled';
+import { DARK_THEME, LIGHT_THEME } from '../../theme/theme';
 import { GlobalContext } from '../../context/GlobalContext';
 
 import Header from '../Header/Header';

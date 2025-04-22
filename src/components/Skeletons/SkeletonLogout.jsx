@@ -1,65 +1,16 @@
-import { Container, Skeleton } from '@mui/material';
+import { SkeletonContainer, Div, SkeletonItem } from "./Skeleton.styled";
 
-export const SkeletonLogout = () => {
+export const SkeletonLogout = ({ height="40px", marginBottom = "20px"}) => {
 
-  return  <Container
-            maxWidth="xl"
-            disableGutters
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              flexDirection: 'column',
-              alignItems: 'center',
-              paddingLeft: '0'
-            }}
+
+  return <SkeletonContainer>
             
-          >
-
-            <Skeleton
-              variant="rounded"
-              animation="wave"
-              sx={{
-                maxWidth: '392px',
-                width: '100%',
-                height: '24px',
-                backgroundColor: 'rgba(243, 243, 243, 0.2)',
-                marginBottom : '40px',
-              }}
-            />
-
-            <Container
-            maxWidth="xl"
-            disableGutters
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              gap: '12px',
-              paddingLeft: '0px',
-              paddingRight: '0px',
-            }}
-            >
-
-              <Skeleton
-                variant="rounded"
-                animation="wave"
-                sx={{
-                  width: '190px',
-                  height: '44px',
-                  backgroundColor: 'rgba(243, 243, 243, 0.2)',
-                }}
-              />
-
-              <Skeleton
-                variant="rounded"
-                animation="wave"
-                sx={{
-                  width: '190px',
-                  height: '44px',
-                  backgroundColor: 'rgba(243, 243, 243, 0.2)',
-                }}
-              />
-            </Container>
-
-          </Container>
+    <SkeletonItem height={height} marginBottom={marginBottom} />
+    
+            <Div>
+              <SkeletonItem height={height}/>
+              <SkeletonItem height={height}/>
+            </Div>
+    
+          </SkeletonContainer>
 };

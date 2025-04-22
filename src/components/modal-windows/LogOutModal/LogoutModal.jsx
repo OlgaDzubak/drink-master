@@ -3,12 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toggleIsLogoutModalOpen } from '../../../redux/modal/modalSlice';
 import { selectIsLoading } from '../../../redux/auth/authSelectors';
 import { signout } from '../../../redux/auth/authOperations';
-import { SkeletonLogout } from '../../Skeletons/SkeletonLogout';
 import { ModalBackdrop } from '../../SharedLayout/SharedLayout.styled';
 import { LogOutWrapper,  MessageText, ButtonsWrapper, LogOutModalBtn } from './LogoutModal.styled';
 import { CloseBtn, CloseIcon } from '../UserProfileModal/UserProfileModal.styled';
 import { disableTab, enableTab } from '../../../helpers/blockTab';
-
+import { SkeletonLogout } from '../../Skeletons/SkeletonLogout';
 
 export const LogoutModal = () => {
   
@@ -20,8 +19,8 @@ export const LogoutModal = () => {
     return ()=>{enableTab()}
   }, []) 
   
-  const handleLogout = () => {
-    dispatch(signout()); 
+  const handleLogout = async () => {
+    await dispatch(signout()); 
     dispatch(toggleIsLogoutModalOpen());
   }
   const handleCancel = (e) => {
@@ -33,12 +32,12 @@ export const LogoutModal = () => {
       handleCancel();
     }
   }
-
+  
   return <ModalBackdrop onClick={handleBackdropClick}>
             <LogOutWrapper className='modal'>
               { 
                  isLoading 
-                    ? <SkeletonLogout/>
+                    ? <SkeletonLogout height={"44px"} />
                     : <>
                         <CloseBtn onClick={()=>dispatch(toggleIsLogoutModalOpen())}>
                           <CloseIcon />
