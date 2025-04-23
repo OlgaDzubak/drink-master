@@ -35,7 +35,7 @@ const ownSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.items = [ ...state.items, action.payload];
-        Notify.success(`Drink << ${action.payload.drink} >> was added to database!`, {position: 'center-top', timeout: '5000'});
+        Notify.success(`Drink << ${action.payload.drink} >> was added to database!`);
         state.added = true;
       })
       .addCase(addOwn.rejected, (state, action) => {
@@ -48,7 +48,7 @@ const ownSlice = createSlice({
                       Notify.failure("Add drink failed! Missing data fields.");
                       break;
           case "Request failed with status code 409":
-                      Notify.failure("Add drink failed! Drink name is already in database.", {position: 'center-top', timeout: '5000'});
+                      Notify.failure("Add drink failed! Drink name is already in database.");
                       break;
           default: 
                       Notify.failure("Server error! Please reload the page.");

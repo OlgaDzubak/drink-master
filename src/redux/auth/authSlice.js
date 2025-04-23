@@ -90,12 +90,12 @@ const handleFulfilled_udpate = (state, action) => {
       name: action.payload.name,
       avatarURL: action.payload.avatarURL,
     };
-    Notify.success('User profile updated!', {position: 'center-top', distance: '10px', timeout: 3000});
+  Notify.success('User profile updated!', { position: 'right-top', distance: '70px', timeout: 3000});
 };
 const handleFulfilled_subscribe = (state, action) => {
     state.error = null;
     state.isLoading = false;
-    Notify.success('You are about to subscribe to the "Drink Master" newsletter. We have sent a message to your email. Please confirm your subscription by clicking the link in the message.', {position: 'center-top', width: '500px', messageMaxLength: '300',timeout: 10000});
+    Notify.success('You are about to subscribe to the "Drink Master" newsletter. We have sent a message to your email. Please confirm your subscription by clicking the link in the message.', {width: '500px', position: 'right-bottom', messageMaxLength: '300', timeout: 10000});
 };
 
 
@@ -123,13 +123,13 @@ const handleRejected_signin = (state, action) => {
 
   switch (action.payload){
     case "Request failed with status code 401":
-                Notify.failure('Пароль або email не вірні', {position: 'center-top', distance: '10px', timeout: 3000});
+                Notify.failure('Пароль або email не вірні');
                 break;
     case "Request failed with status code 400":
-                Notify.failure("Sign up failed! Missing data fields.", {position: 'center-top', distance: '10px', timeout: 3000});
+                Notify.failure("Sign up failed! Missing data fields.");
                 break;
     default: 
-                Notify.failure("Server error! Please reload the page.", {position: 'center-top', distance: '10px', timeout: 3000});
+                Notify.failure("Server error! Please reload the page.");
                 break;
 }
   
@@ -137,7 +137,7 @@ const handleRejected_signin = (state, action) => {
 const handleRejected_signout = (state, action) => {
   state.error = action.payload;
   state.isLoading = false;
-   Notify.failure("Server error! Please reload the page.", {position: 'center-top', distance: '10px', timeout: 3000});
+   Notify.failure("Server error! Please reload the page.");
 };
 const handleRejected_refresh = (state, action) => {
   state.error = action.payload; 

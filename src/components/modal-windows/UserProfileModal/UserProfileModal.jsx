@@ -42,7 +42,7 @@ export const UserProfileModal = () => {
     }
   };
 
-  const handleSubmit = (values, { resetForm }) => {
+  const handleSubmit = async (values, { resetForm }) => {
     if ((values.name && (values.name !== name)) || values.avatar) {
             
       const formData = new FormData();
@@ -50,7 +50,7 @@ export const UserProfileModal = () => {
       formData.append('avatar', values.avatar);
       formData.append('name', values.name);
       
-      dispatch(updateUser(formData));
+      await dispatch(updateUser(formData));
     }
     resetForm();
     dispatch(toggleIsUserProfileModalOpen());
@@ -76,7 +76,7 @@ export const UserProfileModal = () => {
 
               {
                 isLoading 
-                    ? <SkeletonRows row={3} heightArr={[150, 56, 56]}/>
+                    ? <SkeletonRows rows={3} heightArr={[150, 56, 56]}/>
                     : <Formik 
                           initialValues={initialValues} 
                           validationSchema={ProfileSchema} 

@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-
+import Notiflix from "notiflix";
 
 const GlobalStyles = css`
 *,
@@ -114,5 +114,21 @@ button {
          transition: background-color 3000s ease-in-out 0s, color 3000s ease-in-out 0s;
   }
 `;
+
+Notiflix.Notify.init({
+  position: 'right-top',
+  distance: '70px',
+  timeout: 3000,
+  borderRadius: '5px',
+  fontFamily: 'Manrope, sans-serif',
+  success: {
+    background: '#BCE6D2',
+    textColor: '#161F37',
+  },
+  failure: {
+    background: 'rgb(238, 85, 121)',
+    textColor: '#F3F3F3',
+  }
+});
 
 export default GlobalStyles;
