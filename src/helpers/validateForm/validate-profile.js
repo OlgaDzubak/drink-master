@@ -7,7 +7,7 @@ export const ProfileSchema = Yup.object().shape({
            .max(50,'Name is too long (maximum 50 symbols are allowed)')
            .trim(),
   avatar: Yup.mixed()
-             .test("is-valid-type", "Wrong file format! Only jpg, jpeg, png files are allowed", value => {
+             .test("is-valid-type", "Wrong file format! Only jpg, jpeg, png, avif, bmp, webp files are allowed", value => {
                   return value ? isValidFileType(value && value.name.toLowerCase(), "image") : true;
                 }
               )

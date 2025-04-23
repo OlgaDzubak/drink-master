@@ -34,11 +34,12 @@ export const UserProfileModal = () => {
 
   const handleAvatarChange = (target, setFieldValue) => {
     const file = target.files[0];
-    setFieldValue('avatar', file);
+    
     if (file) {
+      setFieldValue('avatar', file);
       setSelectedAvatarURL(URL.createObjectURL(file));
     } else {
-      setSelectedAvatarURL(null);
+     // setSelectedAvatarURL(null);
     }
   };
 
@@ -83,7 +84,8 @@ export const UserProfileModal = () => {
                           onSubmit={handleSubmit} 
                       >
                         {({ errors, touched, setFieldValue }) => (
-                          <Form>
+              <Form>
+                
                             <AvatarBox>
                                                                       
                               {selectedAvatarURL && <AvatarImage src={selectedAvatarURL} alt="selected user avatar" />}
@@ -124,6 +126,7 @@ export const UserProfileModal = () => {
                             </NameBox>
 
                             <SubmitButton type="submit" sx={{ marginTop: '18px' }}>Save changes</SubmitButton>
+                            
                           </Form>
                         )}
                       </Formik>
