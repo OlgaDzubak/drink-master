@@ -4,7 +4,7 @@ import tabletImg from '../../../assets/images/drinkPageImg/tablet@1x.jpg';
 import tabletImg2x from '../../../assets/images/drinkPageImg/tablet@2x.jpg';
 import mobImg from '../../../assets/images/drinkPageImg/mob@1x.jpg';
 import mobImg2x from '../../../assets/images/drinkPageImg/mob@2x.jpg';
-import { Image } from './DrinkPageImg.style';
+import { Image } from './DrinkPageImg.styled';
 
 export const DrinkPageImg = () => {
   return (

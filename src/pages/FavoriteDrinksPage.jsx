@@ -22,7 +22,7 @@ const FavoriteDrinksPage = () => {
             { 
               isLoading
                 ? <Loader/>
-                : <MyDrinks drinks={favoriteDrinks} emptyMessage="You haven't added any favorites cocktails yet"/>
+                : <MyDrinks location="favorite" drinks={favoriteDrinks} emptyMessage="You haven't added any favorites cocktails yet"/>
             }
           </>
   };

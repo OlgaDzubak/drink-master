@@ -9,8 +9,6 @@ const scrollToTop = () => {
     smooth: true,
   };
   animateScroll.scrollToTop(options);
-  
-  //window.scrollTo({ top: 0, behavior: 'smooth', }) 
 }
 
 const Paginator = ({ pageCount, handlePageClick }) => {

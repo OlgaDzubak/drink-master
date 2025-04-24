@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getIngredients} from '../../../helpers/API/operationsFilters';
 import { Ingredient } from '../Ingredient/Ingredient';
-import { IngredientsSection, Title, IngredientList } from './DrinkIngredientsList.style';
+import { IngredientsSection, Title, IngredientList } from './DrinkIngredientsList.styled';
 
 export const DrinkIngredientsList = ({ coctailInfo }) => {
   

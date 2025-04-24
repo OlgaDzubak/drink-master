@@ -10,7 +10,7 @@ export const BlurStyledBar1 = styled.div`
   border-radius: 50%;
   background: rgba(64, 112, 205, 0.5);
   filter: blur(209.71px);
-  z-index: 200;
+  z-index: -1;
 
   @media screen and (min-width: 767px) {
   //  left: calc(50% - 342px + 140px);
@@ -26,7 +26,7 @@ export const BlurStyledBar2 = styled.div`
   border-radius: 50%;
   background: rgba(64, 112, 205, 0.5);
   filter: blur(209.71px);
-  z-index: 200;
+  z-index: -1;
 `;
 
 
@@ -40,7 +40,7 @@ export const BlurStyledBar3 = styled.div`
   border-radius: 50%;
   background: rgba(188, 230, 210, 0.4);
   filter: blur(209.71px);
-  z-index: 200;
+  z-index: -1;
 `;
 
 
@@ -54,7 +54,7 @@ export const BlurStyledBar4 = styled.div`
   border-radius: 50%;
   background: rgba(188, 230, 210, 0.4);
   filter: blur(209.71px);
-  z-index: 200;
+  z-index: -1;
 
   @media screen and (min-width: 767px) {
     left:calc(50% - 387px - 140px);
@@ -70,7 +70,7 @@ export const BlurStyledBar5 = styled.div`
   border-radius: 50%;
   background: rgba(64, 112, 205, 0.5);
   filter: blur(209.71px);
-  z-index: 200;
+  z-index: -1;
 
   @media screen and (min-width: 767px) {
     left: calc(50% - 342px + 140px);
@@ -88,7 +88,7 @@ export const BlurStyledBar6 = styled.div`
   border-radius: 50%;
   background: rgba(188, 230, 210, 0.4);
   filter: blur(104.854px);
-  z-index: 200;
+  z-index: -1;
 `;
 //user profile modal window bottom-right blur
 export const BlurStyledBar7 = styled.div`
@@ -100,7 +100,7 @@ export const BlurStyledBar7 = styled.div`
   border-radius: 50%;
   background: rgba(64, 112, 205, 0.5);
   filter: blur(104.854px);
-  z-index: 200;
+  z-index: -1;
 `;
 
 
@@ -114,7 +114,7 @@ export const BlurStyledBar8 = styled.div`
   border-radius: 50%;
   background: rgba(64, 112, 205, 0.5);
   filter: blur(104.854px);
-  z-index: 200;
+  z-index: -1;
 `;
 //mobile menu middle blur
 export const BlurStyledBar9 = styled.div`
@@ -126,7 +126,7 @@ export const BlurStyledBar9 = styled.div`
   border-radius: 50%;
   background: rgba(188, 230, 210, 0.4);
   filter: blur(104.854px);
-  z-index: 200;
+  z-index: -1;
 `;
 //mobile menu right-bottom blur
 export const BlurStyledBar10 = styled.div`
@@ -138,5 +138,5 @@ export const BlurStyledBar10 = styled.div`
   border-radius: 50%;
   background: rgba(64, 112, 205, 0.5);
   filter: blur(104.854px);
-  z-index: 200;
+  z-index: -1;
 `;

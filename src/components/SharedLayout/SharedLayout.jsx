@@ -2,11 +2,13 @@ import React, { useContext, Suspense, useEffect } from "react";
 import { Outlet } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Global, css, ThemeProvider } from '@emotion/react';
-import { BtnUpScroll } from '../BtnUpScroll/BtnUpScroll';
 
+import { BtnUpScroll } from '../BtnUpScroll/BtnUpScroll';
+import blockScroll from '../../helpers/blockScroll';
 import { BurgerModal } from '../modal-windows/BurgerModal/BurgerModal';
 import { UserProfileModal } from '../modal-windows/UserProfileModal/UserProfileModal';
 import { LogoutModal } from '../modal-windows/LogOutModal/LogoutModal';
+
 import { selectIsBurgerModalOpen, selectIsUserProfileModalOpen, selectIsLogoutModalOpen} from '../../redux/modal/modalSelectors';
 import { toggleIsBurgerModalOpen, toggleIsUserProfileModalOpen, toggleIsLogoutModalOpen} from '../../redux/modal/modalSlice';
 
@@ -18,8 +20,6 @@ import { GlobalContext } from '../../context/GlobalContext';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Loader from '../Loader/Loader';
-
-import blockScroll from '../../helpers/blockScroll';
 
 
 //-------------------------------------------------------------------------------------
@@ -83,7 +83,7 @@ const SharedLayout = () => {
             <Header />
 
             <Main>
-              <Container>
+              <Container className="container">
 
                 <Suspense fallback={<Loader />}>
                   <Outlet />

@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { colorStyled } from '../../../../helpers/colorStyled';
 
 export const RecipeTitle = styled.h3`
   font-size: 28px;

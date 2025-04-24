@@ -8,7 +8,7 @@ export const MobileMenuBackdrop = styled.div`
     height: 100%; 
     padding: 0;
     background-color: transparent;
-    z-index: 100;
+    z-index: 200;
     overflow: hidden;
 `;
 
@@ -19,6 +19,6 @@ export const BurgerModalWrapper = styled.div`
   width: 100%;
   height: calc(100vh);
   background-color: ${(props)=>props.theme.mainBackground};
-  z-index: 101;
+  z-index: 201;
   transition: background-color var(--transition);
 `;

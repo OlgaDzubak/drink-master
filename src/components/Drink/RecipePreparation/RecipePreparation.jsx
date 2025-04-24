@@ -1,5 +1,5 @@
 import { DrinkPageImg } from '../DrinkPageImg/DrinkPageImg';
-import { RecipeSection, Title, Recipe, Preparation } from './RecipePreparation.style';
+import { RecipeSection, Title, Recipe, Preparation } from './RecipePreparation.styled';
 
 export const RecipePreparation = ({ coctailInfo }) => {
 

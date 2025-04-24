@@ -6,7 +6,7 @@ export const HeaderEl = styled.header`
   padding-top: 20px;
   padding-bottom: 20px;
   border-bottom: 1px solid ${(props) => props.theme.borderHeaderColor};
-  z-index: 200;
+  z-index: 300;
 
 `;
 

@@ -1,6 +1,6 @@
-import React, { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { GlobalContext } from '../../../context/GlobalContext';
-import {ThemeSwitchButton} from './ThemeSwitcher.styled';
+import { ThemeSwitchButton } from './ThemeSwitcher.styled';
 
 
 export const ThemeSwitcher = () => {

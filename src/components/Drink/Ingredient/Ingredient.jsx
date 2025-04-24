@@ -1,4 +1,4 @@
-import { ImageThumb, IngredientItem } from './Ingredient.style.js';
+import { ImageThumb, Img, IngredientItem, InfoDiv, IngredientName, IngredientMeasure } from './Ingredient.styled';
 import coctailPlaceholder from '../../../assets/images/drinkPageImg/coctailPlaceholder.png';
 
 
@@ -7,13 +7,13 @@ export const Ingredient = ({ photo, title, measure }) => {
   return  <IngredientItem>
 
             <ImageThumb>
-              <img src={photo ? photo : coctailPlaceholder}/>
+              <Img src={photo ? photo : coctailPlaceholder}/>
             </ImageThumb>
 
-            <div>
-              <p>{title}</p>
-              <span>{measure}</span>
-            </div>
+            <InfoDiv>
+              <IngredientName>{title}</IngredientName>
+              <IngredientMeasure>{measure}</IngredientMeasure>
+            </InfoDiv>
       
           </IngredientItem>
 };

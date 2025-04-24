@@ -22,7 +22,7 @@ const MyDrinksPage = () => {
             { 
               isLoading
                 ? <Loader/>
-                : <MyDrinks drinks={myDrinks} emptyMessage="You haven't added any of your own cocktails yet" />
+                : <MyDrinks location="own" drinks={myDrinks} emptyMessage="You haven't added any of your own cocktails yet" />
             }
           </>
 };

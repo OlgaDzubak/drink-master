@@ -128,6 +128,7 @@ export const BtnAddDrinks = styled(Link)`
 export const GlassPictureDiv = styled.div`
   background-repeat: no-repeat;
   background-size: contain;
+  z-index:-1;
 
   @media screen and (max-width: 767.9px) {
     width: 252px;
@@ -182,6 +183,7 @@ export const GallerySection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 200;
 `;
 
 export const TitleH2 = styled.h2`

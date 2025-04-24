@@ -67,8 +67,8 @@ export const StyledMain = styled.main`
     background-image: url(${welcomeDesktop_1x});
   }
   
-  @media screen and (min-device-pixel-ratio: 2) and (min-width: 1440px),,
-         screen and (min-resolution : 192dpi) and (min-width: 1440px),,
+  @media screen and (min-device-pixel-ratio: 2) and (min-width: 1440px),
+         screen and (min-resolution : 192dpi) and (min-width: 1440px),
          screen and (min-resolution : 2dppx) and (min-width: 1440px),{
     background-image: url(${welcomeDesktop_2x});
   }

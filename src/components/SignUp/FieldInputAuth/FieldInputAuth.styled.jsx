@@ -21,10 +21,10 @@ export const InputAndIconContainer = styled.div`
   :hover, 
   :focus {
     input {
-      border-color: rgba(243, 243, 243, 0.5);
-      color: rgba(243, 243, 243, 1);
+      border-color: var(--whitefifty-color);
+      color: var(--white-color);
       &::placeholder{
-        color: rgba(243, 243, 243, 1);
+        color: var(--white-color);
       }
     }
   }
@@ -42,10 +42,10 @@ export const StyledField = styled(Field)`
   outline:none;
 
   border: 1px solid ${(props) => props.error === 'true'
-                                            ? '#da1414'
+                                            ? 'var(--red-color)'
                                             : props.success === 'true'
-                                                ? '#3CBC81'
-                                                : 'rgba(243, 243, 243, 0.2)'};
+                                                ? 'var(--green-color)'
+                                                : 'var(--whitetwenty-color)'};
 
   background-color: transparent;
   border-radius: 24px;
@@ -57,7 +57,7 @@ export const StyledField = styled(Field)`
   }
 
   ::placeholder {
-    color: rgba(243, 243, 243, 0.5);
+    color: var(--whitefifty-color);
     font-size: 17px;
     font-style: normal;
     font-weight: 400;
@@ -68,10 +68,10 @@ export const StyledField = styled(Field)`
   :hover,
   :focus {
     
-    border: 1px solid rgba(243, 243, 243, 0.5);
+    border: 1px solid var(--whitefifty-color);
     
     ::placeholder {
-      color: rgba(243, 243, 243);
+      color: var(--white-color);
     }
 
     +button {
@@ -131,7 +131,6 @@ export const CheckIconOk  = styled(MdCheckCircleOutline)`
     width: 24px;
     height: 24px;
     color: var(--green-color);
-
     transform: translateY(-50%);
 `;
 
@@ -158,11 +157,9 @@ export const ErrorMessage = styled.p`
   margin-top: 8px;
   margin-left: 24px;
   margin-bottom: 0;
-  color: #da1414;
   font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 14px;
+  line-height: 1.167;
+  color: var(--red-color);
 `;
 
 //повідомлення про коректність введення дпних під інпутом
@@ -170,9 +167,7 @@ export const SuccessMessage = styled.p`
   margin-top: 8px;
   margin-left: 24px;
   margin-bottom: 0;
-  color: #3cbc81;
   font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 14px;
+  line-height: 1.167;
+  color: var(--green-color);
 `;

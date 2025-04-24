@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { AddToFavoriteBtn } from '../AddToFavoriteBtn/AddToFavoriteBtn';
-import { DrinkHeroSection, BoxWrapper, ShortDescr, SubTitle } from './DrinkHero.style';
+import { DrinkHeroSection, BoxWrapper, ShortDescr, SubTitle } from './DrinkHero.styled';
 import { CoctailImg } from '../CoctailImg/CoctailImg';
 import { useDispatch, useSelector } from 'react-redux';
 import { addFavorite, deleteFavorite } from '../../../redux/drinks/favorites/favoritesOperations';

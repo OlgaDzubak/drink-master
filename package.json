@@ -20,7 +20,6 @@
     "@emotion/styled": "^11.14.0",
     "@fontsource/roboto": "^5.0.8",
     "@mui/icons-material": "^7.0.2",
-    "@mui/material": "^7.0.2",
     "@reduxjs/toolkit": "^1.9.5",
     "@vitejs/plugin-react-swc": "^3.4.0",
     "air-datepicker": "^3.5.3",

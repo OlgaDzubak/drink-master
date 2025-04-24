@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Button, DialogContent } from '@mui/material';
+// import { DialogContent } from '@mui/material';
 import { StyledTitle } from '../Welcome/Welcome.styled';
 import { Form, Field } from 'formik';
 
@@ -52,11 +52,11 @@ export const StyledTitleAuth = styled(StyledTitle)`
   margin-bottom: 28px;
 `;
 
-export const StyledDialogContent = styled(DialogContent)`
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-`;
+// export const StyledDialogContent = styled(DialogContent)`
+//   display: flex;
+//   flex-direction: column;
+//   gap: 14px;
+// `;
 
 export const StyledField = styled(Field)`
   width: 100%;
@@ -112,26 +112,25 @@ export const StyledButtonsContainer = styled.div`
   flex-direction: column;
 `;
 
-export const StyledButton = styled(Button)`
+export const StyledButton = styled.button`
   width: 100%;
-  display: flex;
   padding-top: 18px;
   padding-bottom: 18px;
+  font-family: inherit;
   font-size: 14px;
+  font-weight: 600;
   line-height: 1.28;
-  background-color: rgba(243, 243, 243, 0);
   border-radius: 42px;
-  color: #f3f3f3;
   text-decoration: underline;
-  text-transform: none;
+  border: none;
+  text-align: center;
+  color:var(--white-color);
+  background-color: transparent;
   transition: background-color var(--transition), color var(--transition);
 
-  && {
-    &:hover,
-    &:focus {
-      background-color: var(--white-color);
-      color: var(--blue-color);
-
-    }
+  &:hover, &:focus {
+    background-color: var(--white-color);
+    color: var(--blue-color);
+  }
   }
 `;

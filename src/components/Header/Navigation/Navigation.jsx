@@ -1,10 +1,9 @@
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { toggleIsBurgerModalOpen } from '../../../redux/modal/modalSlice';
 import { selectIsBurgerModalOpen } from '../../../redux/modal/modalSelectors';
 import { NavigationList, StyledLink } from './Navigation.styled';
 
-const Navigation = ({ onClose }) => {
+const Navigation = () => {
   
   const IsBurgerModalOpen = useSelector(selectIsBurgerModalOpen);
   const dispatch = useDispatch();

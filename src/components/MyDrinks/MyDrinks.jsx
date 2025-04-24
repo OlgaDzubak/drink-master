@@ -4,7 +4,7 @@ import NotFound from '../NotFound/NotFound';
 import DrinksGallery from '../Drinks/DrinksGallery/DrinksGallery';
 import Paginator from '../Paginator/Paginator';
 
-export const MyDrinks = ({ drinks, emptyMessage }) => {
+export const MyDrinks = ({ location, drinks, emptyMessage }) => {
   
   const [totalDrinks, setTotalDrinks] = useState(drinks.length);
   const [drinkItems, setDrinkItems] = useState([]);
@@ -23,10 +23,10 @@ export const MyDrinks = ({ drinks, emptyMessage }) => {
   }
 
 	return  <>
-						{
-              drinks.length === 0 
-                ?	<NotFound text={emptyMessage} />
-                : <DrinksGallery	location="own" drinkItems={drinkItems} />
+    {
+      drinks.length === 0
+        ? <NotFound text={emptyMessage} />
+        : <DrinksGallery location={location} drinkItems={drinkItems} />
 						}
             <Paginator  pageCount={Math.ceil(totalDrinks/per_page)}  
                         handlePageClick={handlePageClick} 

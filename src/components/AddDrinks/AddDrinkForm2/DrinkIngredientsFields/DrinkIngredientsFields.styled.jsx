@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { colorStyled } from '../../../../helpers/colorStyled';
 import { ReactComponent as PlusSVG } from '../../../../assets/images/add-drink/PlusForm.svg';
 import { ReactComponent as MinuseSVG } from '../../../../assets/images/add-drink/MinusForm.svg';
 import { ReactComponent as DeleteSVG } from '../../../../assets/images/add-drink/X.svg';

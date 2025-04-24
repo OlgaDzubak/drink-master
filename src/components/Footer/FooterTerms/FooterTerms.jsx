@@ -1,10 +1,5 @@
 import { useState } from 'react';
-import {
-  LoweLiner,
-  TermsButtons,
-  TermsWrapper,
-  StyledPar,
-} from './FooterTerms.styled';
+import { LoweLiner, TermsButtons, TermsWrapper, StyledPar } from './FooterTerms.styled';
 import { FooterModal } from './FooterModal/FooterModal';
 
 export const FooterTerms = () => {

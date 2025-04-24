@@ -28,17 +28,18 @@ const DrinkPage = lazy(() => import('./pages/DrinkPage'));
 
 function App() {
 
- const { pathname } = useLocation();
- const dispatch = useDispatch();
- const isRefreshing = useSelector(selectIsRefreshing);
+  const { pathname } = useLocation();
+  const dispatch = useDispatch();
+  const isRefreshing = useSelector(selectIsRefreshing);
 
- useEffect(() => {
-  window.scrollTo(0, 0);
- }, [pathname]);
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
- useEffect(() => {
-  dispatch(refresh());
- }, [dispatch]);
+  useEffect(() => {
+    dispatch(refresh());
+  }, [dispatch]);
 
 
  return <> 

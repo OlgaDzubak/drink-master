@@ -21,19 +21,16 @@ export const Container = styled.div`
 
   @media screen and (max-width: 767.8px){
     width: 375px;
-    //padding: 0px 20px 0px 20px;
     padding: 80px 20px 80px 20px;
   }
 
   @media screen and (min-width: 768px) and (max-width: 1279.8px){
     width: 768px;
-    //padding: 0px 32px 0px 32px;
     padding: 140px 32px 140px 32px;
   }
 
   @media screen and (min-width: 1280px) {
     width: 1280px;
-    //padding: 0px 20px 0px 20px;
     padding: 72px 20px 140px 20px;
   }
 `;
