@@ -21,12 +21,12 @@ export const Title = styled.h1`
                       color: ${theme.mainTextColor};
                       transition: color var(--transition);
 
-                      @media (min-width: 768px) and (max-width: 1439.98px) { 
+                      @media (min-width: 768px) and (max-width: 1279.98px) { 
                         font-size: 56px;
                         margin-bottom: ${marginBottom || '60px'};
                       }
                         
-                      @media (min-width: 1440px) { 
+                      @media (min-width: 1280px) { 
                         font-size: 64px;
                         margin-bottom: ${marginBottom || '60px'};
                       }`
@@ -54,12 +54,12 @@ export const TitleH2 = styled.h2`
                       color: ${theme.mainTextColor};
                       transition: color var(--transition);
 
-                      @media (min-width: 768px) and (max-width: 1439.98px) { 
+                      @media (min-width: 768px) and (max-width: 1279.98px) { 
                         font-size: 56px;
                         margin-bottom: ${marginBottom || '60px'};
                       }
                         
-                      @media (min-width: 1440px) { 
+                      @media (min-width: 1280px) { 
                         font-size: 64px;
                         margin-bottom: ${marginBottom || '60px'};
                       }`

@@ -8,7 +8,7 @@ const HomePage = () => {
   return  <>
             <HomeHero />
             <HomeGallery />
-            <BlurStyledBar3/>
+            <BlurStyledBar3 />
           </>
 };
 

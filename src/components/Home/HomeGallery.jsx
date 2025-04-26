@@ -1,71 +1,86 @@
-import { useEffect, useState } from 'react';
-import { useBreakPoint } from '../../hooks/useBreakPoint';
+import { useEffect, useState, useContext } from 'react';
+import { GlobalContext } from "../../context/GlobalContext";
 import { getCoctailsByCategories } from '../../helpers/API/operationsDrinks';
 import { GallerySection, GalleryList, CategoryTitle, DrinkList, LinkDrinks } from './Home.styled';
-import  SectionTitle  from '../Titles/SectionTitle';
+import SectionTitle from '../Titles/SectionTitle';
+import Loader from '../Loader/Loader';
 import { DrinkCard } from '../DrinkCard/DrinkCard';
 
+
 const HomeGallery = () => {
-
-  const breakPoint = useBreakPoint();
+  
+  const { screenBreakPoint } = useContext(GlobalContext);
   const [drinks, setDrinks] = useState([]);
-  let per_page = 1;
-
-  useEffect(() => { 
-    const mathPerPage = () => {
-      switch (breakPoint) {
-        case 1280: per_page = 3; break;
-        case 768: per_page = 2; break;
-        case 375: per_page = 1; break;
-        default: per_page = 1; break;
-      }
-    };
-    mathPerPage();
-    }, [breakPoint])
+  const [per_page, setPerPage] = useState(3);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
   
   useEffect(() => {
+
+    const mathPerPage = (bp) => {
+      switch (bp) {
+        case 1280: return 3;
+        case 768: return 2;
+        case 375: return 1;
+        default: return 1;  
+      }
+    }
+    setPerPage(mathPerPage(screenBreakPoint));
+  }, [screenBreakPoint]);
+    
+  useEffect(() => {
+    
+    const abortCtrl = new AbortController();
+    setIsLoading(true);
+
     const fetchDrinks = async () => {
       try {
-        
-        const data = await getCoctailsByCategories(per_page);
+        const data = await getCoctailsByCategories(per_page, abortCtrl);
         const drinksArr = Object.entries(data);
         setDrinks([...drinksArr]);
       } catch (error) {
-        console.error('Error fetching drinks:', error);
+        if (!abortCtrl.signal?.aborted) {
+          console.error('Error fetching drinks:', error);
+        }
+      } finally {
+        setIsLoading(false);
       }
     };
-
     fetchDrinks();
-  }, []);
 
+    return () => abortCtrl.abort();
+
+  }, [per_page]);
+  
   return  <GallerySection>
             
             <SectionTitle title='Drink gallery by categories' hidden={true}/>
-    
-            <GalleryList>
-              {drinks.map( ([title, coctails]) => 
-                <li key={title}>
+
+            {isLoading && <Loader />}
+						{error && <ErrorPage />}
+            {drinks.length > 0 && <>
+              <GalleryList>
+                {drinks.map(([title, coctails]) =>
+                  <li key={title}>
 
                     <CategoryTitle>{title}</CategoryTitle>
 
                     <DrinkList>
-                      { 
-                          coctails.map(({ _id, drink, drinkThumb }) => 
-                              <DrinkCard  location="home" 
-                                          key={_id} 
-                                          _id={_id} 
-                                          drink={drink} 
-                                          drinkThumb={drinkThumb} />)
+                      {
+                        coctails.map(({ _id, drink, drinkThumb }) =>
+                          <DrinkCard location="home"
+                            key={_id}
+                            _id={_id}
+                            drink={drink}
+                            drinkThumb={drinkThumb} />)
                       }
                     </DrinkList>
 
-                </li>)}
-            </GalleryList>
+                  </li>)}
+              </GalleryList>
             
-            <LinkDrinks to={`/drinks`}>
-              Other Drinks
-            </LinkDrinks>
-
+              <LinkDrinks to={`/drinks`}>Other Drinks</LinkDrinks>
+            </>}
           </GallerySection>
 };
 

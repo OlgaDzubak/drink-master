@@ -5,7 +5,7 @@ export const addDrinkSchema = Yup.object().shape({
       drink: Yup.string()
                 .required('This field is required!')
                 .min(2, "This field must be 2-30 symbols long")
-                .max(30, "This field must be 2-30 symbols long"),
+                .max(35, "This field must be 2-35 symbols long"),
       description: Yup.string()
                       .required('This field is required!')
                       .min(25, "This field must be 25-234 symbols long")

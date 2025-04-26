@@ -5,7 +5,7 @@ export const BtnUpScroll = () => {
   
   return  <ScrollToTop
               showUnder={260}
-              duration={1500}
+              duration={2000}
               style={{
                 position: 'fixed',
                 bottom: '50px',

@@ -40,6 +40,7 @@ export const DescriptionImageDiv = styled.div`
   }
 
   &:hover {
+    background-color: ${(props) => props.theme.imageBackgroundHover};
    .add-div {
       background-color: ${(props) => props.theme.addImgBackgroundHover};
       color: ${(props) => props.theme.addImgSvgColorHover};

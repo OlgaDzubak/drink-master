@@ -9,6 +9,7 @@ import { BurgerModal } from '../modal-windows/BurgerModal/BurgerModal';
 import { UserProfileModal } from '../modal-windows/UserProfileModal/UserProfileModal';
 import { LogoutModal } from '../modal-windows/LogOutModal/LogoutModal';
 
+
 import { selectIsBurgerModalOpen, selectIsUserProfileModalOpen, selectIsLogoutModalOpen} from '../../redux/modal/modalSelectors';
 import { toggleIsBurgerModalOpen, toggleIsUserProfileModalOpen, toggleIsLogoutModalOpen} from '../../redux/modal/modalSlice';
 
@@ -26,8 +27,8 @@ import Loader from '../Loader/Loader';
 
 const SharedLayout = () => {
 
-  const currentTheme = useContext(GlobalContext);
-
+  const { theme: currentTheme, screenBreakPoint } = useContext(GlobalContext);
+  
   const darkTheme = {...DARK_THEME};
   const lightTheme = {...LIGHT_THEME};
 
@@ -60,7 +61,7 @@ const SharedLayout = () => {
   }, [isBurgerModalOpen, isUserProfileModalOpen, isLogoutModalOpen]);
 
   let theme;
-  switch (currentTheme.theme) {
+  switch (currentTheme) {
     case "dark": 
                 theme = darkTheme;
                 break;
@@ -82,7 +83,7 @@ const SharedLayout = () => {
 
             <Header />
 
-            <Main>
+            <Main >
               <Container className="container">
 
                 <Suspense fallback={<Loader />}>

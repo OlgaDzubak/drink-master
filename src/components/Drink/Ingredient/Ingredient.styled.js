@@ -1,7 +1,11 @@
 import styled from '@emotion/styled';
 
 export const IngredientItem = styled.li`
-
+  width: 157px;
+    
+  @media (min-width: 768px) {
+      width: 220px;
+  }
 `;
 
 export const ImageThumb = styled.div`
@@ -40,6 +44,7 @@ export const InfoDiv = styled.div`
 `
 export const IngredientName = styled.p`
   font-size: 14px;
+  wrap-text: wrap;
   color: ${(props) => props.theme.mainTextColor};
   
   @media (min-width: 768px) {
@@ -48,6 +53,7 @@ export const IngredientName = styled.p`
 `
 export const IngredientMeasure = styled.span`
   font-size: 14px;
+  text-align: right;
   color: ${(props) => props.theme.seeMoreBtnTextColor};
   
   @media (min-width: 768px) {

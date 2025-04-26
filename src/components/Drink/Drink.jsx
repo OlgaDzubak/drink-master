@@ -14,19 +14,21 @@ const Drink = () => {
   const { drinkId } = useParams();
 
   useEffect(() => {
+
     setIsLoading(true);
+
     const fetchData = async () => {
       try {
         const data = await getCurrentCoctail(drinkId);
         setCoctailData(data);
       } catch (error) {
-        console.error(error.message);
+            console.error(error.message);
       } finally {
         setIsLoading(false);
       }
     };
-
     fetchData();
+
   }, [drinkId]);
 
   return isLoading 

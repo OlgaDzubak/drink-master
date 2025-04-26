@@ -5,21 +5,23 @@ export const DrinkHeroSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 18px;
 
   @media screen and (min-width: 768px) {
     justify-content: space-between;
-    margin-bottom: 120px;
+    margin-bottom: 80px;
+
   }
 
   @media screen and (min-width: 1280px) {
     flex-direction: row;
     align-items: flex-start;
-    margin-bottom: 160px;
+    margin-bottom: 100px;
   }
 `;
 
 export const BoxWrapper = styled.div`
-  max-width: 593px;
+  max-width: 750px;
   
     @media screen and (min-width: 1280px) {
       padding-top: 30px;

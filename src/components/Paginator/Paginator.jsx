@@ -18,7 +18,7 @@ const Paginator = ({ pageCount, handlePageClick }) => {
               !!(pageCount - 1) && <StyledReactPaginate
                                       breakLabel="..."
                                       nextLabel={ <MdOutlineArrowForwardIos size={15}/> }
-                                      onPageChange={handlePageClick}
+                                      onPageChange={ handlePageClick }
                                       pageCount={pageCount}
                                       previousLabel={ <MdOutlineArrowBackIos size={15} /> }
                                       renderOnZeroPageCount={null}

@@ -130,7 +130,7 @@ export const DrinkDescriptionFields = ({values, errors, touched, handleChange, h
                   id="drink"
                   name="drink"
                   minLength={2}
-                  maxLength={30}
+                  maxLength={35}
                   onChange={(e) => { handleInputChange(e); handleChange(e) }}
                   onBlur={(e) => { setIsFocused(false); handleBlur(e) }}
                   onFocus={() => setIsFocused(true)}

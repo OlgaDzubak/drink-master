@@ -1,18 +1,19 @@
-import { useState, useEffect } from 'react';
-import { useBreakPoint } from '../../hooks/useBreakPoint';
+import { useState, useEffect, useContext, lazy } from 'react';
+import { GlobalContext } from "../../context/GlobalContext";
 import { getCoctailsByFilter } from '../../helpers/API/operationsDrinks';
 import { onClickPaginator } from '../../helpers/onClickPaginator';
 import NotFound from '../NotFound/NotFound';
 import Loader from '../Loader/Loader';
 import Filter from './Filter/Filter';
-import DrinksGallery from './DrinksGallery/DrinksGallery';
+//const DrinksGallery = lazy(() => import('./DrinksGallery/DrinksGallery'));
+import { DrinksGallery } from './DrinksGallery/DrinksGallery';
 import ErrorPage from '../../pages/ErrorPage/ErrorPage';
 import Paginator from '../Paginator/Paginator';
 import { DrinksContainer } from './Drinks.styled';
 
 // Компонент Drinks: рендерить компоненти Filter, DrinksGallery -------------------------------------------------------------
 const Drinks = ({categoryList, ingredientList}) => {
-	const breakPoint = useBreakPoint();
+	const { screenBreakPoint } = useContext(GlobalContext);
 	const [keyword, setKeyword] = useState("");
 	const [category, setCategory] = useState("");
 	const [ingredient, setIngredient] = useState("");
@@ -22,36 +23,45 @@ const Drinks = ({categoryList, ingredientList}) => {
 	const [per_page, setPerPage] = useState(10);
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState(null);
-	
-	useEffect(() => { 
-		const mathPerPage = () => {
-			if (breakPoint === 1280) { setPerPage(9) }
-			else { setPerPage(10) }
-		}
-		mathPerPage();
+	const [isEmpty, setIsEmpty] = useState(false);
 
-	},[breakPoint])
+	useEffect(() => { 
+		const mathPerPage = (bp) => {
+			if (bp === 1280) { return 9 }
+			else {return 10 }
+		}
+		setPerPage(mathPerPage(screenBreakPoint));
+	},[screenBreakPoint])
 
 	useEffect(() => {
-		
-		//Запит на сервер для отримання списку напоїв по фільтрам зі стану.
-		const getPopularDrinks = async (keyword = '', category = '',ingredient = '', page = 1, per_page ) => {
-			
+
+		const abortCtrl = new AbortController();
+		setIsLoading(true);
+		setIsEmpty(false);
+		setDrinkItems([]);
+
+		const getPopularDrinks = async (keyword = '', category = '', ingredient = '', page = 1, per_page) => {
 			try {
-				setIsLoading(true);
-				const { drinks, totalResults } = await getCoctailsByFilter(keyword, category, ingredient, page, per_page);
+				const { drinks, totalResults } = await getCoctailsByFilter(keyword, category, ingredient, page, per_page, abortCtrl);
+				if (drinks.length === 0) {
+					setIsEmpty(true);
+				}
 				setTotalDrinks(totalResults);
 				setDrinkItems(drinks);
 			} catch (error) {
-				if (error.code !== 'ERR_CANCELED') {
-					setError(error);
-					throw Error('Oops! Something went wrong! Try reloading the page!');
-				}
+				if (!abortCtrl.signal?.aborted) {
+					if (error.code !== 'ERR_CANCELED') {
+						setError(error);
+						throw Error('Oops! Something went wrong! Try reloading the page!');
+					}
+				}				
 			} finally {
 				setIsLoading(false);
 			}
 		};
 		getPopularDrinks(keyword, category, ingredient, page, per_page);
+		
+		return () => abortCtrl.abort();
 
 	}, [keyword, category, ingredient, page, per_page ]);
 	
@@ -86,16 +96,11 @@ const Drinks = ({categoryList, ingredientList}) => {
 							ingredientList={ingredientList} 
 							onChangeFilter={onChangeFilter}
 						/>
-
-						{
-							isLoading 
-								? <Loader/> 
-								: error 
-									?	<ErrorPage />
-									: drinkItems.length === 0 
-											? <NotFound text="Not found!" />
-											: <DrinksGallery	location="drinks" drinkItems={drinkItems} />
-						}
+		
+		  			{isLoading && <Loader />}
+						{error && <ErrorPage />}
+						{isEmpty && <NotFound text="Not found!" />}
+						{drinkItems.length > 0 && <DrinksGallery location="drinks" drinkItems={drinkItems} />}
 
 						<Paginator 	pageCount={Math.ceil(totalDrinks/per_page)} 
 												handlePageClick={handlePageClick}

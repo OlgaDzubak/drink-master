@@ -1,20 +1,27 @@
 import {useState, useEffect} from 'react';
-import { screenChecker } from '../helpers/screenChecker';
+import { breakPointChecker } from '../helpers/breakPointChecker';
 
 export const useBreakPoint = () => {
-  const [breakPoint, setBreakPoint] = useState(375);
+
+  const [breakPoint, setBreakPoint] = useState();
 
   useEffect(() => {
 
     function handleChangeBreakPoint() {
+
+      let bp;
+      const width = window.innerWidth;
       
-      const screenWidth = screenChecker().width;
-      
-      if (screenWidth >= 1280 && breakPoint !== 1280) { setBreakPoint(1280);
-      }else if (screenWidth >= 768 && screenWidth < 1280 && breakPoint !== 768) { setBreakPoint(768);
-      } else if (screenWidth < 768 && breakPoint !== 375) { setBreakPoint(375); }      
-    }
-    handleChangeBreakPoint();
+      if (width >= 1280) {
+        bp = 1280;
+      } else if (width >= 768) {
+        bp = 768;
+      } else {
+        bp = 375;
+      }
+      setBreakPoint(bp);
+    }    
+   handleChangeBreakPoint();
     
     window.addEventListener('resize', handleChangeBreakPoint);
 

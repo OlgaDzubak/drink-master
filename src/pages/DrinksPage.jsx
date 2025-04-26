@@ -3,14 +3,11 @@ import { getCategories, getIngredients} from '../helpers/API/operationsFilters';
 import PageTitle from '../components/Titles/PageTitle';
 import Drinks from '../components/Drinks/Drinks';
 
-// Сторінка Drinks page: рендерить заголовок сторінки та компонент Drinks -------------------------------------------------
   const DrinksPage = () => {
 
-      //стан: список категорій напоїв та список інгредієнтів.
       const [categoryList, setCategoryList] = useState([]);
       const [ingredientList, setIngredientList] = useState([]);
 
-      //useEffect виконую один раз при монтуванні компонента: дістаю з БД списки категорій та інгредієнтів і заношу їх в стан
       useEffect(() => {
         const getCategoryList = async () => {
           try {
