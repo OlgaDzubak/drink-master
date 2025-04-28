@@ -12,17 +12,21 @@ import {  DescriptionDiv, ImgAndErrorDiv, DataAndErrorDiv,
 
 export const DrinkDescriptionFields = ({values, errors, touched, handleChange, handleBlur, setFieldValue, themeColors}) => {
   
-  const [categoryOptions, setCategoriesOptions] = useState([]);
-  const [selectedCategoriesOption, setSelectedCategoriesOption] = useState([]);
-  const [glassesOptions, setGlassesOptions] = useState([]);
-  const [selectedGlassesOption, setSelectedGlassesOption] = useState([]);
   const [selectedImage, setSelectedImage] = useState(null);
   const [$isFocused, setIsFocused] = useState(false);
   const [$hasValue, setHasValue] = useState(false);
   const [$isFocusedDescription, setIsFocusedDescription] = useState(false);
   const [$hasValueDescription, setHasValueDescription] = useState(false);
 
+  const [categoryOptions, setCategoriesOptions] = useState([]);
+  const [selectedCategoriesOption, setSelectedCategoriesOption] = useState([]);
+  const [$isFocusedCategorySelect, setIsFocusedCategorySelect] = useState(false);
 
+  const [glassesOptions, setGlassesOptions] = useState([]);
+  const [selectedGlassesOption, setSelectedGlassesOption] = useState([]);
+  const [$isFocusedGlassesSelect, setIsFocusedGlassesSelect] = useState(false);
+ 
+  
   useEffect(() => {
     async function fetchCategories() {
       try {
@@ -78,6 +82,10 @@ export const DrinkDescriptionFields = ({values, errors, touched, handleChange, h
     setFieldValue(`glass`, selectedOption?.value || '');
   };
 
+const handleSelectMenuOpen = (e) => {
+
+}
+
   return  <DescriptionDiv className='description-fields'>
             
             <ImgAndErrorDiv>
@@ -122,7 +130,7 @@ export const DrinkDescriptionFields = ({values, errors, touched, handleChange, h
                   $isFocused={$isFocused}
                   $hasValue={$hasValue}
                 >
-                  Enter item title
+                  Enter drink title
                 </NameInputLabel>
 
                 <Input
@@ -148,7 +156,7 @@ export const DrinkDescriptionFields = ({values, errors, touched, handleChange, h
                   $isFocusedDescription={$isFocusedDescription}
                   $hasValueDescription={$hasValueDescription}
                 >
-                  Enter about recipe
+                  Enter drink description
                 </DescriptionInputLabel>
 
                 <Input
@@ -168,36 +176,56 @@ export const DrinkDescriptionFields = ({values, errors, touched, handleChange, h
 
               </InputDiv>
 
-              <InputDiv className="drink-categories">
+              <InputDiv className="category">
                 <SelectInputDiv>
-                  <SelectLabelP selectedCategory={selectedCategoriesOption.label}>Category</SelectLabelP>
+                  <SelectLabelP 
+                    selectedCategory={selectedCategoriesOption.label}
+                    $isFocused={$isFocusedCategorySelect}
+                  >Choose drink category</SelectLabelP>
+
                   <Select
                     isClearable
-                    name="drink-categories"
+                    inputId="category"
+                    name="category"
                     options={categoryOptions}
                     value={selectedCategoriesOption}
                     onChange={(selectedCategoriesOption) => handleSelectCategoriesChange(selectedCategoriesOption)}
+                    onFocus={() => setIsFocusedCategorySelect(true)}
+                    onBlur={(e) => { setIsFocusedCategorySelect(false); handleBlur(e) }}
                     styles={selectStyles('199px', '405px', '205px', selectedCategoriesOption, themeColors)}
                     placeholder=""
                   />
-                </SelectInputDiv>
                 { touched.category && errors.category ? <FormError>{errors.category}</FormError> : <FormError></FormError> }
+                </SelectInputDiv>
+                
               </InputDiv>
 
-              <InputDiv className="drink-glasses">
-                <SelectInputDiv>
-                  <SelectLabelP selectedCategory={selectedGlassesOption.label}>Glass</SelectLabelP>
+              <InputDiv className="glass">
+                <SelectInputDiv >
+                  
+                  <SelectLabelP
+                    selectedCategory={selectedGlassesOption.label}
+                    $isFocused={$isFocusedGlassesSelect}
+                  >Choose drink glass
+                  </SelectLabelP>
+          
                   <Select
                     isClearable
-                    name="drink-glasses"
+                    inputId="glass"
+                    name="glass"
                     options={glassesOptions}
                     value={selectedGlassesOption}
                     onChange={(selectedGlassesOption) => handleSelectGlassesChange(selectedGlassesOption)}
+                    onFocus={() => setIsFocusedGlassesSelect(true)}
+                    onBlur={(e) => { setIsFocusedGlassesSelect(false); handleBlur(e) }}
+                    onMenuOpen={ handleSelectMenuOpen }
                     styles={selectStyles('199px', '305px' ,'205px', selectedGlassesOption, themeColors)}
                     placeholder=""
+                    
                   />
+                  { touched.glass && errors.glass ? <FormError>{errors.glass}</FormError> : <FormError></FormError> }
                 </SelectInputDiv>
-                { touched.glass && errors.glass ? <FormError>{errors.glass}</FormError> : <FormError></FormError> }
+                
               </InputDiv>
 
               <RadioDiv className="alcoholic">

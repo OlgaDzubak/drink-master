@@ -18,13 +18,14 @@ export const NavList = styled.ul`
 `;
 
 export const NavItem = styled.li`
-  transition: var(--transition);
+  color: ${(props) => props.theme.footerTextColor};
+  transition: font-weight var(--transition);
+
   &:hover, &:focus {
-    transform: scale(1.1);
+    font-weight: 700;
   }
 `;
 
 export const NavLink = styled(Link)`
   text-decoration: none;
-  color: ${(props) => props.theme.footerTextColor};
 `;

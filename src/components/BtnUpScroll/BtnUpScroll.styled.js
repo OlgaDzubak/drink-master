@@ -14,7 +14,6 @@ export const ScrollToTopDiv = styled.div`
   fill: ${(props)=>props.theme.scrollUpBtnColor};
   stroke:  ${(props)=>props.theme.scrollUpBtnColor};
   transition: color var(--transition), border-color var(--transition);
-
   &:hover{
     border-color: ${(props)=>props.theme.scrollUpBtnColorHover};
     color: ${(props)=>props.theme.scrollUpBtnColorHover};

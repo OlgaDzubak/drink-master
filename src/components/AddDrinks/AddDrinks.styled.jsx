@@ -16,6 +16,9 @@ export const AddDrinkTitle = styled.h2`
   }
 `;
 export const TotalWrapper = styled.div`
+  position: relative;
+  z-index: 200;
+
   @media (min-width: 1280px) {
     display: flex;
     gap: 94px;

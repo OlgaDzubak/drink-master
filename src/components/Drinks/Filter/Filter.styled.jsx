@@ -8,6 +8,7 @@ export const FilterStyles = styled.div`
 `;
 
 export const FilterForm = styled.form`
+  position: relative;
   display: flex;
   flex-direction: column;
   padding: 0;
@@ -15,6 +16,7 @@ export const FilterForm = styled.form`
   margin-bottom: 40px;
   row-gap: 14px;
   justify-content: center;
+  z-index: 200;
   
   @media (min-width: 768px) {
     flex-direction: row;

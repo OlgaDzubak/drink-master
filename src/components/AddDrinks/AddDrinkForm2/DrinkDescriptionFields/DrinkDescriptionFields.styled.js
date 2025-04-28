@@ -139,7 +139,7 @@ export const NameInputLabel = styled.label`
                                                           : props.theme.inputLabelColorNoValue)
           };
   transform: translateY(-8px);
-  transition: top var(--transition), color var(--transition);;
+  transition: top var(--transition), font-size var(--transition), color var(--transition);
 
   @media (min-width: 768px) {
     font-size: ${(props) => props.$isFocused || props.$hasValue ? '12px' : '16px'};
@@ -192,13 +192,12 @@ export const Input = styled.input`
 export const SelectInputDiv = styled.div`
   position: relative;
   width: 100%;
-  padding: 5px 0px 15px 0px;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
   font-size: 14px;
   color:${(props)=>props.theme.mainTextColor};
-  border-bottom: 1px solid ${(props)=>props.theme.seeMoreBtnTextColor};
   background-color: transparent;
   transition: border-color var(--transition), color var(--transition);
   
@@ -207,31 +206,40 @@ export const SelectInputDiv = styled.div`
   }
 `;
 export const SelectLabelP = styled.p`
-  left: 10px;
-  transform-origin: left;
-  transform: translateY(${(props)=> props.selectedCategory ? '-10px' : '10px'});
-  pointer-events: none;
-  color: ${(props) => (props.selectedCategory ? props.theme.inputLabelColordHasValue : props.theme.inputLabelColorNoValue)};
+  position: absolute;
+  top: ${(props) => (props.$isFocused ||props.selectedCategory ? '-7px' : '10px')};
+  left: 0px;
+  font-size: ${(props) => props.$isFocused || props.selectedCategory ? '12px' : '14px'};
+  color: ${(props) => props.selectedCategory ? props.theme.inputLabelColordHasValue 
+                                             : (props.$isFocused ? props.theme.inputLabelColordHasValue 
+                                                                 : props.theme.inputLabelColorNoValue)
+          };
   font-size: ${(props) => props.selectedCategory ? '12px' : '14px'};
-  transition: transform var(--transition), font-size var(--transition), color var(--transition);
+  transform: translateY(-8px);
+  transition: top var(--transition), font-size var(--transition), color var(--transition);
   
   @media (min-width: 768px) {
-    font-size: ${(props) => props.selectedCategory ? '12px' : '16px'};
+    font-size: ${(props) => props.$isFocused || props.selectedCategory ? '12px' : '16px'};
   }
 `;
 export const selectStyles = (maxWidth, maxHeight, minHeight, controlOption, themeColors) => {
   
   return {
+            container: (provided) => ({
+                ...provided,
+                width: '100%',
+                borderBottom: `1px solid ${themeColors.seeMoreBtnTextColor}`,
+            }),
             control: (provided, state) => ({
               ...provided,
-              fontSize: '17px',
-              lineHeight : '1.56',
+              fontSize: '16px',
+              lineHeight : '1.21',
               letterSpacing: '-0.04em',
-              minHeight: 'auto',
               backgroundColor: 'transparent',
               border: 'none',
               boxShadow: 'none',
               '&:hover': { cursor: 'pointer',},
+              
             }),
             option: (provided) => ({
               ...provided,
@@ -245,7 +253,7 @@ export const selectStyles = (maxWidth, maxHeight, minHeight, controlOption, them
             }),
             input: (provided) => ({
               ...provided,
-              padding: 0,
+              padding: 10,
               margin: 0,
               border: 'none',
               color: `${themeColors.mainTextColor}`,
@@ -276,7 +284,8 @@ export const selectStyles = (maxWidth, maxHeight, minHeight, controlOption, them
             }),
             singleValue: (provided, state) => ({
               ...provided,
-              textAlign: 'right',
+              padding: 10,
+              textAlign: 'left',
               color: `${themeColors.mainTextColor}`,
             }),
             valueContainer: (provided) => ({

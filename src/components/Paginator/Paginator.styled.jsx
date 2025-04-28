@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import ReactPaginate from 'react-paginate';
 
 export const StyledReactPaginate = styled(ReactPaginate)`
+  position: relative;
   display: flex;
   width:100%;
   padding: 14px 0;
@@ -9,6 +10,7 @@ export const StyledReactPaginate = styled(ReactPaginate)`
   margin-botom: 80px;
   justify-content: space-between;
   align-items: center;
+  z-index: 200;
   
   @media (min-width: 768px) {
     max-width: 636px;

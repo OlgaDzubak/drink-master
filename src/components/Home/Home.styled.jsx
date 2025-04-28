@@ -41,6 +41,9 @@ export const HeroSection = styled.section`
 `;
 
 export const HeroTextDiv = styled.div`
+  position: relative;
+  z-index: 200;
+  
   @media screen and (max-width: 767.9px) {
     margin-bottom: 45px;
   }
@@ -56,7 +59,7 @@ export const HeroTextDiv = styled.div`
 export const HeroTitle = styled.h1`
   font-size: 32px;
   font-weight: 500;
-  line-height: 1.18;
+  line-height: 1.1875;
   letter-spacing: 0;
   margin-bottom: 16px;
   color: ${(props) => props.theme.mainTextColor};
@@ -78,7 +81,7 @@ export const HeroTitle = styled.h1`
 
 export const Text = styled.p`
   font-size: 14px;
-  line-height: 1.42;
+  line-height: 1.4285;
   margin-bottom: 32px;
   color: ${(props) => props.theme.mainTextColor};
   transition: color var(--transition);
@@ -97,8 +100,8 @@ export const Text = styled.p`
 
 export const BtnAddDrinks = styled(Link)`
   display: inline-block;
-  padding: 18px 44px;
-  font-size: 16px;
+  padding: 14px 40px;
+  font-size: 14px;
   font-weight: 600;
   line-height: 1.125;  
   border-radius: 42px;
@@ -121,8 +124,8 @@ export const BtnAddDrinks = styled(Link)`
 
   @media screen and (min-width: 1280px) {
     padding: 18px 44px;
+    font-size: 16px;
   }
-
 `;
 
 export const GlassPictureDiv = styled.div`
@@ -180,6 +183,7 @@ export const GlassPictureDiv = styled.div`
 //HomeGallery---------------------------------------
 
 export const GallerySection = styled.section`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -18,6 +18,7 @@ export const BtnUpScroll = () => {
                 transitionDelay: '0s',
                 borderRadius: '100%',
                 overflow: 'hidden',
+                zIndex: '300',
               }}
           >
             <ScrollToTopDiv>

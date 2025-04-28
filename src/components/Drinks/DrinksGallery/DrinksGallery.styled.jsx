@@ -1,21 +1,14 @@
 import styled from '@emotion/styled';
 
-export const Styled_CardListDiv  = styled.div`
-      margin-bottom: 40px;
-
-      @media screen and (min-width: 768px) {
-        margin-bottom: 80px;
-      }
-`
-
 export const CardList = styled.ul`
-
+    position: relative;
     display: flex;
     padding: 0;
     flex-wrap: wrap;
     gap: 28px;
     margin-bottom: 40px;
-      
+    z-index: 200;
+    
     @media screen and (min-width: 768px) {
       row-gap: 40px;
       column-gap: 20px;

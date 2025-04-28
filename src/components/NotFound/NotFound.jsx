@@ -10,7 +10,7 @@ const NotFound = ({ text }) => {
   return (
     <Wrap>
       <GlassPictureDiv themeName={theme}/>
-      <Text> {text}</Text>
+      <Text>{text}</Text>
     </Wrap>
   );
 };
