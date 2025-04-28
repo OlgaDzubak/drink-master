@@ -1,10 +1,9 @@
 import styled from '@emotion/styled';
-import { colorStyled, transitionStyled } from '../../../helpers/colorStyled';
 import { ReactComponent as lookUpSvg } from '../../../assets/images/search.svg';
 
 
 export const FilterStyles = styled.div`
-  
+
 `;
 
 export const FilterForm = styled.form`
@@ -16,15 +15,15 @@ export const FilterForm = styled.form`
   margin-bottom: 40px;
   row-gap: 14px;
   justify-content: center;
-  z-index: 200;
-  
+  z-index: 300;
+
   @media (min-width: 768px) {
     flex-direction: row;
     column-gap: 8px;
     justify-content: flex-start;
     align-items: center;
   }
-  
+
 `;
 
 export const Styled_InputLabel = styled.label`
@@ -86,11 +85,11 @@ export const LookUpIcon = styled(lookUpSvg)`
 
 
 export const CreatableSelectStyles = (maxHeight, minHeight, controlOption, themeColors) => {
- 
-  return  { 
+
+  return  {
             control: (baseStyles, state) => {
               return {
-                ...baseStyles, 
+                ...baseStyles,
                 padding: '10px 16px 10px 22px',
                 fontFamily: 'inherit',
                 fontSize: '17px',
@@ -144,7 +143,7 @@ export const CreatableSelectStyles = (maxHeight, minHeight, controlOption, theme
               border: 'none',
               borderRadius: "20px",
               transition: "all 600ms ease-in-out",
-              
+
               "@media only screen and (min-width: 768px)": {
                 ...baseStyles["@media only screen and (min-width: 768px)"],
                 fontSize: '17px',
@@ -160,16 +159,16 @@ export const CreatableSelectStyles = (maxHeight, minHeight, controlOption, theme
               "::-webkit-scrollbar": { width: "8px"},
               "::-webkit-scrollbar-track": { background: "none"},
               "::-webkit-scrollbar-thumb": { background: `${themeColors.selectScrollbarThumbColor}`},
-              "::-webkit-scrollbar-corner":{ background: 'none'},          
+              "::-webkit-scrollbar-corner":{ background: 'none'},
               }),
             option: (baseStyles, { data, isDisabled, isFocused, isSelected }) => ({
               ...baseStyles,
               padding: '8px 7px  8px 15px',
               backgroundColor: 'transparent',
-              color: (controlOption==="") 
-                                ? `${themeColors.selectOptionColor}` 
-                                : (isSelected 
-                                          ? `${themeColors.selectOptionColor_focused}` 
+              color: (controlOption==="")
+                                ? `${themeColors.selectOptionColor}`
+                                : (isSelected
+                                          ? `${themeColors.selectOptionColor_focused}`
                                           : `${themeColors.selectOptionColor}`),
               cursor: isDisabled ? 'not-allowed' : 'pointer',
               transition: `color var(--transition)`,
@@ -181,7 +180,7 @@ export const CreatableSelectStyles = (maxHeight, minHeight, controlOption, theme
                 ...baseStyles[':active'],
                 borderRadius: "200px",
               },
-      
+
               }),
             dropdownIndicator: (baseStyles, state) => ({
               ...baseStyles,
@@ -195,7 +194,7 @@ export const CreatableSelectStyles = (maxHeight, minHeight, controlOption, theme
               }),
             clearIndicator: (baseStyles)=>({
               ...baseStyles,
-              display: 'none',          
+              display: 'none',
             }),
           }
 };
