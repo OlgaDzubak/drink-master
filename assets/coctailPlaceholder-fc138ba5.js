@@ -1,6 +1,6 @@
-import{n as o}from"./index-8cc4cbce.js";const p=o.h1`
+import{n as e}from"./index-426e2c1a.js";const a=e.h1`
   
-  ${({hidden:t,theme:n,marginBottom:i})=>t?` width: 1px; 
+  ${({hidden:t,theme:o,marginBottom:i})=>t?` width: 1px; 
                       height: 1px; 
                       margin: -1px;
                       padding: 0; 
@@ -12,7 +12,7 @@ import{n as o}from"./index-8cc4cbce.js";const p=o.h1`
                       font-weight: 600; 
                       line-height: 1.1875;
                       margin-bottom: ${i||"40px"};
-                      color: ${n.mainTextColor};
+                      color: ${o.mainTextColor};
                       transition: color var(--transition);
 
                       @media (min-width: 768px) and (max-width: 1279.98px) { 
@@ -24,9 +24,9 @@ import{n as o}from"./index-8cc4cbce.js";const p=o.h1`
                         font-size: 64px;
                         margin-bottom: ${i||"60px"};
                       }`}
-`,a=o.h2`
+`,p=e.h2`
   
-  ${({hidden:t,theme:n,marginBottom:i})=>t?` width: 1px; 
+  ${({hidden:t,theme:o,marginBottom:i})=>t?` width: 1px; 
                       height: 1px; 
                       margin: -1px;
                       padding: 0; 
@@ -38,7 +38,7 @@ import{n as o}from"./index-8cc4cbce.js";const p=o.h1`
                       font-weight: 600; 
                       line-height: 1.1875;
                       margin-bottom: ${i||"40px"};
-                      color: ${n.mainTextColor};
+                      color: ${o.mainTextColor};
                       transition: color var(--transition);
 
                       @media (min-width: 768px) and (max-width: 1279.98px) { 
@@ -50,4 +50,4 @@ import{n as o}from"./index-8cc4cbce.js";const p=o.h1`
                         font-size: 64px;
                         margin-bottom: ${i||"60px"};
                       }`}
-`;export{a as T,p as a};
+`,r="/drink-master/assets/coctailPlaceholder-13631aa6.png";export{p as T,a,r as c};

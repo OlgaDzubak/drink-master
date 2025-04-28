@@ -1,4 +1,4 @@
-import{n as i,x as d,q as h,j as t,X as x,Y as m}from"./index-8cc4cbce.js";const g="/drink-master/assets/trash-fc07c8dc.svg",p=i.li`
+import{n as i,x as d,q as h,j as t,X as x,Y as m}from"./index-426e2c1a.js";import{c as g}from"./coctailPlaceholder-fc138ba5.js";const p="/drink-master/assets/trash-fc07c8dc.svg",f=i.li`
   flex-basis: 100%;
 
   @media screen and (min-width: 768px) and (max-width: 1439.9px) {
@@ -8,7 +8,7 @@ import{n as i,x as d,q as h,j as t,X as x,Y as m}from"./index-8cc4cbce.js";const
   @media screen and (min-width: 1280px) {
     flex-basis: calc((100% - 40px) / 3);
   }
-`,f=i.img`
+`,k=i.img`
   width: 335px;  
   border-radius: 8px;
 
@@ -31,7 +31,7 @@ import{n as i,x as d,q as h,j as t,X as x,Y as m}from"./index-8cc4cbce.js";const
     width: 400px;
     height: 400px;
   }
-`,k=i.div`
+`,w=i.div`
   display: flex;
   margin-top: 14px;
   ${e=>e.location==="home"||e.location==="drinks"?` flex-direction: row;
@@ -39,7 +39,7 @@ import{n as i,x as d,q as h,j as t,X as x,Y as m}from"./index-8cc4cbce.js";const
                 justify-content: space-between;`:` flex-direction: column;
                 align-items: flex-start;
                 justify-content: center;`}
-`,w=i.p`
+`,u=i.p`
   font-weight: 500; 
   word-wrap: break-word; 
   ${e=>e.location==="home"||e.location==="drinks"?` font-size: 16px; 
@@ -58,23 +58,23 @@ import{n as i,x as d,q as h,j as t,X as x,Y as m}from"./index-8cc4cbce.js";const
                               font-size: 24px; 
                             }`}
   
-`,u=i.p`
+`,b=i.p`
   ${e=>e.location==="home"||e.location==="drinks"?" display: none;":` font-size: 14px;
               line-height: 1.28;
               margin-bottom: 18px;
               color: ${e.theme.seeMoreBtnTextColor};
               transition: color var(--transition);`}
-`,b=i.p`
+`,v=i.p`
   ${e=>e.location==="home"||e.location==="drinks"?" display: none;":` height: 96px; 
             font-size: 14px; 
             line-height: 1.28; 
             margin-bottom: 18px;
             color: ${e.theme.mainTextColor};
             transition: color var(--transition);`}
-`,v=i.div`
+`,$=i.div`
    display: flex;
    gap: 8px;
-`,$=i(d)`
+`,j=i(d)`
   ${e=>e.location==="home"||e.location==="drinks"?` font-size: 14px; 
           font-weight: 500; 
           line-height: 1.28; 
@@ -108,7 +108,7 @@ import{n as i,x as d,q as h,j as t,X as x,Y as m}from"./index-8cc4cbce.js";const
             background-color: ${e.theme.paginationLabelsHover}; 
             color: ${e.theme.themeSwitcherColor};
           }`}
-  `,j=i.button`
+  `,C=i.button`
   ${e=>e.location==="home"||e.location==="drinks"?"display: none;":` width: 46px; 
                       padding: 11px 32px;
                       display: flex; 
@@ -124,4 +124,4 @@ import{n as i,x as d,q as h,j as t,X as x,Y as m}from"./index-8cc4cbce.js";const
                       &:hover, &:focus {
                         background-color: ${e.theme.trashBucketBackgroundHover};
                       }`}
-`,y=({location:e="home",_id:n,drink:o="",alcoholic:a="",shortDescription:s="",drinkThumb:c=""})=>{const r=h(),l=()=>{switch(e){case"own":r(m(n));break;case"favorite":r(x(n));break}};return t.jsxs(p,{children:[t.jsx(f,{src:c,alt:o}),t.jsxs(k,{location:e,children:[t.jsx(w,{location:e,children:o}),t.jsx(u,{location:e,children:a}),t.jsx(b,{location:e,children:s}),t.jsxs(v,{children:[t.jsx($,{location:e,to:`/drink/${n}`,children:"See more"}),t.jsx(j,{location:e,type:"button",onClick:l,children:t.jsx("img",{src:g,alt:"trash bucket icon"})})]})]})]},n)};export{y as D};
+`,z=({location:e="home",_id:n,drink:o="",alcoholic:a="",shortDescription:s="",drinkThumb:c={defaultImg:g}})=>{const r=h(),l=()=>{switch(e){case"own":r(m(n));break;case"favorite":r(x(n));break}};return t.jsxs(f,{children:[t.jsx(k,{src:c,alt:o}),t.jsxs(w,{location:e,children:[t.jsx(u,{location:e,children:o}),t.jsx(b,{location:e,children:a}),t.jsx(v,{location:e,children:s}),t.jsxs($,{children:[t.jsx(j,{location:e,to:`/drink/${n}`,children:"See more"}),t.jsx(C,{location:e,type:"button",onClick:l,children:t.jsx("img",{src:p,alt:"trash bucket icon"})})]})]})]},n)};export{z as D};
