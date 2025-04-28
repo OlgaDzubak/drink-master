@@ -3,8 +3,7 @@ import { MobileMenuBackdrop, BurgerModalWrapper } from './BurgerModal.styled';
 import { BlurStyledBar8, BlurStyledBar9, BlurStyledBar10} from '../../BlurStyledBars/BlurStyledBars.styled';
 
 export const BurgerModal = () => {
-
-
+  
   return  <MobileMenuBackdrop>
             <BurgerModalWrapper >
                 <Navigation /> 

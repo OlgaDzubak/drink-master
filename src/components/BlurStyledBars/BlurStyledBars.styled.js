@@ -119,7 +119,7 @@ export const BlurStyledBar7 = styled.div`
 //mobile menu left blur
 export const BlurStyledBar8 = styled.div`
   position: absolute;
-  top: -64px;
+  top: 20px;
   left: -399px;
   width: 520px;
   height: 550px;
@@ -130,13 +130,18 @@ export const BlurStyledBar8 = styled.div`
 //mobile menu middle blur
 export const BlurStyledBar9 = styled.div`
   position: absolute;
-  top: 12px;
-  left: 42px;
+  top: 84px;
+  left: 142px;
   width: 257px;
   height: 247px;
   border-radius: 50%;
   background: rgba(188, 230, 210, 0.4);
   filter: blur(104.854px);
+
+  @media screen and (min-width: 767px) {
+    top: 119px;
+    left: 100px;
+  }
 `;
 //mobile menu right-bottom blur
 export const BlurStyledBar10 = styled.div`

@@ -38,6 +38,12 @@ const SharedLayout = () => {
 
   const dispatch = useDispatch();
   
+  useEffect(()=>{
+    if (screenBreakPoint === 1280 && isBurgerModalOpen){
+      dispatch(toggleIsBurgerModalOpen());
+    }
+  }, [screenBreakPoint]);
+
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === 'Escape') {

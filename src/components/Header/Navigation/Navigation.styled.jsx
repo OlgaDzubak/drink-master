@@ -2,10 +2,12 @@ import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
 export const NavigationList = styled.nav`
+  position : relative;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 16px;
+  z-index: 200;
   
   @media screen and (max-width: 1279px) {
     flex-direction: column;
