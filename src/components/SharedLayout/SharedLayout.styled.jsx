@@ -41,7 +41,7 @@ export const ModalBackdrop = styled.div`
     left: 0;
     width: 100%;
     height: 100%;    
-    background-color: transparent;
+    background-color: var(--modal-backdrop);//transparent;
     z-index: 300;
     overflow: auto;
 

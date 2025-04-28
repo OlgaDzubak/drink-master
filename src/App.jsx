@@ -20,9 +20,9 @@ import ErrorPage from './pages/ErrorPage/ErrorPage';
 
 const HomePage = lazy(() => import('../src/pages/HomePage'));
 const DrinksPage = lazy(() => import('../src/pages/DrinksPage'));
-const AddDrinksPage = lazy(() => import('../src/pages/AddDrinksPage'),);
-const MyDrinksPage = lazy(() => import('../src/pages/MyDrinksPage'),);
-const FavoriteDrinksPage = lazy(() => import('./pages/FavoriteDrinksPage'),);
+const AddDrinksPage = lazy(() => import('../src/pages/AddDrinksPage'));
+const MyDrinksPage = lazy(() => import('../src/pages/MyDrinksPage'));
+const FavoriteDrinksPage = lazy(() => import('./pages/FavoriteDrinksPage'));
 const DrinkPage = lazy(() => import('./pages/DrinkPage'));
 
 

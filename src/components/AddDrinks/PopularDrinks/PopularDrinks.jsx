@@ -1,17 +1,12 @@
 import { useEffect, useState } from 'react';
 import { getPopularCoctails } from '../../../helpers/API/operationsDrinks';
 import { Link } from 'react-router-dom';
-import {
-  PopularWrapper,
-  PopularCoctailsTitle,
-  PopularCoctailsWrapper,
-  PopularCoctailsImage,
-  PopularCoctailsText,
-  PopularCoctailsName,
-  PopularCoctailsDescription,
-} from './PopularDrink.styled';
+import defaultImg from '../../../assets/images/drinkPageImg/coctailPlaceholder.png';
+import { PopularWrapper, PopularCoctailsTitle, PopularCoctailsWrapper, PopularCoctailsImage,
+         PopularCoctailsText, PopularCoctailsName, PopularCoctailsDescription } from './PopularDrinks.styled';
 
-export const PopularDrink = () => {
+
+export const PopularDrinks = () => {
 
   const [popularCoctails, setPopularCoctails] = useState([]);
 
@@ -36,8 +31,8 @@ export const PopularDrink = () => {
               {
                 popularCoctails
                     .slice(0, 4)
-                    .map(({ drinkThumb, drink, description, _id }, index) => {
-                      return  <Link key={index} to={`/drink/${_id}`}>
+                    .map(({ drinkThumb={defaultImg}, drink, description, _id }, index) => 
+                              <Link key={index} to={`/drink/${_id}`}>
 
                                 <PopularCoctailsWrapper>
 
@@ -56,7 +51,7 @@ export const PopularDrink = () => {
                                 </PopularCoctailsWrapper>
                                 
                               </Link>
-                    })
+                    )
                 }
             </PopularWrapper>
           </>

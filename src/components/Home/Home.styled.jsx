@@ -15,7 +15,6 @@ import glass_light_tab_1x from '../../assets/images/home/glass_light_tab@1x.jpg'
 import glass_light_tab_2x from '../../assets/images/home/glass_light_tab@2x.jpg';
 import glass_light_tab_3x from '../../assets/images/home/glass_light_tab@3x.jpg';
 
-
 //Hero---------------------------------------
 export const HeroSection = styled.section`
   display: flex;
@@ -132,7 +131,6 @@ export const BtnAddDrinks = styled(Link)`
 export const GlassPictureDiv = styled.div`
   background-repeat: no-repeat;
   background-size: contain;
-  z-index:-1;
 
   @media screen and (max-width: 767.9px) {
     width: 252px;
@@ -144,20 +142,19 @@ export const GlassPictureDiv = styled.div`
     height: 445px;
   }
 
-
   @media screen and (min-device-pixel-ratio: 1) and (max-width: 767.9px),
           screen and (min-resolution : 96dpi) and (max-width: 767.9px),
           screen and (min-resolution : 1dppx) and (max-width: 767.9px){
     background-image: url(${(props) => props.themeName === 'dark' ? glass_dark_mob_1x : glass_light_mob_1x });
   }  
-  @media screen and (min-device-pixel-ratio: 2) and (max-width: 767.9px),
-          screen and (min-resolution : 192dpi) and (max-width: 767.9px),
-          screen and (min-resolution : 2dppx) and (max-width: 7687.9px){
+  @media screen and (min-device-pixel-ratio: 2) and (max-width: 767.98px),
+          screen and (min-resolution : 192dpi) and (max-width: 767.98px),
+          screen and (min-resolution : 2dppx) and (max-width: 7687.98px){
     background-image: url(${(props)=> props.themeName==='dark' ? glass_dark_mob_2x : glass_light_mob_2x });
   }
-  @media screen and (min-device-pixel-ratio: 3) and (max-width: 767.9px),
-          screen and (min-resolution : 288dpi) and (max-width: 767.9px),
-          screen and (min-resolution : 3dppx) and (max-width: 767.9px){
+  @media screen and (min-device-pixel-ratio: 3) and (max-width: 767.98px),
+          screen and (min-resolution : 288dpi) and (max-width: 767.98px),
+          screen and (min-resolution : 3dppx) and (max-width: 767.98px){
     background-image: url(${(props)=> props.themeName==='dark' ? glass_dark_mob_3x : glass_light_mob_3x });
   }
 
@@ -177,7 +174,6 @@ export const GlassPictureDiv = styled.div`
           screen and (min-resolution : 3dppx) and (min-width:  768px){
     background-image: url(${(props)=> props.themeName==='dark' ? glass_dark_tab_3x : glass_light_tab_3x });
   }
-
 `;
 
 

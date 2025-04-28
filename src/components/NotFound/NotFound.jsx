@@ -6,13 +6,11 @@ import { GlassPictureDiv } from '../Home/Home.styled';
 const NotFound = ({ text }) => {
   
   const { theme } = useContext(GlobalContext);
-
-  return (
-    <Wrap>
-      <GlassPictureDiv themeName={theme}/>
-      <Text>{text}</Text>
-    </Wrap>
-  );
+  
+  return  <Wrap>
+            <GlassPictureDiv themeName={theme}/>
+            <Text>{text}</Text>
+          </Wrap>
 };
 
 export default NotFound;

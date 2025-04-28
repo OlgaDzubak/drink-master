@@ -8,7 +8,7 @@ export const SignupSchema = Yup.object().shape({
                 .trim()
                 .required("Name is required"),
   birthdate: Yup.string()
-                .matches(/^\d{2}\/\d{2}\/\d{4}$/i, 'Wrong date format',)
+                .matches(/^\d{2}\/\d{2}\/\d{4}$/i, 'Wrong date format. Format    dd/mm/yyyy    is required',)
                 .test('isValidDate', 'Wrong date', function (value) {
 
                           if (!value) return true; 
@@ -45,7 +45,7 @@ export const SignupSchema = Yup.object().shape({
                 .matches(/^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$/, 'Wrong email format')
                 .required("Email is required"),
   password: Yup.string()
-                .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/, 'Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters')
+                .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/, 'Password must contain at least one number and one uppercase and lowercase letter, and at least 8 characters')
                 .min(8, 'Password must contain at least 8 characters')
                 .max(30, 'Too much characters. 30 characters are allowed maximum')
                 .trim()

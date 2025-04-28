@@ -1,7 +1,7 @@
 import { AddDrinkForm } from './AddDrinkForm2/AddDrinkForm';
 import { FollowUs } from './FollowUs/FollowUs';
-import { PopularDrink } from './PopularDrink/PopularDrink';
 import { TotalWrapper, AsideLinksAndPopularDrinks } from './AddDrinks.styled';
+import { PopularDrinks } from './PopularDrinks/PopularDrinks';
 
 const AddDrinks = () => {
 
@@ -11,7 +11,7 @@ const AddDrinks = () => {
 
               <AsideLinksAndPopularDrinks>
                 <FollowUs />
-                <PopularDrink />
+                <PopularDrinks />
               </AsideLinksAndPopularDrinks>
 
           </TotalWrapper>

@@ -4,8 +4,9 @@ import { deleteFavorite } from '../../redux/drinks/favorites/favoritesOperations
 import icon from '../../assets/images/favoritePage/trash.svg';
 import {  DrinkItem, ImageCard, InformWrapper, DrinkTitle, AlcogolMarker, 
           DrinkDescription, WrapperBtn, LinkSeeMore, BucketBtn } from './DrinkCard.styled';
+import defaultImg from '../../assets/images/drinkPageImg/coctailPlaceholder.png';
 
-export const DrinkCard = ({ location='home', _id, drink='', alcoholic='', shortDescription='', drinkThumb='' }) => {
+export const DrinkCard = ({ location='home', _id, drink='', alcoholic='', shortDescription='', drinkThumb={defaultImg} }) => {
    
   const dispatch = useDispatch();
   
