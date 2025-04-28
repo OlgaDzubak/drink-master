@@ -6,7 +6,7 @@ import {  DescriptionDiv, ImgAndErrorDiv, DataAndErrorDiv,
           DescriptionImageDiv, DrinkImage, ImageInputLabel, ImageInput, 
           AddImageDiv, PlusSVGDiv, PlusSVG, AddImageP,
           InputDiv, NameInputLabel, DescriptionInputLabel, Input, 
-          SelectInputDiv, SelectLabelP, selectStyles,
+          SelectInputDiv, SelectLabel, selectStyles,
           RadioDiv, RadioLabel, RadioInput, RadioSpan } from './DrinkDescriptionFields.styled';
 
 
@@ -178,14 +178,15 @@ const handleSelectMenuOpen = (e) => {
 
               <InputDiv className="category">
                 <SelectInputDiv>
-                  <SelectLabelP 
+                  <SelectLabel 
+                    htmlFor="category-input"
                     selectedCategory={selectedCategoriesOption.label}
                     $isFocused={$isFocusedCategorySelect}
-                  >Choose drink category</SelectLabelP>
+                  >Choose drink category</SelectLabel>
 
                   <Select
                     isClearable
-                    inputId="category"
+                    inputId="category-input"
                     name="category"
                     options={categoryOptions}
                     value={selectedCategoriesOption}
@@ -203,15 +204,16 @@ const handleSelectMenuOpen = (e) => {
               <InputDiv className="glass">
                 <SelectInputDiv >
                   
-                  <SelectLabelP
+                  <SelectLabel
+                    htmlFor="glass-input"
                     selectedCategory={selectedGlassesOption.label}
                     $isFocused={$isFocusedGlassesSelect}
                   >Choose drink glass
-                  </SelectLabelP>
+                  </SelectLabel>
           
                   <Select
                     isClearable
-                    inputId="glass"
+                    inputId="glass-input"
                     name="glass"
                     options={glassesOptions}
                     value={selectedGlassesOption}

@@ -1,4 +1,4 @@
-import { AddDrinkForm } from './AddDrinkForm2/AddDrinkForm';
+import { AddDrinkForm } from './AddDrinkForm/AddDrinkForm';
 import { FollowUs } from './FollowUs/FollowUs';
 import { TotalWrapper, AsideLinksAndPopularDrinks } from './AddDrinks.styled';
 import { PopularDrinks } from './PopularDrinks/PopularDrinks';

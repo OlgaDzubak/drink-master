@@ -205,7 +205,7 @@ export const SelectInputDiv = styled.div`
     font-size: 16px;
   }
 `;
-export const SelectLabelP = styled.p`
+export const SelectLabel = styled.label`
   position: absolute;
   top: ${(props) => (props.$isFocused ||props.selectedCategory ? '-7px' : '10px')};
   left: 0px;
