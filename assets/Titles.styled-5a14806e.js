@@ -1,4 +1,4 @@
-import{n as o}from"./index-a971e37a.js";const p=o.h1`
+import{n as o}from"./index-60392f30.js";const p=o.h1`
   
   ${({hidden:t,theme:n,marginBottom:i})=>t?` width: 1px; 
                       height: 1px; 
@@ -15,12 +15,12 @@ import{n as o}from"./index-a971e37a.js";const p=o.h1`
                       color: ${n.mainTextColor};
                       transition: color var(--transition);
 
-                      @media (min-width: 768px) and (max-width: 1439.98px) { 
+                      @media (min-width: 768px) and (max-width: 1279.98px) { 
                         font-size: 56px;
                         margin-bottom: ${i||"60px"};
                       }
                         
-                      @media (min-width: 1440px) { 
+                      @media (min-width: 1280px) { 
                         font-size: 64px;
                         margin-bottom: ${i||"60px"};
                       }`}
@@ -41,12 +41,12 @@ import{n as o}from"./index-a971e37a.js";const p=o.h1`
                       color: ${n.mainTextColor};
                       transition: color var(--transition);
 
-                      @media (min-width: 768px) and (max-width: 1439.98px) { 
+                      @media (min-width: 768px) and (max-width: 1279.98px) { 
                         font-size: 56px;
                         margin-bottom: ${i||"60px"};
                       }
                         
-                      @media (min-width: 1440px) { 
+                      @media (min-width: 1280px) { 
                         font-size: 64px;
                         margin-bottom: ${i||"60px"};
                       }`}
