@@ -43,14 +43,19 @@ export const BlurStyledBar2 = styled.div`
 
 // home page middle blur
 export const BlurStyledBar3 = styled.div`
-  position: absolute;
-  top: 324px;
-  right: 193px;
-  width: 385px;
-  height: 385px;
-  border-radius: 50%;
-  background: rgba(188, 230, 210, 0.4);
-  filter: blur(209.71px);
+  display: none;
+
+  @media screen and (min-width: 1280px) {
+    display: block;
+    position: absolute;
+    top: 324px;
+    right: 193px;
+    width: 385px;
+    height: 385px;
+    border-radius: 50%;
+    background: rgba(188, 230, 210, 0.4);
+    filter: blur(209.71px);
+  }
 `;
 
 

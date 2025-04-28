@@ -15,6 +15,7 @@ import glass_light_tab_1x from '../../assets/images/home/glass_light_tab@1x.jpg'
 import glass_light_tab_2x from '../../assets/images/home/glass_light_tab@2x.jpg';
 import glass_light_tab_3x from '../../assets/images/home/glass_light_tab@3x.jpg';
 
+
 //Hero---------------------------------------
 export const HeroSection = styled.section`
   display: flex;

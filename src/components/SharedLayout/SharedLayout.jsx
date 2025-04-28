@@ -95,8 +95,8 @@ const SharedLayout = () => {
 
             <Footer />
 
-            <BlurStyledBar1/>
-            <BlurStyledBar2/>
+            <BlurStyledBar1 className="blur1"/>
+            <BlurStyledBar2 className="blur2"/>
             
             <BtnUpScroll/>
             

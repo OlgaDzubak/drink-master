@@ -33,8 +33,8 @@ const Footer = () => {
 
             </FooterContainer>
 
-            <BlurStyledBar4/>
-            <BlurStyledBar5/>
+            <BlurStyledBar4 className="blur4"/>
+            <BlurStyledBar5 className="blur5"/>
 
           </FooterEl>
 };

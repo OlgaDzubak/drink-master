@@ -8,9 +8,9 @@ export const BurgerModal = () => {
   return  <MobileMenuBackdrop>
             <BurgerModalWrapper >
                 <Navigation /> 
-                <BlurStyledBar8/>
-                <BlurStyledBar9/>
-                <BlurStyledBar10/>
+                <BlurStyledBar8 className="blur8"/>
+                <BlurStyledBar9 className="blur9"/>
+                <BlurStyledBar10 className="blur10"/>
             </BurgerModalWrapper>
           </MobileMenuBackdrop>
 
