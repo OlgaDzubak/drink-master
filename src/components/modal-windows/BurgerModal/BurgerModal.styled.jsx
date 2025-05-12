@@ -8,7 +8,7 @@ export const MobileMenuBackdrop = styled.div`
     height: 100%; 
     padding: 0;
     background-color: transparent;
-    z-index: 200;
+    z-index: 350;
     overflow: hidden;
 `;
 
