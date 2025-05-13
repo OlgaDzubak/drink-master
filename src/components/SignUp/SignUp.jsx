@@ -21,9 +21,13 @@ const SignUp = () => {
 
   const handleSubmit = (values, { resetForm }) => {
     
+    const name = values.name.trim();
     const birthdate = changeDateStr(values.birthdate);
+    const email = values.email.trim();
+    const password  = values.password;
+
+    const newUser = { name, birthdate, email, password };
     
-    const newUser = { ...values, birthdate };
     dispatch(signup(newUser));
     resetForm();
   }
