@@ -2,7 +2,7 @@ import * as Yup from 'yup';
 
 export const SignupSchema = Yup.object().shape({
   name: Yup.string()
-                .matches(/^([a-zA-Z\.\-\_]+)*([ ]{0,1})(([a-zA-Z]+)[0-9]*)$/, 'Name must start with a letter and can contain letters, numbers and symbols ". - _"')
+                .matches(/^([a-zA-Z]+)([0-9]*)([ ]{0,1})([a-zA-Z0-9\.\_\-])*$/, 'Name must start with a letter and can contain letters, numbers, one whitespace and symbols ". - _". Examples: "JaneBin", "Jane Bin", "Jane.B", "J6.B", "J-B", "Jane_Bin", "Jane2000 Bin"')
                 .min(2, 'Name must contain at least 2 characters')
                 .max(30, 'Too much characters. 30 characters are allowed maximum')
                 .trim()
