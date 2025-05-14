@@ -61,7 +61,7 @@ export const AddDrinkForm = () => {
     drinkThumb: '',
   };
 
-  return <AddDrinkFormSection>
+  return  <AddDrinkFormSection>
     
             <SectionTitle title={"Add drink form"} hidden={true} />
     
@@ -110,7 +110,7 @@ export const AddDrinkForm = () => {
               
             </Formik>
 
-            { isLoading && <Loader><ThreeDots color="#f3f3f3" width="60" /></Loader>}
+            { isLoading && <Loader><ThreeDots color="currentColor" width="60" /></Loader>}
 
           </AddDrinkFormSection>
 

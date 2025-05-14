@@ -5,7 +5,7 @@ import { PopularDrinks } from './PopularDrinks/PopularDrinks';
 
 const AddDrinks = () => {
 
-  return <TotalWrapper>
+  return  <TotalWrapper>
     
               <AddDrinkForm />
 
