@@ -45,13 +45,13 @@ const ownSlice = createSlice({
         switch (action.payload){
 
           case "Request failed with status code 400":
-                      Notify.failure("Add drink failed! Missing data fields.", {position: 'left-bottom', distance: '30px'});
+                      Notify.failure("Add drink failed! Missing data fields.");
                       break;
           case "Request failed with status code 409":
-                      Notify.failure("Add drink failed! Drink name is already in database.", {position: 'left-bottom', distance: '130px'});
+                      Notify.failure("Add drink failed! Drink name is already in database.");
                       break;
           default: 
-                      Notify.failure("Server error! Please reload the page.", {position: 'left-bottom', distance: '30px'});
+                      Notify.failure("Server error! Please reload the page.");
                       break;
         }
       })
