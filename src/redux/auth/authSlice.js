@@ -68,8 +68,10 @@ const handleFulfilled_signup = (state, action) => {
   state.error = null;
   state.isEmailVerificationModalOpen = true;
 };
+
 const handleFulfilled_verify = (state, action) => {
   state.isEmailVerificationModalOpen = false;
+  state.user.verify = true;
   state.isLoggedIn = true;
   state.isLoading = false;
   state.error = null;  

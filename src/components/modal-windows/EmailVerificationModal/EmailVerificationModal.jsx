@@ -6,9 +6,8 @@ import { EmailVerificationWrapper, VerificationModalTitle, VerificationModalSubt
 import { ButtonsWrapper, ModalBtn } from '../LogOutModal/LogoutModal.styled';
 import { Formik, Form } from 'formik';
 import { StyledField } from '../../SignUp/FieldInputAuth/FieldInputAuth.styled';
-import { toogleIsLoggedIn, verify } from '../../../redux/auth/authOperations';
+import { toogleIsLoggedIn, verify, toogleIsEmailVerificationModalOpen } from '../../../redux/auth/authOperations';
 import { CloseBtn, CloseIcon } from '../UserProfileModal/UserProfileModal.styled';
-import { toogleIsEmailVerificationModalOpen } from '../../../redux/auth/authOperations';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 export const EmailVerificationModal = ({email, title, navigateTo}) => {
@@ -19,7 +18,7 @@ export const EmailVerificationModal = ({email, title, navigateTo}) => {
   const navigate = useNavigate();
 
   const handleSubmit = (values, { resetForm }) => {
-    dispatch(verify({ verificationToken : values.verificationToken }));
+    dispatch(verify({ verificationToken: values.verificationToken }));
   } 
  
   const handleCancel = (e) => {
