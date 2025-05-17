@@ -67,7 +67,7 @@ export const UserProfileModal = () => {
     }
   }
 
-  return  <ModalBackdrop onClick={handleBackdropClick}>
+  return  <ModalBackdrop className="modal-backdrop" onClick={handleBackdropClick}>
     
             <ProfileModal aria-labelledby="profile" className='modal'>
             

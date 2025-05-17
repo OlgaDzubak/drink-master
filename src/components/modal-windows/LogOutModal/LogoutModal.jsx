@@ -33,7 +33,7 @@ export const LogoutModal = () => {
     }
   }
   
-  return <ModalBackdrop onClick={handleBackdropClick}>
+  return <ModalBackdrop  className="modal-backdrop" onClick={handleBackdropClick}>
             <LogOutWrapper className='modal'>
               { 
                  isLoading 

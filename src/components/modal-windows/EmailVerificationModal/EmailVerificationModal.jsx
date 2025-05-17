@@ -36,7 +36,7 @@ export const EmailVerificationModal = ({email, title, navigateTo}) => {
     }
   }
 
-  return <ModalBackdrop >
+  return <ModalBackdrop className="modal-backdrop">
             <EmailVerificationWrapper className='modal'>
               { 
                  isLoading 
