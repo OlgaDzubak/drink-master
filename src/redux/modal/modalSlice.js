@@ -9,10 +9,12 @@ const modalSlice = createSlice({
   },
   reducers: { toggleIsBurgerModalOpen(state, action){ state.isBurgerModalOpen = !state.isBurgerModalOpen},
               toggleIsUserProfileModalOpen(state, action){ state.isUserProfileModalOpen = !state.isUserProfileModalOpen},
-              toggleIsLogoutModalOpen(state, action){ state.isLogoutModalOpen = !state.isLogoutModalOpen},
+              toggleIsLogoutModalOpen(state, action) { state.isLogoutModalOpen = !state.isLogoutModalOpen },
             },
 });
 
 export const modalReducer = modalSlice.reducer;
 
-export const {  toggleIsBurgerModalOpen, toggleIsUserProfileModalOpen, toggleIsLogoutModalOpen } = modalSlice.actions;
+export const {  toggleIsBurgerModalOpen,
+                toggleIsUserProfileModalOpen,
+                toggleIsLogoutModalOpen } = modalSlice.actions;

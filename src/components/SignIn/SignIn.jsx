@@ -9,11 +9,18 @@ import { signin } from '../../redux/auth/authOperations';
 import { SignInSchema } from '../../helpers/validateForm/validate-login';
 import { FieldInputAuth } from '../SignUp/FieldInputAuth/FieldInputAuth';
 import { FieldInputAuthPass } from '../SignUp/FieldInputAuth/FieldInputAuthPass';
+import { EmailVerificationModal } from '../modal-windows/EmailVerificationModal/EmailVerificationModal';
+import { selectIsEmailVerificationModalOpen} from '../../redux/auth/authSelectors';
+import { selectUserEmail } from "../../redux/auth/authSelectors"
 
 
 const SignIn = () => {
 
   const isLoading = useSelector(selectIsLoading);
+  const isEmailVerificationModalOpen = useSelector(selectIsEmailVerificationModalOpen);
+  const userEmail = useSelector(selectUserEmail);
+  
+
   const dispatch = useDispatch();
 
   const handleSubmit = (values, { resetForm }) => {
@@ -69,7 +76,11 @@ const SignIn = () => {
               </Formik>
 
             </StyledAuthContainer>
-
+    
+            {isEmailVerificationModalOpen && <EmailVerificationModal email={userEmail}
+                                                                      title="Authorization successful!"
+                                                                      navigateTo="/" />}
+    
           </StyledMain>
 };
 

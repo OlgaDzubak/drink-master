@@ -11,12 +11,17 @@ const authSlice = createSlice({
     isRefreshing: false,
     isLoading: false,
     error: null,
+    isEmailVerificationModalOpen: false,
   },
   extraReducers: (builder) => { builder
                                   .addCase(auth.signup.pending, handlePending)
                                   .addCase(auth.signup.fulfilled,  handleFulfilled_signup)
                                   .addCase(auth.signup.rejected, handleRejected_signup)
 
+                                  .addCase(auth.verify.pending, handlePending)
+                                  .addCase(auth.verify.fulfilled,  handleFulfilled_verify)
+                                  .addCase(auth.verify.rejected, handleRejected_verify)
+    
                                   .addCase(auth.signin.pending, handlePending)
                                   .addCase(auth.signin.fulfilled, handleFulfilled_signin)
                                   .addCase(auth.signin.rejected, handleRejected_signin)
@@ -40,7 +45,11 @@ const authSlice = createSlice({
                                   .addCase(auth.subscribeUser.pending, handlePending)
                                   .addCase(auth.subscribeUser.fulfilled, handleFulfilled_subscribe)
                                   .addCase(auth.subscribeUser.rejected, handleRejected_subscribe)
-                              },
+                                  
+                                  .addCase(auth.toogleIsEmailVerificationModalOpen.fulfilled, (state, action) => { state.isEmailVerificationModalOpen = !state.isEmailVerificationModalOpen })
+                                  .addCase(auth.toogleIsLoggedIn.fulfilled, (state, action) => { state.isLoggedIn = !state.isLoggedIn })
+    
+                  },
 });
 
 
@@ -55,16 +64,25 @@ const handlePending_refresh = (state) => {
 }
 
 const handleFulfilled_signup = (state, action) => {
-  state.user = action.payload.user;
-  state.token = action.payload.token;
-  state.isLoggedIn = true;
   state.isLoading = false;
   state.error = null;
+  state.isEmailVerificationModalOpen = true;
 };
+const handleFulfilled_verify = (state, action) => {
+  state.isEmailVerificationModalOpen = false;
+  state.isLoggedIn = true;
+  state.isLoading = false;
+  state.error = null;  
+};
+
 const handleFulfilled_signin = (state, action) => {
   state.user = action.payload.user;
   state.token = action.payload.token;
-  state.isLoggedIn = true;
+  if (!action.payload.user.verify) {
+    state.isEmailVerificationModalOpen = true;
+  } else {
+    state.isLoggedIn = true;
+  }
   state.isLoading = false;
   state.error = null;
 };
@@ -95,7 +113,7 @@ const handleFulfilled_udpate = (state, action) => {
 const handleFulfilled_subscribe = (state, action) => {
     state.error = null;
     state.isLoading = false;
-    Notify.success('You are about to subscribe to the "Drink Master" newsletter. We have sent a message to your email. Please confirm your subscription by clicking the link in the message.', {width: '500px', position: 'right-bottom', messageMaxLength: '300', timeout: 10000});
+    Notify.success(`You are about to subscribe to the "Drink Master" newsletter. We have sent a message to your email ${action.payload.subscriptionEmail}. Please confirm your subscription by clicking the link in the message.`, {width: '500px', position: 'right-bottom', messageMaxLength: '300', timeout: 10000});
 };
 
 
@@ -116,6 +134,22 @@ const handleRejected_signup = (state, action) => {
                   break;
   }
 };
+const handleRejected_verify = (state, action) => {
+   
+  state.error = action.payload;
+  state.isLoading = false;
+  state.isEmailVerificationModalOpen = false;
+  
+  switch (action.payload){
+      case "Request failed with status code 403":
+                  Notify.failure("Email verification failed! Invalid verification code.");
+                  break;
+                  
+      default: 
+                  Notify.failure("Server error! Please reload the page.");
+                  break;
+  }
+};
 const handleRejected_signin = (state, action) => {
   
   state.error = action.payload;
@@ -126,8 +160,12 @@ const handleRejected_signin = (state, action) => {
                 Notify.failure('Пароль або email не вірні', {position:"left-bottom"});
                 break;
         case "Request failed with status code 400":
-                Notify.failure("Sign up failed! Missing data fields.", {position:"left-bottom"});
-                break;
+              Notify.failure("Sign up failed! Missing data fields.", {position:"left-bottom"});
+              break;
+        case "Request failed with status code 403":
+                Notify.failure("Email verification not completed.", { position: "left-bottom" });
+                state.isEmailVerificationModalOpen = true;
+              break;
     default: 
                 Notify.failure("Server error! Please reload the page.");
                 break;

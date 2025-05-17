@@ -5,6 +5,7 @@ import {StyledFieldContainer,
         SuccessMessage, 
         CheckIconError, 
         CheckIconOk} from './FieldInputAuth.styled';
+        
 export const FieldInputAuth = ({ errors, touched, name, placeholder, id, showCheckIcon }) => {
 
   return (

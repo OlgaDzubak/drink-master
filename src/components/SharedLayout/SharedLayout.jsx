@@ -9,9 +9,8 @@ import { BurgerModal } from '../modal-windows/BurgerModal/BurgerModal';
 import { UserProfileModal } from '../modal-windows/UserProfileModal/UserProfileModal';
 import { LogoutModal } from '../modal-windows/LogOutModal/LogoutModal';
 
-
-import { selectIsBurgerModalOpen, selectIsUserProfileModalOpen, selectIsLogoutModalOpen} from '../../redux/modal/modalSelectors';
-import { toggleIsBurgerModalOpen, toggleIsUserProfileModalOpen, toggleIsLogoutModalOpen} from '../../redux/modal/modalSlice';
+import { selectIsBurgerModalOpen, selectIsUserProfileModalOpen, selectIsLogoutModalOpen } from '../../redux/modal/modalSelectors';
+import { toggleIsBurgerModalOpen, toggleIsUserProfileModalOpen, toggleIsLogoutModalOpen } from '../../redux/modal/modalSlice';
 
 import { Main, Container } from './SharedLayout.styled';
 import { BlurStyledBar1, BlurStyledBar2 } from '../BlurStyledBars/BlurStyledBars.styled';
@@ -35,7 +34,7 @@ const SharedLayout = () => {
   const isBurgerModalOpen = useSelector(selectIsBurgerModalOpen);
   const isUserProfileModalOpen = useSelector(selectIsUserProfileModalOpen);
   const isLogoutModalOpen = useSelector(selectIsLogoutModalOpen);
-
+  
   const dispatch = useDispatch();
   
   useEffect(()=>{
@@ -109,7 +108,7 @@ const SharedLayout = () => {
             { isBurgerModalOpen && <BurgerModal /> }
             { isUserProfileModalOpen && <UserProfileModal /> }
             { isLogoutModalOpen && <LogoutModal /> }
-
+    
           </ThemeProvider>
 };
 

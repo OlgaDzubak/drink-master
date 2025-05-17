@@ -15,7 +15,6 @@ export const signup = createAsyncThunk('auth/signup', async (credentials, { reje
 
     try {
       const { data } = await axios.post('/auth/signup', credentials);
-      setAuthHeader(data.token);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -26,9 +25,10 @@ export const signup = createAsyncThunk('auth/signup', async (credentials, { reje
 export const signin = createAsyncThunk('auth/signin', async (credentials, thunkAPI) => {
   try {
       const { data } = await axios.post('/auth/signin', credentials);
-      setAuthHeader(data.token);
+    setAuthHeader(data.token);
+    console.log("data", data);
       return data;
-    } catch (e) {
+  } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
   },
@@ -43,6 +43,18 @@ export const signout = createAsyncThunk('auth/signout', async (_, thunkAPI) => {
     return thunkAPI.rejectWithValue(e.message);
   }
 });
+
+export const verify = createAsyncThunk('auth/verify', async (credentials, { rejectWithValue }) => {
+
+  try {
+    const { data } = await axios.post(`/users/verify`, credentials);
+    setAuthHeader(data.token);
+    return data;
+  } catch (error) {
+    return rejectWithValue(error.message);
+  }
+},
+);
 
 export const refresh = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
 
@@ -93,3 +105,13 @@ export const subscribeUser = createAsyncThunk('auth/subscribeUser', async (crede
     }
   },
 );
+
+export const toogleIsEmailVerificationModalOpen = createAsyncThunk('auth/toogleModal', (credentials, thunkAPI) => {
+    
+  return true;
+
+});
+
+export const toogleIsLoggedIn = createAsyncThunk('auth/toogleLoggedIn', (credentials, thunkAPI) => {
+  return true;
+});

@@ -1,5 +1,6 @@
 import { Formik } from 'formik';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectUser } from '../../../redux/auth/authSelectors';
 import { StyledSubBtn, StyledSubError, StyledSubField, StyledSubForm, StyledSubLabel, SubFormContenWrapper,} from '../FooterSubscription/FooterSub.styled';
 import { subscribeUser } from '../../../redux/auth/authOperations';
 import { subscriptionSchema } from '../../../helpers/validateForm/validate-subscription';
@@ -7,8 +8,10 @@ import { subscriptionSchema } from '../../../helpers/validateForm/validate-subsc
 
 const SubscriptionForm = () => {
 
+  const { email } = useSelector(selectUser);
+  
   const dispatch = useDispatch();
-  const initialValues = { email: ''};
+  const initialValues = { email};
 
   const handleSubmit = async (values, { resetForm }) => {
 

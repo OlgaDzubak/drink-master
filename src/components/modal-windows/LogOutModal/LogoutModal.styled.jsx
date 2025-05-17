@@ -35,7 +35,7 @@ export const MessageText = styled.p`
   color: var(--white-color);
 `;
 
-export const LogOutModalBtn = styled.button`
+export const ModalBtn = styled.button`
   width: 190px;
   height: 44px;
   padding-left: 45px;

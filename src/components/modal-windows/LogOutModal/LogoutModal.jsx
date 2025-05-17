@@ -4,7 +4,7 @@ import { toggleIsLogoutModalOpen } from '../../../redux/modal/modalSlice';
 import { selectIsLoading } from '../../../redux/auth/authSelectors';
 import { signout } from '../../../redux/auth/authOperations';
 import { ModalBackdrop } from '../../SharedLayout/SharedLayout.styled';
-import { LogOutWrapper,  MessageText, ButtonsWrapper, LogOutModalBtn } from './LogoutModal.styled';
+import { LogOutWrapper,  MessageText, ButtonsWrapper, ModalBtn } from './LogoutModal.styled';
 import { CloseBtn, CloseIcon } from '../UserProfileModal/UserProfileModal.styled';
 import { disableTab, enableTab } from '../../../helpers/blockTab';
 import { SkeletonLogout } from '../../Skeletons/SkeletonLogout';
@@ -47,8 +47,8 @@ export const LogoutModal = () => {
                         
                         <ButtonsWrapper>
 
-                          <LogOutModalBtn onClick={handleLogout}>Log Out</LogOutModalBtn>
-                          <LogOutModalBtn onClick={handleCancel} autoFocus>Cancel</LogOutModalBtn>
+                          <ModalBtn onClick={handleLogout}>Log Out</ModalBtn>
+                          <ModalBtn onClick={handleCancel} autoFocus>Cancel</ModalBtn>
                           
                         </ButtonsWrapper>
                       </>

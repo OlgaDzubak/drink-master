@@ -12,12 +12,16 @@ import { FieldInputAuthPass } from './FieldInputAuth/FieldInputAuthPass';
 import { FieldInputAuthBirthdate } from './FieldInputAuth/FieldInputAuthBirthdate';
 import changeDateStr from '../../helpers/changeDateStr';
 import './air-datepicker.css';
-
+import { EmailVerificationModal } from '../modal-windows/EmailVerificationModal/EmailVerificationModal';
+import { selectIsEmailVerificationModalOpen} from '../../redux/auth/authSelectors';
+let emailForVerification = '';
 
 const SignUp = () => {
 
   const isLoading = useSelector(selectIsLoading);
+  const isEmailVerificationModalOpen = useSelector(selectIsEmailVerificationModalOpen);
   const dispatch = useDispatch();
+
 
   const handleSubmit = (values, { resetForm }) => {
     
@@ -29,7 +33,9 @@ const SignUp = () => {
     const newUser = { name, birthdate, email, password };
     
     dispatch(signup(newUser));
-    resetForm();
+
+    emailForVerification = email; 
+    //resetForm();
   }
 
   const initialValues = {
@@ -89,6 +95,10 @@ const SignUp = () => {
               </Formik>
 
             </StyledAuthContainer>
+    
+            {isEmailVerificationModalOpen && <EmailVerificationModal email={emailForVerification}
+                                                                     title="Registration successful!"
+                                                                     navigateTo="/signin" />}
           </StyledMain>
 };
 
