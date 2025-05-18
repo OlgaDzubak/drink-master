@@ -70,11 +70,15 @@ const handleFulfilled_signup = (state, action) => {
 };
 
 const handleFulfilled_verify = (state, action) => {
-  state.isEmailVerificationModalOpen = false;
-  state.user.verify = true;
-  state.isLoggedIn = true;
-  state.isLoading = false;
-  state.error = null;  
+  setTimeout(() => {
+    Notify.failure('Email verified', { position: "left-bottom" });
+    state.isEmailVerificationModalOpen = false;
+    state.user.verify = true;
+    state.isLoggedIn = true;
+    state.isLoading = false;
+    state.error = null;
+  }, 2000);
+ 
 };
 
 const handleFulfilled_signin = (state, action) => {
