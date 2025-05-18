@@ -57,7 +57,8 @@ export const EmailVerificationModal = ({email, title, navigateTo}) => {
                                   <VerificationModalSubtitle>Please confirm your email! <Emailspan>{email}</Emailspan></VerificationModalSubtitle>
                                   <MessageText>We have sent you a letter to your email with verification code.
                                                Enter this code to the field and click verify button.</MessageText>
-                                  <StyledField id="verificationToken" name="verificationToken" placeholder="Enter verification token"/>
+                                  <StyledField id="verificationToken" name="verificationToken" placeholder="Enter verification token" errors={errors} touched={touched}
+errors={errors} touched={touched}/>
                                   
                                   <ButtonsWrapper>
                                     <ModalBtn type="button" onClick={handleCancel}>Do it later</ModalBtn>
