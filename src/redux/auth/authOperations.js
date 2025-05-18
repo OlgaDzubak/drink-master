@@ -107,6 +107,17 @@ export const subscribeUser = createAsyncThunk('auth/subscribeUser', async (crede
   },
 );
 
+export const unsubscribeUser = createAsyncThunk('auth/subscribeUser', async (credentials, thunkAPI) => {
+    
+  try {
+    const { data } = await axios.post('/users/unsubscribe', credentials);
+    return data;
+  } catch (e) {
+    return thunkAPI.rejectWithValue(e.message);
+  }
+},
+);
+
 export const toogleIsEmailVerificationModalOpen = createAsyncThunk('auth/toogleModal', (credentials, thunkAPI) => {
     
   return true;

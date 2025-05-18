@@ -39,8 +39,8 @@ export const StyledSubField = styled(Field)`
     color: ${(props) => props.theme.footerTextColor};
   }
 
-  &:hover{
-    border-color: ${(props) => props.theme.footerLinkBorderColorHover};
+  // &:hover{
+  //   border-color: ${(props) => props.theme.footerLinkBorderColorHover};
 
   }
 `;

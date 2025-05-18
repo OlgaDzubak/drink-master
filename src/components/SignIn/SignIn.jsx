@@ -1,25 +1,21 @@
 import { Formik, Form } from 'formik';
-import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectIsLoading } from '../../redux/auth/authSelectors';
-import { StyledMain } from '../Welcome/Welcome.styled';
-import { StyledAuthContainer, StyledLink, StyledButton, StyledTitleAuth, FieldsInputAuthContainer, StyledButtonsContainer } from '../SignUp/SignUp.styled';
-import { SkeletonRows } from '../Skeletons/SkeletonRows';
+import { selectIsLoading, selectUser, selectIsEmailVerificationModalOpen} from '../../redux/auth/authSelectors';
 import { signin } from '../../redux/auth/authOperations';
 import { SignInSchema } from '../../helpers/validateForm/validate-login';
+import { SkeletonRows } from '../Skeletons/SkeletonRows';
 import { FieldInputAuth } from '../SignUp/FieldInputAuth/FieldInputAuth';
 import { FieldInputAuthPass } from '../SignUp/FieldInputAuth/FieldInputAuthPass';
 import { EmailVerificationModal } from '../modal-windows/EmailVerificationModal/EmailVerificationModal';
-import { selectIsEmailVerificationModalOpen} from '../../redux/auth/authSelectors';
-import { selectUserEmail } from "../../redux/auth/authSelectors"
+import { StyledMain } from '../Welcome/Welcome.styled';
+import { StyledAuthContainer, StyledLink, StyledButton, StyledTitleAuth, FieldsInputAuthContainer, StyledButtonsContainer } from '../SignUp/SignUp.styled';
 
 
 const SignIn = () => {
 
   const isLoading = useSelector(selectIsLoading);
   const isEmailVerificationModalOpen = useSelector(selectIsEmailVerificationModalOpen);
-  const userEmail = useSelector(selectUserEmail);
-  
+  const { email } = useSelector(selectUser);
 
   const dispatch = useDispatch();
 
@@ -39,11 +35,7 @@ const SignIn = () => {
 
               <StyledTitleAuth id="signin">Sign In</StyledTitleAuth>
 
-              <Formik
-                initialValues={initialValues}
-                onSubmit={handleSubmit}
-                validationSchema={SignInSchema}
-              >
+              <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={SignInSchema}>
                 {({ errors, touched }) => (
                   
                   <Form style={{ width:"100%", zIndex: 3 }}>
@@ -72,14 +64,11 @@ const SignIn = () => {
 
                   </Form>
                 )}
-
               </Formik>
 
             </StyledAuthContainer>
     
-            {isEmailVerificationModalOpen && <EmailVerificationModal email={userEmail}
-                                                                      title="Authorization successful!"
-                                                                      navigateTo="/" />}
+            {isEmailVerificationModalOpen && <EmailVerificationModal email={email} title="Authorization successful!" navigateTo="/" />}
     
           </StyledMain>
 };
