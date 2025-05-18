@@ -121,13 +121,13 @@ const handleFulfilled_subscribe = (state, action) => {
     state.error = null;
     state.isLoading = false;
     state.user.subscribeStatus = true;
-    Notify.success(`You are subscribed to the "Drink Master" newsletter. We have sent a message to your email ${action.payload.email}.`, {position: 'right-bottom', timeout: 5000});
+    Notify.success(`You are subscribed to the "Drink Master" newsletter. We have sent a message to your email ${action.payload.email}.`, {width: 300, position: 'right-bottom', distance: '10px', timeout: 5000});
 };
 const handleFulfilled_unsubscribe = (state, action) => {
   state.error = null;
   state.isLoading = false;
   state.user.subscribeStatus = false;
-  Notify.success(`Your subscription was canceled. We have sent a message to your email ${action.payload.email}.`, {position: 'right-bottom', timeout: 5000});
+  Notify.success(`Your subscription was canceled. We have sent a message to your email ${action.payload.email}.`, {width: 300, position: 'right-bottom', distance: '10px', timeout: 3000});
 };
 
 const handleRejected_signup = (state, action) => {
