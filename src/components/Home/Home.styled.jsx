@@ -233,17 +233,13 @@ export const GalleryList = styled.ul`
 
 export const CategoryTitle = styled.h2`
   margin-bottom: 40px;
-  font-size: 40px;
+  font-size: 28px;
   font-weight: 600;
   color: ${(props) => props.theme.mainTextColor};
   transition: color var(--transition);
 
   @media (max-width: 320px) {
     font-size: 26px;
-  }
-
-  @media (min-width: 375px) {
-    font-size: 28px;
   }
 
   @media (min-width: 768px) {

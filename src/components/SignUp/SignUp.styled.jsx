@@ -52,12 +52,6 @@ export const StyledTitleAuth = styled(StyledTitle)`
   margin-bottom: 28px;
 `;
 
-// export const StyledDialogContent = styled(DialogContent)`
-//   display: flex;
-//   flex-direction: column;
-//   gap: 14px;
-// `;
-
 export const StyledField = styled(Field)`
   width: 100%;
   padding-top: 14px;
