@@ -13,7 +13,7 @@ import welcomeDesktop_3x from '../../assets/images/welcomePage/welcome-backgroun
 export const StyledMain = styled.main`
   position: relative;
   //width: 100vw;
-  height: calc(100vh - 15px);
+  height: 100vh;
   display: flex;
   align-items: center;
   background-repeat: no-repeat;
