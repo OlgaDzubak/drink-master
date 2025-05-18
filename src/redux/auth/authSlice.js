@@ -72,7 +72,7 @@ const handleFulfilled_signup = (state, action) => {
 };
 
 const handleFulfilled_verify = (state, action) => {
-  Notify.success('Email verified', { position: "right-top", timeout: 1500, });
+  Notify.success(`Email ${state.user.email} verified`, { position: "right-top", timeout: 1500, });
   state.isEmailVerificationModalOpen = false;
   state.user.verify = true;
   state.isLoggedIn = true;
