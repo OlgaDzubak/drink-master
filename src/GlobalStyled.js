@@ -56,7 +56,7 @@ const GlobalStyles = css`
     font-family: 'Manrope', sans-serif;
     word-wrap: break-word;
     line-height: 1.2;
-    overflow: scroll;
+    overflow: auto;
     color: var(--white-color);
     background-color: var(--mainbackground-color);
 }
