@@ -4,7 +4,7 @@ import { StyledSubBtn, StyledSubText, StyledSubField, StyledSubForm, StyledSubLa
 import { unsubscribeUser } from '../../../redux/auth/authOperations';
 
 
-export const FooterSubscription = ({ email}) => {
+export const UnsubscribeForm = ({ email}) => {
 
   const dispatch = useDispatch();
 
