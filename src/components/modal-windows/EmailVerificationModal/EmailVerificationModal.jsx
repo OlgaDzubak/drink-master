@@ -9,7 +9,7 @@ import { StyledField } from '../../SignUp/FieldInputAuth/FieldInputAuth.styled';
 import { toogleIsLoggedIn, verify, toogleIsEmailVerificationModalOpen } from '../../../redux/auth/authOperations';
 import { CloseBtn, CloseIcon } from '../UserProfileModal/UserProfileModal.styled';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { emailTokenSchema } from '../../helpers/validateForm/validate-verificationToken';
+import { emailTokenSchema } from '../../../helpers/validateForm/validate-verificationToken';
 
 export const EmailVerificationModal = ({email, title, navigateTo}) => {
   
