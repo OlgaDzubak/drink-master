@@ -1,4 +1,4 @@
-import{n as i,x as d,q as h,j as t,X as x,Y as m}from"./index-5ed66da2.js";import{c as g}from"./coctailPlaceholder-b833dea0.js";const p="/drink-master/assets/trash-fc07c8dc.svg",f=i.li`
+import{n as i,x as d,q as h,j as t,X as x,Y as m}from"./index-1f5a2c81.js";import{c as g}from"./coctailPlaceholder-0fa719d8.js";const p="/drink-master/assets/trash-fc07c8dc.svg",f=i.li`
   flex-basis: 100%;
 
   @media screen and (min-width: 768px) and (max-width: 1439.9px) {
