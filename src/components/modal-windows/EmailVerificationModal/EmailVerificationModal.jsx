@@ -9,6 +9,7 @@ import { StyledField } from '../../SignUp/FieldInputAuth/FieldInputAuth.styled';
 import { toogleIsLoggedIn, verify, toogleIsEmailVerificationModalOpen } from '../../../redux/auth/authOperations';
 import { CloseBtn, CloseIcon } from '../UserProfileModal/UserProfileModal.styled';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { emailTokenSchema } from '../../helpers/validateForm/validate-verificationToken';
 
 export const EmailVerificationModal = ({email, title, navigateTo}) => {
   
@@ -18,7 +19,7 @@ export const EmailVerificationModal = ({email, title, navigateTo}) => {
   const navigate = useNavigate();
 
   const handleSubmit = (values, { resetForm }) => {
-    dispatch(verify({ verificationToken: values.verificationToken }));
+    dispatch(verify({ verificationToken: values.verificationToken.trim() }));
   } 
  
   const handleCancel = (e) => {
@@ -41,7 +42,7 @@ export const EmailVerificationModal = ({email, title, navigateTo}) => {
               { 
                  isLoading 
                     ? <SkeletonVerify height={"44px"} />
-                    : <Formik initialValues={{verificationToken: ''}} onSubmit={handleSubmit}>
+                    : <Formik initialValues={{verificationToken: ''}} onSubmit={handleSubmit} validationSchema={emailTokenSchema}>
                         {({ errors, touched, values }) => (
         
                           <Form style={{ zIndex: 3, minWidth: '335px' }}>
