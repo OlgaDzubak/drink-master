@@ -1,4 +1,4 @@
-import{n as e}from"./index-dc3b460d.js";const a=e.h1`
+import{n as e}from"./index-2e00c0f1.js";const a=e.h1`
   
   ${({hidden:t,theme:o,marginBottom:i})=>t?` width: 1px; 
                       height: 1px; 
