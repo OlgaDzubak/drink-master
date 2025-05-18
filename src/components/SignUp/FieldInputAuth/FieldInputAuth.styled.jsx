@@ -9,8 +9,8 @@ import { FiCalendar } from "react-icons/fi";
 
 // контейнер для інпута, кнопки-іконки та повідомлення про корректність/некорректність введення даних
 export const  StyledFieldContainer = styled.div`
-  position: relative;
-  
+  position: relative;  
+  width: 100%;
 `;
 
 // контейнер для інпута та кнопки-іконки
@@ -32,7 +32,8 @@ export const InputAndIconContainer = styled.div`
 
 //інпут
 export const StyledField = styled(Field)`
-  width: 335px;
+  max-width: 400px;
+  width: 100%;
   padding-top: 17.24px;
   padding-left: 24px;
   padding-right: 55px;

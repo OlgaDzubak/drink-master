@@ -8,7 +8,7 @@ export const EmailVerificationWrapper = styled.div`
   width: 500px;
   padding: 50px;
   text-align: center;
-  z-index: 101;
+  z-index: 2000;
   border-radius: 15px;
   box-shadow: 0px 0px 0px 1px var(--blue-color);
   background-color: var(--blue-color);

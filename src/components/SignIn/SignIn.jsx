@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsLoading } from '../../redux/auth/authSelectors';
 import { StyledMain } from '../Welcome/Welcome.styled';
-import { StyledAuthContainer, StyledButton, StyledTitleAuth, FieldsInputAuthContainer, StyledButtonsContainer } from '../SignUp/SignUp.styled';
+import { StyledAuthContainer, StyledLink, StyledButton, StyledTitleAuth, FieldsInputAuthContainer, StyledButtonsContainer } from '../SignUp/SignUp.styled';
 import { SkeletonRows } from '../Skeletons/SkeletonRows';
 import { signin } from '../../redux/auth/authOperations';
 import { SignInSchema } from '../../helpers/validateForm/validate-login';
@@ -25,7 +25,7 @@ const SignIn = () => {
 
   const handleSubmit = (values, { resetForm }) => {
     dispatch(signin(values));
-    resetForm();
+    //resetForm();
   }
 
   const initialValues = {
@@ -62,9 +62,9 @@ const SignIn = () => {
                             
                             <StyledButton type="submit">Sign In</StyledButton>
                             
-                            <Link to="/signup">
+                            <StyledLink to="/signup">
                               <StyledButton type="button">Sign Up</StyledButton>
-                            </Link>
+                            </StyledLink>
                           
                           </StyledButtonsContainer>
                         </>

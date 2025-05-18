@@ -15,7 +15,7 @@ export const ProfileModal = styled.div`
   border-radius: 16px;
   background-color: #161f37;
   color: var(--white-color);
-  z-index: 101;
+  z-index: 2000;
   overflow: hidden;
 
   @media screen and (min-width: 768px) {

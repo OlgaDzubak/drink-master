@@ -1,19 +1,19 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsLoading } from '../../redux/auth/authSelectors';
 import { signup } from '../../redux/auth/authOperations';
-import { Link } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import { StyledMain } from '../Welcome/Welcome.styled';
 import { SignupSchema } from '../../helpers/validateForm/validate-register';
 import { SkeletonRows } from '../Skeletons/SkeletonRows';
-import { StyledAuthContainer, StyledTitleAuth, StyledButtonsContainer, StyledButton, FieldsInputAuthContainer } from './SignUp.styled';
+import { StyledAuthContainer, StyledTitleAuth, StyledButtonsContainer, FieldsInputAuthContainer, StyledLink, StyledButton } from './SignUp.styled';
 import { FieldInputAuth } from './FieldInputAuth/FieldInputAuth';
 import { FieldInputAuthPass } from './FieldInputAuth/FieldInputAuthPass';
 import { FieldInputAuthBirthdate } from './FieldInputAuth/FieldInputAuthBirthdate';
-import changeDateStr from '../../helpers/changeDateStr';
-import './air-datepicker.css';
 import { EmailVerificationModal } from '../modal-windows/EmailVerificationModal/EmailVerificationModal';
-import { selectIsEmailVerificationModalOpen} from '../../redux/auth/authSelectors';
+import { selectIsEmailVerificationModalOpen } from '../../redux/auth/authSelectors';
+import './air-datepicker.css';
+import changeDateStr from '../../helpers/changeDateStr';
+
 let emailForVerification = '';
 
 const SignUp = () => {
@@ -46,6 +46,7 @@ const SignUp = () => {
   };
 
   return  <StyledMain>
+    
             <StyledAuthContainer>
             
               <StyledTitleAuth id="signup">Sign Up</StyledTitleAuth>
@@ -62,7 +63,6 @@ const SignUp = () => {
                     {isLoading 
                       ? <SkeletonRows rows={5} heightArr={[56]}/>
                       : <>
-
                           <FieldsInputAuthContainer>
 
                             <FieldInputAuth id="name" name="name" placeholder="Name" errors={errors} touched={touched} showCheckIcon={true}/>
@@ -79,12 +79,11 @@ const SignUp = () => {
 
                             <StyledButton type="submit">Sign Up</StyledButton>
 
-                            <Link to="/signin">
+                            <StyledLink to="/signin">
                               <StyledButton type="button">Sign In</StyledButton>
-                            </Link>
+                            </StyledLink>
 
                           </StyledButtonsContainer>
-
                         </>
                     }
 
@@ -99,6 +98,7 @@ const SignUp = () => {
             {isEmailVerificationModalOpen && <EmailVerificationModal email={emailForVerification}
                                                                      title="Registration successful!"
                                                                      navigateTo="/signin" />}
+          
           </StyledMain>
 };
 

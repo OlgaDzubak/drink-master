@@ -1,10 +1,12 @@
 import styled from '@emotion/styled';
-// import { DialogContent } from '@mui/material';
 import { StyledTitle } from '../Welcome/Welcome.styled';
 import { Form, Field } from 'formik';
+import { Link } from 'react-router-dom';
 
 export const StyledAuthContainer = styled.div`
   min-width: 320px;
+  max-width: 400px;
+  width: 100%;
   padding-top: 191px;
   padding-left: 16px;
   padding-right: 16px;
@@ -14,13 +16,11 @@ export const StyledAuthContainer = styled.div`
   text-align: center;
 
   @media screen and (min-width: 375px) {
-    width: 335px;
     padding-left: 20px;
     padding-right: 20px;
   }
 
   @media screen and (min-width: 768px) {
-    width: 400px;
     padding-top: 280px;
     padding-left: 0px;
     padding-right: 0px;
@@ -102,8 +102,15 @@ export const FieldsInputAuthContainer = styled.div`
 `;
 
 export const StyledButtonsContainer = styled.div`
+  max-width: 400px;
+  width: 100%;
   display: flex; 
   flex-direction: column;
+  align-items: center;
+`;
+
+export const StyledLink = styled(Link)`
+  width: 100%;
 `;
 
 export const StyledButton = styled.button`
