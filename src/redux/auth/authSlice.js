@@ -65,13 +65,14 @@ const handlePending_refresh = (state) => {
 
 const handleFulfilled_signup = (state, action) => {
   state.user = action.payload.user;
+  state.token = action.payload.token;
   state.isLoading = false;
   state.error = null;
   state.isEmailVerificationModalOpen = true;
 };
 
 const handleFulfilled_verify = (state, action) => {
-  Notify.info('Email verified', { position: "right-top" });
+  Notify.success('Email verified', { position: "right-top" });
   state.isEmailVerificationModalOpen = false;
   state.user.verify = true;
   state.isLoggedIn = true;
