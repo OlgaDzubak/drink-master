@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsLoading } from '../../../redux/auth/authSelectors';
 import { ModalBackdrop } from '../../SharedLayout/SharedLayout.styled';
-import { SkeletonLogout } from '../../Skeletons/SkeletonLogout';
+import { SkeletonVerify } from '../../Skeletons/SkeletonVerify';
 import { EmailVerificationWrapper, VerificationModalTitle, VerificationModalSubtitle, MessageText, Emailspan } from './EmailVerificationModal.styled';
 import { ButtonsWrapper, ModalBtn } from '../LogOutModal/LogoutModal.styled';
 import { Formik, Form } from 'formik';
@@ -40,7 +40,7 @@ export const EmailVerificationModal = ({email, title, navigateTo}) => {
             <EmailVerificationWrapper className='modal'>
               { 
                  isLoading 
-                    ? <SkeletonLogout height={"44px"} />
+                    ? <SkeletonVerify height={"44px"} />
                     : <Formik initialValues={{verificationToken: ''}} onSubmit={handleSubmit}>
                         {({ errors, touched, values }) => (
         

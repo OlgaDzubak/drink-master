@@ -70,7 +70,7 @@ const handleFulfilled_signup = (state, action) => {
 };
 
 const handleFulfilled_verify = (state, action) => {
-  Notify.failure('Email verified', { position: "left-bottom" });
+  Notify.failure('Email verified', { position: "center-center" });
   state.isEmailVerificationModalOpen = false;
   state.user.verify = true;
   state.isLoggedIn = true;

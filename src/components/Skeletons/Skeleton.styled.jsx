@@ -29,7 +29,7 @@ export const SkeletonItem = styled.div`
   }
 `;
 
-  export const Div = styled.div`
+export const Div = styled.div`
     display: flex;
     gap: 30px;
 `;
