@@ -45,7 +45,11 @@ const authSlice = createSlice({
                                   .addCase(auth.subscribeUser.pending, handlePending)
                                   .addCase(auth.subscribeUser.fulfilled, handleFulfilled_subscribe)
                                   .addCase(auth.subscribeUser.rejected, handleRejected_subscribe)
-                                  
+
+                                  .addCase(auth.unsubscribeUser.pending, handlePending)
+                                  .addCase(auth.unsubscribeUser.fulfilled, handleFulfilled_unsubscribe)
+                                  .addCase(auth.unsubscribeUser.rejected, handleRejected_unsubscribe)
+    
                                   .addCase(auth.toogleIsEmailVerificationModalOpen.fulfilled, (state, action) => { state.isEmailVerificationModalOpen = !state.isEmailVerificationModalOpen })
                                   .addCase(auth.toogleIsLoggedIn.fulfilled, (state, action) => { state.isLoggedIn = !state.isLoggedIn })
     
@@ -70,7 +74,6 @@ const handleFulfilled_signup = (state, action) => {
   state.error = null;
   state.isEmailVerificationModalOpen = true;
 };
-
 const handleFulfilled_verify = (state, action) => {
   Notify.success(`Email ${state.user.email} verified`, { position: "right-top", timeout: 1500, });
   state.isEmailVerificationModalOpen = false;
@@ -79,7 +82,6 @@ const handleFulfilled_verify = (state, action) => {
   state.isLoading = false;
   state.error = null;
 };
-
 const handleFulfilled_signin = (state, action) => {
   state.user = action.payload.user;
   state.token = action.payload.token;
@@ -118,9 +120,15 @@ const handleFulfilled_udpate = (state, action) => {
 const handleFulfilled_subscribe = (state, action) => {
     state.error = null;
     state.isLoading = false;
-    Notify.success(`You are about to subscribe to the "Drink Master" newsletter. We have sent a message to your email ${action.payload.subscriptionEmail}. Please confirm your subscription by clicking the link in the message.`, {width: '500px', position: 'right-bottom', messageMaxLength: '300', timeout: 10000});
+    state.user.subscribeStatus = true;
+    Notify.success(`You are subscribed to the "Drink Master" newsletter. We have sent a message to your email ${action.payload.email}.`, {position: 'right-bottom'});
 };
-
+const handleFulfilled_unsubscribe = (state, action) => {
+  state.error = null;
+  state.isLoading = false;
+  state.user.subscribeStatus = false;
+  Notify.success(`Your subscription was canceled. We have sent a message to your email ${action.payload.email}.`, {position: 'right-bottom'});
+};
 
 const handleRejected_signup = (state, action) => {
    
@@ -205,6 +213,22 @@ const handleRejected_getUser = (state, action) => {
   state.isLoading = false;
 };
 const handleRejected_subscribe = (state, action) => {
+  state.error = action.payload;
+  state.isLoading = false;
+  
+  switch (action.payload){
+    case "Request failed with status code 401":
+                Notify.failure("Subscription failed! Please sign in.");
+                break;
+    case "Request failed with status code 403":
+                Notify.failure("Email is not verified");
+                break;
+    default: 
+                Notify.failure("Server error! Please reload the page.");
+                break;
+}
+};
+const handleRejected_unsubscribe = (state, action) => {
   state.error = action.payload;
   state.isLoading = false;
   

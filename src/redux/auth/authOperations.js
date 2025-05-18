@@ -107,7 +107,7 @@ export const subscribeUser = createAsyncThunk('auth/subscribeUser', async (crede
   },
 );
 
-export const unsubscribeUser = createAsyncThunk('auth/subscribeUser', async (credentials, thunkAPI) => {
+export const unsubscribeUser = createAsyncThunk('auth/unsubscribeUser', async (credentials, thunkAPI) => {
     
   try {
     const { data } = await axios.post('/users/unsubscribe', credentials);
