@@ -50,8 +50,11 @@ const GlobalStyles = css`
     --transition2000: 2000ms ease-in; 
   }
 
-  body {
+  html{
     min-width: 375px;
+  }
+
+  body {
     margin : 0;
     font-family: 'Manrope', sans-serif;
     word-wrap: break-word;
