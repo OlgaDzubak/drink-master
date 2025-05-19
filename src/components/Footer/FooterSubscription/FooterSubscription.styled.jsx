@@ -1,6 +1,11 @@
 import styled from '@emotion/styled';
 import { Field, Form } from 'formik';
 
+export const SubscriptionContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const SubWrapper = styled.div`
   width: 309px;
   
@@ -15,7 +20,7 @@ export const SubWrapper = styled.div`
 export const SubFormContenWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  position: relative;
+  
 `;
 
 export const StyledSubLabel = styled.label`
@@ -75,7 +80,7 @@ export const StyledSubBtn = styled.button`
   }
 `;
 
-export const StyledSubText = styled.p`
+export const StyledText = styled.p`
   width: 309px;
   margin-bottom: 24px;
   font-size: 18px;

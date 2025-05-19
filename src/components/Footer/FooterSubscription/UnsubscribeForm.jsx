@@ -1,11 +1,13 @@
 import { Formik } from 'formik';
-import { useDispatch } from 'react-redux';
-import { StyledSubBtn, StyledSubText, StyledSubField, StyledSubForm, StyledSubLabel, SubFormContenWrapper,} from './FooterSubscription.styled';
+import { useSelector, useDispatch } from 'react-redux';
+import { SubscriptionContainer, StyledSubBtn, StyledText, StyledSubField, StyledSubForm, StyledSubLabel, SubFormContenWrapper,} from './FooterSubscription.styled';
 import { unsubscribeUser } from '../../../redux/auth/authOperations';
-
+import { selectIsLoading } from '../../../redux/auth/authSelectors';
+import { SkeletonRows } from '../../Skeletons/SkeletonRows';
 
 export const UnsubscribeForm = ({ email}) => {
-
+  
+  const isLoading = useSelector(selectIsLoading);
   const dispatch = useDispatch();
 
   const handleSubmit = async (values, { resetForm }) => {
@@ -14,18 +16,24 @@ export const UnsubscribeForm = ({ email}) => {
     resetForm();
   };
 
-  return <Formik initialValues={{email}} onSubmit={handleSubmit}> 
-          {({ errors, touched }) => <StyledSubForm>
-
-                                      <StyledSubText>You are subscribed on our newsletter.</StyledSubText>
-    
-                                      <SubFormContenWrapper>
-                                        <StyledSubLabel htmlFor="email">Email:</StyledSubLabel>
-                                        <StyledSubField type="text" id="email" name="email" placeholder="Enter the Email" autoComplete="email" disabled/>  {/* в якості email для підписки будемо використовувати email авторизації (якщо захочемо дозволити використовувати іншиу пошту то поле disabled приберемо) */}
-                                      </SubFormContenWrapper>
-                                      
-                                      <StyledSubBtn type="submit">Cancel subscription</StyledSubBtn>
-                                    </StyledSubForm>
+  return <SubscriptionContainer>
+          <StyledText>You are subscribed to our newsletter.</StyledText>
+              
+          {isLoading
+            ? <SkeletonRows rows={2} heightArr={[56, 56]} />
+            : <Formik initialValues={{ email }} onSubmit={handleSubmit}>
+                {({ errors, touched }) => <StyledSubForm>
+                  
+                  <SubFormContenWrapper>
+                    <StyledSubLabel htmlFor="email">Email:</StyledSubLabel>
+                    <StyledSubField type="text" id="email" name="email" placeholder="Enter the Email" autoComplete="email" disabled />  {/* в якості email для підписки будемо використовувати email авторизації (якщо захочемо дозволити використовувати іншиу пошту то поле disabled приберемо) */}
+                  </SubFormContenWrapper>
+                                                    
+                  <StyledSubBtn type="submit">Cancel subscription</StyledSubBtn>
+                </StyledSubForm>
+                }
+              </Formik>
           }
-        </Formik>
+          
+         </SubscriptionContainer>
 };
