@@ -2,18 +2,26 @@ import { Formik } from 'formik';
 import { useSelector, useDispatch } from 'react-redux';
 import { SubscriptionContainer, StyledSubBtn, StyledText, StyledSubField, StyledSubForm, StyledSubLabel, SubFormContenWrapper,} from './FooterSubscription.styled';
 import { subscribeUser } from '../../../redux/auth/authOperations';
-import { selectIsLoading } from '../../../redux/auth/authSelectors';
+import { selectIsLoading, selectUser, selectShouldBeVerifiedForSubscription } from '../../../redux/auth/authSelectors';
 import { SkeletonRows } from '../../Skeletons/SkeletonRows';
+import { useEffect } from 'react';
 
-export const SubscribeForm = ({ email}) => {
+export const SubscribeForm = () => {
 
+  const verifiedForSubscription = useSelector(selectShouldBeVerifiedForSubscription);
   const isLoading = useSelector(selectIsLoading);
+  const { email } = useSelector(selectUser);
   const dispatch = useDispatch();
 
-  const handleSubmit = async (values, { resetForm }) => {
-
-    await dispatch(subscribeUser({subscriptionEmail: values.email}));
-    resetForm();
+  useEffect(() => {
+    if (verifiedForSubscription) { 
+      dispatch(subscribeUser());      
+    };
+    
+  },[verifiedForSubscription]);
+  
+  const handleSubmit = async () => {
+    await dispatch(subscribeUser());
   };
 
   return  <SubscriptionContainer>

@@ -6,9 +6,9 @@ import { UnsubscribeForm } from './UnsubscribeForm';
 
 export const FooterSubscription = () => {
 
-  const { email, subscribeStatus } = useSelector(selectUser);
+  const { subscribeStatus } = useSelector(selectUser);
 
   return  <>
-            {subscribeStatus ? <UnsubscribeForm email={email} /> : <SubscribeForm email={email} />}
+            {subscribeStatus ? <UnsubscribeForm/> : <SubscribeForm/>}
           </>
 };

@@ -11,3 +11,7 @@ export const selectError = (state) => state.auth.error;
 export const selectToken = (state) => state.auth.token;
 
 export const selectIsEmailVerificationModalOpen = (state) => state.auth.isEmailVerificationModalOpen;
+
+export const selectVerifiedForSubscription = (state) => state.auth.verifiedForSubscription;
+
+export const selectShouldBeVerifiedForSubscription = (state) => state.auth.shouldBeVerifiedForSubscription;

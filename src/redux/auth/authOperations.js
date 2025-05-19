@@ -15,7 +15,6 @@ export const signup = createAsyncThunk('auth/signup', async (credentials, { reje
 
     try {
       const { data } = await axios.post('/auth/signup', credentials);
-      console.log("data.token=",data.token);
       setAuthHeader(data.token);
       return data;
     } catch (error) {
@@ -49,7 +48,6 @@ export const verify = createAsyncThunk('auth/verify', async (credentials, { reje
 
   try {
     const { data } = await axios.post(`/users/verify`, credentials);
-    //setAuthHeader(data.token);
     return data;
   } catch (error) {
     return rejectWithValue(error.message);
@@ -99,7 +97,7 @@ export const updateUser = createAsyncThunk('auth/updateUser', async (newUser, th
 export const subscribeUser = createAsyncThunk('auth/subscribeUser', async (credentials, thunkAPI) => {
     
     try {
-      const { data } = await axios.post('/users/subscribe', credentials);
+      const { data } = await axios.post('/users/subscribe');
       return data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -110,7 +108,7 @@ export const subscribeUser = createAsyncThunk('auth/subscribeUser', async (crede
 export const unsubscribeUser = createAsyncThunk('auth/unsubscribeUser', async (credentials, thunkAPI) => {
     
   try {
-    const { data } = await axios.post('/users/unsubscribe', credentials);
+    const { data } = await axios.post('/users/unsubscribe');
     return data;
   } catch (e) {
     return thunkAPI.rejectWithValue(e.message);
@@ -118,12 +116,18 @@ export const unsubscribeUser = createAsyncThunk('auth/unsubscribeUser', async (c
 },
 );
 
+
 export const toogleIsEmailVerificationModalOpen = createAsyncThunk('auth/toogleModal', (credentials, thunkAPI) => {
     
   return true;
 
 });
-
 export const toogleIsLoggedIn = createAsyncThunk('auth/toogleLoggedIn', (credentials, thunkAPI) => {
+  return true;
+});
+export const toogleVerifiedForSubscription = createAsyncThunk('auth/toogleVerifiedForSubscription', (credentials, thunkAPI) => {
+  return true;
+});
+export const toogleShouldBeVerifiedForSubscription = createAsyncThunk('auth/toogleShouldBeVerifiedForSubscription', (credentials, thunkAPI) => {
   return true;
 });

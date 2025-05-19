@@ -2,12 +2,13 @@ import { Formik } from 'formik';
 import { useSelector, useDispatch } from 'react-redux';
 import { SubscriptionContainer, StyledSubBtn, StyledText, StyledSubField, StyledSubForm, StyledSubLabel, SubFormContenWrapper,} from './FooterSubscription.styled';
 import { unsubscribeUser } from '../../../redux/auth/authOperations';
-import { selectIsLoading } from '../../../redux/auth/authSelectors';
+import { selectIsLoading, selectUser } from '../../../redux/auth/authSelectors';
 import { SkeletonRows } from '../../Skeletons/SkeletonRows';
 
-export const UnsubscribeForm = ({ email}) => {
+export const UnsubscribeForm = () => {
   
   const isLoading = useSelector(selectIsLoading);
+  const { email } = useSelector(selectUser);
   const dispatch = useDispatch();
 
   const handleSubmit = async (values, { resetForm }) => {

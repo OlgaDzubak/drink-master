@@ -1,4 +1,4 @@
-import React, { useContext, Suspense, useEffect } from "react";
+import { useContext, Suspense, useEffect } from "react";
 import { Outlet } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Global, css, ThemeProvider } from '@emotion/react';
@@ -8,6 +8,10 @@ import blockScroll from '../../helpers/blockScroll';
 import { BurgerModal } from '../modal-windows/BurgerModal/BurgerModal';
 import { UserProfileModal } from '../modal-windows/UserProfileModal/UserProfileModal';
 import { LogoutModal } from '../modal-windows/LogOutModal/LogoutModal';
+import { EmailVerificationModal } from '../modal-windows/EmailVerificationModal/EmailVerificationModal';
+
+import { selectUser, selectIsEmailVerificationModalOpen } from '../../redux/auth/authSelectors';
+import { toogleIsEmailVerificationModalOpen } from '../../redux/auth/authOperations';
 
 import { selectIsBurgerModalOpen, selectIsUserProfileModalOpen, selectIsLogoutModalOpen } from '../../redux/modal/modalSelectors';
 import { toggleIsBurgerModalOpen, toggleIsUserProfileModalOpen, toggleIsLogoutModalOpen } from '../../redux/modal/modalSlice';
@@ -31,10 +35,12 @@ const SharedLayout = () => {
   const darkTheme = {...DARK_THEME};
   const lightTheme = {...LIGHT_THEME};
 
+  const { email } = useSelector(selectUser);
   const isBurgerModalOpen = useSelector(selectIsBurgerModalOpen);
   const isUserProfileModalOpen = useSelector(selectIsUserProfileModalOpen);
   const isLogoutModalOpen = useSelector(selectIsLogoutModalOpen);
-  
+  const isEmailVerificationModalOpen = useSelector(selectIsEmailVerificationModalOpen);
+
   const dispatch = useDispatch();
   
   useEffect(()=>{
@@ -49,10 +55,11 @@ const SharedLayout = () => {
         isBurgerModalOpen && dispatch(toggleIsBurgerModalOpen());
         isUserProfileModalOpen && dispatch(toggleIsUserProfileModalOpen());
         isLogoutModalOpen && dispatch(toggleIsLogoutModalOpen());
+        isEmailVerificationModalOpen && dispatch(toogleIsEmailVerificationModalOpen());
       }
     };
 
-    if (isBurgerModalOpen || isUserProfileModalOpen || isLogoutModalOpen) {
+    if (isBurgerModalOpen || isUserProfileModalOpen || isLogoutModalOpen || isEmailVerificationModalOpen) {
       blockScroll.disabledScroll();
       document.addEventListener('keydown', handleKeyDown);
     } else {
@@ -63,7 +70,7 @@ const SharedLayout = () => {
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isBurgerModalOpen, isUserProfileModalOpen, isLogoutModalOpen]);
+  }, [isBurgerModalOpen, isUserProfileModalOpen, isLogoutModalOpen, isEmailVerificationModalOpen]);
 
   let theme;
   switch (currentTheme) {
@@ -108,6 +115,7 @@ const SharedLayout = () => {
             { isBurgerModalOpen && <BurgerModal /> }
             { isUserProfileModalOpen && <UserProfileModal /> }
             { isLogoutModalOpen && <LogoutModal /> }
+            { isEmailVerificationModalOpen && <EmailVerificationModal email={email} title="Verify your email!" navigateTo="/" />}
     
           </ThemeProvider>
 };
