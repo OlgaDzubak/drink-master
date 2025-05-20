@@ -21,11 +21,11 @@ export const UserLogo = () => {
 
   return  <UserLogoWrapper>
 
-              <UserLogoBtn onClick={handleClickAvatar}>
+              <UserLogoBtn onClick={handleClickAvatar} aria-label='user avatar'>
                 <UserLogoImg src={avatarURL} alt="user icon" />
               </UserLogoBtn>
 
-              <UserLogoBtn onClick={handleClickName}>
+              <UserLogoBtn onClick={handleClickName} aria-label='user name'>
                 <UserLogoText>{name}</UserLogoText>
               </UserLogoBtn>
               

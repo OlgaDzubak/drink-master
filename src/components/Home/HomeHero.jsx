@@ -21,7 +21,7 @@ const HomeHero = () => {
                   finest beverages.
                 </Text>
 
-                <BtnAddDrinks to="/add">Add drink</BtnAddDrinks>
+                <BtnAddDrinks to="/add" aria-label="add drink">Add drink</BtnAddDrinks>
                 
               </HeroTextDiv>
     

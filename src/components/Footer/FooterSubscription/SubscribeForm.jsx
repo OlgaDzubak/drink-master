@@ -33,10 +33,16 @@ export const SubscribeForm = () => {
                                                 
                                             <SubFormContenWrapper>
                                               <StyledSubLabel htmlFor="email">Email:</StyledSubLabel>
-                                              <StyledSubField type="text" id="email" name="email" placeholder="Enter the Email" autoComplete="email" disabled />  {/* в якості email для підписки будемо використовувати email авторизації (якщо захочемо дозволити використовувати іншиу пошту то поле disabled приберемо) */}
+                                              <StyledSubField type="text"
+                                                              id="email"
+                                                              name="email"
+                                                              placeholder="Enter the Email"
+                                                              autoComplete="email"
+                                                              disabled 
+                                              />  {/* в якості email для підписки будемо використовувати email авторизації (якщо захочемо дозволити використовувати іншиу пошту то поле disabled приберемо) */}
                                             </SubFormContenWrapper>
                                                                                   
-                                            <StyledSubBtn type="submit">Subscribe</StyledSubBtn>
+                                            <StyledSubBtn type="submit" aria-label='newsletter subscription'>Subscribe</StyledSubBtn>
                                             
                                           </StyledSubForm>
                 }

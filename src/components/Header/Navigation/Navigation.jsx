@@ -15,11 +15,11 @@ const Navigation = () => {
   };
   return <NavigationList>
 
-          <StyledLink to="/" onClick={handleLinkClick}>Home</StyledLink>
-          <StyledLink to="/drinks" onClick={handleLinkClick}>Drinks</StyledLink>
-          <StyledLink to="/add" onClick={handleLinkClick}>Add Drink</StyledLink>
-          <StyledLink to="/my" onClick={handleLinkClick}>My Drinks</StyledLink>
-          <StyledLink to="/favorites" onClick={handleLinkClick}>Favorites</StyledLink>
+          <StyledLink to="/" onClick={handleLinkClick} aria-label='home page'>Home</StyledLink>
+          <StyledLink to="/drinks" onClick={handleLinkClick} aria-label='drinks page'>Drinks</StyledLink>
+          <StyledLink to="/add" onClick={handleLinkClick} aria-label='add-drinks page'>Add Drink</StyledLink>
+          <StyledLink to="/my" onClick={handleLinkClick} aria-label='own-drinks page'>My Drinks</StyledLink>
+          <StyledLink to="/favorites" onClick={handleLinkClick} aria-label='favorite-drinks page'>Favorites</StyledLink>
 
         </NavigationList>
 };
