@@ -23,26 +23,26 @@ export const PopularDrinks = () => {
     fetchPopularCoctails();
   }, []);
 
-  return  <>
-            <PopularCoctailsTitle>Popular Drink</PopularCoctailsTitle>
+  return  <div aria-labelledby="popular-drinks-title">
+            <PopularCoctailsTitle id="popular-drinks-title">Popular Drinks</PopularCoctailsTitle>
             
-            <PopularWrapper>
+            <PopularWrapper >
               {' '}
               {
                 popularCoctails
                     .slice(0, 4)
                     .map(({ drinkThumb={defaultImg}, drink, description, _id }, index) => 
-                              <Link key={index} to={`/drink/${_id}`} aria-label="click to see more information about drink">
+                              <Link key={index} to={`/drink/${_id}`} aria-labelledby="popular-drink-name">
 
                                 <PopularCoctailsWrapper>
 
-                                  <PopularCoctailsImage src={drinkThumb} alt={drink} />
+                                  <PopularCoctailsImage src={drinkThumb} alt={drink} aria-labelledby="popular-drink-name"/>
 
                                   <PopularCoctailsText>
 
-                                    <PopularCoctailsName>{drink}</PopularCoctailsName>
+                                    <PopularCoctailsName id="popular-drink-name">{drink}</PopularCoctailsName>
                                     
-                                    <PopularCoctailsDescription>
+                                    <PopularCoctailsDescription aria-labelledby="popular-drink-name">
                                       {description}
                                     </PopularCoctailsDescription>
 
@@ -54,5 +54,5 @@ export const PopularDrinks = () => {
                     )
                 }
             </PopularWrapper>
-          </>
+          </div>
 };

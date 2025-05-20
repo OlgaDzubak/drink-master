@@ -90,7 +90,7 @@ const handleSelectMenuOpen = (e) => {
             
             <ImgAndErrorDiv>
             
-              <DescriptionImageDiv aria-label="click to add drink photo">
+              <DescriptionImageDiv aria-labelledby="drinkThumb">
 
                 <ImageInputLabel htmlFor="drinkThumb">
                       
@@ -99,9 +99,10 @@ const handleSelectMenuOpen = (e) => {
                     id="drinkThumb"
                     name="drinkThumb"
                     onChange={(e) => handleImageChange(e)}
+                    aria-label="add drink photo"
                   />
                   
-                  <AddImageDiv>
+                  <AddImageDiv aria-labelledby="drinkThumb">
 
                     <PlusSVGDiv className='add-div'>
                       <PlusSVG></PlusSVG>

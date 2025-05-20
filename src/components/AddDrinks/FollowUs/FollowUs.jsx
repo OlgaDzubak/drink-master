@@ -3,9 +3,9 @@ import { FollowUsWrapper, FollowUsTitle, } from './FollowUs.styled';
 
 export const FollowUs = () => {
 
-  return  <FollowUsWrapper>
+  return  <FollowUsWrapper aria-labelledby="follow-us-title">
 
-            <FollowUsTitle>Follow Us</FollowUsTitle>
+            <FollowUsTitle id="follow-us-title">Follow Us</FollowUsTitle>
             <MediaLinksList/>
 
           </FollowUsWrapper>
