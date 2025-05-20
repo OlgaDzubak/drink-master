@@ -78,13 +78,19 @@ const handleFulfilled_signup = (state, action) => {
   state.isEmailVerificationModalOpen = true;
 };
 const handleFulfilled_verify = (state, action) => {
-  Notify.success(`1.Email ${state.user.email} verified`, { position: "right-top", timeout: 1500, });
-  state.isEmailVerificationModalOpen = false;
-  state.user.verify = true;
-  state.isLoggedIn = true;
+  // Notify.success(`1.Email ${state.user.email} verified`, {
+  //   position: state.shouldBeVerifiedForSubscription ? "right-bottom" : "right-top",
+  //   timeout: 1500,
+  // });
   state.isLoading = false;
+  if (!state.isLoggedIn) { state.isLoggedIn = true; }
+  state.user.verify = true; 
   state.error = null;
-  if (state.shouldBeVerifiedForSubscription) { state.verifiedForSubscription = true; }
+  if (state.shouldBeVerifiedForSubscription) {
+    state.shouldBeVerifiedForSubscription = false;
+    state.verifiedForSubscription = true;    
+  }
+  state.isEmailVerificationModalOpen = false;
 };
 const handleFulfilled_signin = (state, action) => {
   state.user = action.payload.user;
@@ -122,14 +128,15 @@ const handleFulfilled_udpate = (state, action) => {
   Notify.success('User profile updated!', { position: 'right-top', distance: '70px', timeout: 3000});
 };
 const handleFulfilled_subscribe = (state, action) => {
-    Notify.success(`You are subscribed to the "Drink Master" newsletter. We have sent a message to your email ${action.payload.email}.`, {width: 300, position: 'right-bottom', distance: '10px', timeout: 5000});  
+    Notify.success(`You are subscribed to the "Drink Master" newsletter. We have sent a message to your email ${action.payload.email}.`, {width: "400px", position: 'right-bottom', distance: '10px', timeout: 5000});  
     state.error = null;
     state.isLoading = false;
     state.user.subscribeStatus = true;
+    state.shouldBeVerifiedForSubscription = false;
     state.verifiedForSubscription = false;
 };
 const handleFulfilled_unsubscribe = (state, action) => {
-    Notify.success(`Your subscription was canceled. We have sent a message to your email ${action.payload.email}.`, {width: 300, position: 'right-bottom', distance: '10px', timeout: 3000});
+    Notify.success(`Your subscription was canceled. We have sent a message to your email ${action.payload.email}.`, {width: 400, position: 'right-bottom', distance: '10px', timeout: 3000});
     state.error = null;
     state.isLoading = false;
     state.user.subscribeStatus = false;
@@ -157,11 +164,12 @@ const handleRejected_verify = (state, action) => {
   state.error = action.payload;
   state.isLoading = false;
   state.isEmailVerificationModalOpen = false;
+  state.shouldBeVerifiedForSubscription = false;
   state.verifiedForSubscription = false;
   
   switch (action.payload){
       case "Request failed with status code 403":
-                  Notify.failure("Email verification failed! Invalid verification code.");
+                  Notify.failure("Email verification failed! Invalid verification code.", {distance: '10px',});
                   break;
       default: 
                   Notify.failure("Server error! Please reload the page.");
@@ -226,9 +234,9 @@ const handleRejected_subscribe = (state, action) => {
                 Notify.failure("Subscription failed! Please sign in.");
                 break;
     case "Request failed with status code 403":
-                Notify.failure("Email is not verified", { position: 'right-bottom', distance: '10px', timeout: 2000 });
-                state.isEmailVerificationModalOpen = true;
+                //Notify.failure("Email is not verified", { position: 'right-bottom', distance: '10px', timeout: 2000 });
                 state.shouldBeVerifiedForSubscription = true;
+                state.isEmailVerificationModalOpen = true;
                 break;
     default: 
                 Notify.failure("Server error! Please reload the page.");

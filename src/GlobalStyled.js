@@ -124,7 +124,7 @@ Notiflix.Notify.init({
   timeout: 3000,
   borderRadius: '5px',
   fontFamily: 'Manrope, sans-serif',
-  fontSize: "14px",
+  fontSize: "15px",
   success: {
     background: '#BCE6D2',
     textColor: '#161F37',

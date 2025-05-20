@@ -118,9 +118,7 @@ export const unsubscribeUser = createAsyncThunk('auth/unsubscribeUser', async (c
 
 
 export const toogleIsEmailVerificationModalOpen = createAsyncThunk('auth/toogleModal', (credentials, thunkAPI) => {
-    
   return true;
-
 });
 export const toogleIsLoggedIn = createAsyncThunk('auth/toogleLoggedIn', (credentials, thunkAPI) => {
   return true;

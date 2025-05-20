@@ -115,7 +115,7 @@ const SharedLayout = () => {
             { isBurgerModalOpen && <BurgerModal /> }
             { isUserProfileModalOpen && <UserProfileModal /> }
             { isLogoutModalOpen && <LogoutModal /> }
-            { isEmailVerificationModalOpen && <EmailVerificationModal email={email} title="Verify your email!" navigateTo="/" />}
+            { isEmailVerificationModalOpen && <EmailVerificationModal email={email} title="Verify your email before subscribing!" navigateTo="/" />}
     
           </ThemeProvider>
 };

@@ -25,12 +25,12 @@ export const EmailVerificationWrapper = styled.div`
 `;
 export const VerificationModalTitle = styled.h2`
   color: currentColor;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   font-size: 30px;
 `;
 export const VerificationModalSubtitle = styled.p`
   color: currentColor;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   font-size: 18px;
 `;
 
