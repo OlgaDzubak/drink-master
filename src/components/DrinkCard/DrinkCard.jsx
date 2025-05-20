@@ -40,7 +40,7 @@ export const DrinkCard = ({ location='home', _id, drink='', alcoholic='', shortD
                 
                 <LinkSeeMore location={location} to={`/drink/${_id}`} aria-label="see more">See more</LinkSeeMore>
 
-                <BucketBtn location={location} type="button" onClick={handleBucketBtnClick} aria-label='delete drink'>
+                <BucketBtn location={location} type="button" onClick={handleBucketBtnClick} aria-label='remove drink'>
                   <img src={icon} alt="trash bucket icon" />
                 </BucketBtn>
 
