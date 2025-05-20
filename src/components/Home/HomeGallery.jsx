@@ -57,7 +57,9 @@ const HomeGallery = () => {
             <SectionTitle title='Drink gallery by categories' hidden={true}/>
 
             {isLoading && <Loader />}
+            
 						{error && <ErrorPage />}
+            
             {drinks.length > 0 && <>
               <GalleryList>
                 {drinks.map(([title, coctails]) =>
@@ -81,6 +83,7 @@ const HomeGallery = () => {
             
               <LinkDrinks to={`/drinks`}>Other Drinks</LinkDrinks>
             </>}
+            
           </GallerySection>
 };
 
