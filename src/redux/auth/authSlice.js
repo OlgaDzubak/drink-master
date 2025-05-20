@@ -183,7 +183,7 @@ const handleRejected_signin = (state, action) => {
 
   switch (action.payload){
         case "Request failed with status code 401":
-                Notify.failure('Пароль або email не вірні', {position:"left-bottom"});
+                Notify.failure('Пароль або email не вірні', {position:"right-top"});
                 break;
         case "Request failed with status code 400":
               Notify.failure("Sign up failed! Missing data fields.", {position:"left-bottom"});
