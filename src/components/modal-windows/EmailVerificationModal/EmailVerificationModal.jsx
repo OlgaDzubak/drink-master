@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 
-import { selectIsLoading, selectShouldBeVerifiedForSubscription } from '../../../redux/auth/authSelectors';
+import { selectIsLoadingVerifyModal, selectShouldBeVerifiedForSubscription } from '../../../redux/auth/authSelectors';
 import { toogleIsLoggedIn, verify, toogleIsEmailVerificationModalOpen, toogleShouldBeVerifiedForSubscription } from '../../../redux/auth/authOperations';
 
 import { SkeletonVerify } from '../../Skeletons/SkeletonVerify';
@@ -18,7 +18,7 @@ import { CloseBtn, CloseIcon } from '../UserProfileModal/UserProfileModal.styled
 
 export const EmailVerificationModal = ({email, title, navigateTo}) => {
   
-  const isLoading = useSelector(selectIsLoading);
+  const isLoading = useSelector(selectIsLoadingVerifyModal);
   const shouldBeVerifiedForSubscription = useSelector(selectShouldBeVerifiedForSubscription);
   const location = useLocation();
   const dispatch = useDispatch();
@@ -63,7 +63,7 @@ export const EmailVerificationModal = ({email, title, navigateTo}) => {
   return <ModalBackdrop className="modal-backdrop" onClick={handleBackdropClick}>
             <EmailVerificationWrapper className='modal'>
               { 
-                 isLoading 
+                 isLoading
                     ? <SkeletonVerify/>
                     : <Formik initialValues={{verificationToken: ''}} onSubmit={handleSubmit} validationSchema={emailTokenSchema}>
                         {({ errors, touched, values }) => (

@@ -100,11 +100,7 @@ const Drinks = ({categoryList, ingredientList}) => {
 						{error && <ErrorPage />}
 						{isEmpty && <NotFound text="Not found!" />}
 						{drinkItems.length > 0 && <DrinksGallery location="drinks" drinkItems={drinkItems} />}
-
-						<Paginator 	pageCount={Math.ceil(totalDrinks/per_page)} 
-												handlePageClick={handlePageClick}
-						/>
-
+						<Paginator pageCount={Math.ceil(totalDrinks/per_page)} handlePageClick={handlePageClick} />
 					</DrinksContainer>
 };
 

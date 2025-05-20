@@ -4,6 +4,11 @@ import { Field, Form } from 'formik';
 export const SubscriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
+  margin-top: 40px;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 40px;
+  }
 `;
 
 export const SubWrapper = styled.div`
@@ -95,8 +100,8 @@ export const StyledSubForm = styled(Form)`
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-
-  @media screen and (max-width: 767px) {
+  
+  @media screen and (max-width: 767.98px) {
     align-items: center;
   }
 `;

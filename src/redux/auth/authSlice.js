@@ -14,13 +14,14 @@ const authSlice = createSlice({
     isEmailVerificationModalOpen: false,
     shouldBeVerifiedForSubscription: false,
     verifiedForSubscription: false,
+    isLoadingVerifyModal: false,
   },
   extraReducers: (builder) => { builder
                                   .addCase(auth.signup.pending, handlePending)
                                   .addCase(auth.signup.fulfilled,  handleFulfilled_signup)
                                   .addCase(auth.signup.rejected, handleRejected_signup)
 
-                                  .addCase(auth.verify.pending, handlePending)
+                                  .addCase(auth.verify.pending, handlePending_verify)
                                   .addCase(auth.verify.fulfilled,  handleFulfilled_verify)
                                   .addCase(auth.verify.rejected, handleRejected_verify)
     
@@ -65,9 +66,13 @@ const handlePending = (state) => {
   state.error = null;
   state.isLoading = true;
 }
-const handlePending_refresh = (state) => {
-  state.isRefreshing = true;
+const handlePending_verify = (state) => {
   state.error = null;
+  state.isLoadingVerifyModal = true;
+}
+const handlePending_refresh = (state) => {
+  state.error = null;
+  state.isRefreshing = true;
 }
 
 const handleFulfilled_signup = (state, action) => {
@@ -82,7 +87,7 @@ const handleFulfilled_verify = (state, action) => {
   //   position: state.shouldBeVerifiedForSubscription ? "right-bottom" : "right-top",
   //   timeout: 1500,
   // });
-  state.isLoading = false;
+  state.isLoadingVerifyModal = false;
   if (!state.isLoggedIn) { state.isLoggedIn = true; }
   state.user.verify = true; 
   state.error = null;
@@ -136,7 +141,7 @@ const handleFulfilled_subscribe = (state, action) => {
     state.verifiedForSubscription = false;
 };
 const handleFulfilled_unsubscribe = (state, action) => {
-    Notify.success(`Your subscription was canceled. We have sent a message to your email ${action.payload.email}.`, {width: 400, position: 'right-bottom', distance: '10px', timeout: 3000});
+    Notify.success(`Your subscription was cancelled. We have sent a message to your email ${action.payload.email}.`, {width: 400, position: 'right-bottom', distance: '10px', timeout: 3000});
     state.error = null;
     state.isLoading = false;
     state.user.subscribeStatus = false;
@@ -162,10 +167,9 @@ const handleRejected_signup = (state, action) => {
 const handleRejected_verify = (state, action) => {
    
   state.error = action.payload;
-  state.isLoading = false;
-  state.isEmailVerificationModalOpen = false;
-  state.shouldBeVerifiedForSubscription = false;
-  state.verifiedForSubscription = false;
+  state.isLoadingVerifyModal = false;
+  //state.isEmailVerificationModalOpen = false; //закривати модальне вікно не будемо
+  //state.shouldBeVerifiedForSubscription = false;
   
   switch (action.payload){
       case "Request failed with status code 403":
