@@ -1,4 +1,4 @@
-import{n as i,x as d,q as h,j as t,X as x,Y as m}from"./index-cefdde76.js";import{c as g}from"./coctailPlaceholder-81c567e8.js";const p="/drink-master/assets/trash-fc07c8dc.svg",f=i.li`
+import{n as i,x as d,q as h,j as t,X as x,Y as m}from"./index-007dd3fb.js";import{c as g}from"./coctailPlaceholder-2da96a7e.js";const p="/drink-master/assets/trash-fc07c8dc.svg",f=i.li`
   flex-basis: 100%;
 
   @media screen and (min-width: 768px) and (max-width: 1439.9px) {
@@ -124,4 +124,4 @@ import{n as i,x as d,q as h,j as t,X as x,Y as m}from"./index-cefdde76.js";impor
                       &:hover, &:focus {
                         background-color: ${e.theme.trashBucketBackgroundHover};
                       }`}
-`,z=({location:e="home",_id:n,drink:o="",alcoholic:a="",shortDescription:l="",drinkThumb:s={defaultImg:g}})=>{const r=h(),c=()=>{switch(e){case"own":r(m(n));break;case"favorite":r(x(n));break}};return t.jsxs(f,{children:[t.jsx(k,{src:s,alt:o}),t.jsxs(w,{location:e,children:[t.jsx(u,{location:e,children:o}),t.jsx(b,{location:e,children:a}),t.jsx(v,{location:e,children:l}),t.jsxs($,{children:[t.jsx(j,{location:e,to:`/drink/${n}`,"aria-label":"see more",children:"See more"}),t.jsx(C,{location:e,type:"button",onClick:c,"aria-label":"delete drink",children:t.jsx("img",{src:p,alt:"trash bucket icon"})})]})]})]},n)};export{z as D};
+`,z=({location:e="home",_id:n,drink:o="",alcoholic:a="",shortDescription:l="",drinkThumb:s={defaultImg:g}})=>{const r=h(),c=()=>{switch(e){case"own":r(m(n));break;case"favorite":r(x(n));break}};return t.jsxs(f,{children:[t.jsx(k,{src:s,alt:o}),t.jsxs(w,{location:e,children:[t.jsx(u,{location:e,children:o}),t.jsx(b,{location:e,children:a}),t.jsx(v,{location:e,children:l}),t.jsxs($,{children:[t.jsx(j,{location:e,to:`/drink/${n}`,"aria-label":"see more",children:"See more"}),t.jsx(C,{location:e,type:"button",onClick:c,"aria-label":"remove drink",children:t.jsx("img",{src:p,alt:"trash bucket icon"})})]})]})]},n)};export{z as D};
