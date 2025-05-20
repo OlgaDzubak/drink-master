@@ -100,6 +100,7 @@ export const PlusSVGDiv = styled.div`
   border-radius: 6px;
   background-color: ${(props) => props.theme.addImgBackground};
 `;
+
 export const PlusSVG = styled(plusSvg)`
   width: 28px;
   height: 28px;

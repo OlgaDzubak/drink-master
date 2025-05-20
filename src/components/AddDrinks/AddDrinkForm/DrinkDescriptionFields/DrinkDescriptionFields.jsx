@@ -90,7 +90,7 @@ const handleSelectMenuOpen = (e) => {
             
             <ImgAndErrorDiv>
             
-              <DescriptionImageDiv>
+              <DescriptionImageDiv aria-label="click to add drink photo">
 
                 <ImageInputLabel htmlFor="drinkThumb">
                       
@@ -106,6 +106,7 @@ const handleSelectMenuOpen = (e) => {
                     <PlusSVGDiv className='add-div'>
                       <PlusSVG></PlusSVG>
                     </PlusSVGDiv>
+
 
                     <AddImageP>Add image</AddImageP>
 
@@ -143,7 +144,7 @@ const handleSelectMenuOpen = (e) => {
                   onBlur={(e) => { setIsFocused(false); handleBlur(e) }}
                   onFocus={() => setIsFocused(true)}
                   value={values.drink}
-                />
+                  aria-label="enter a drink name between two and thirty-five characters long"/>
 
                 { touched.drink && errors.drink ? <FormError>{errors.drink}</FormError> : <FormError></FormError>  }
 
@@ -163,13 +164,14 @@ const handleSelectMenuOpen = (e) => {
                   type="text"
                   rows={1}
                   minLength={25}
-                  maxLength={234}
+                  maxLength={250}
                   id="description"
                   name="description"
                   onChange={(e) => {handleDescriptionChange(e); handleChange(e); }}
                   onBlur={(e) => { setIsFocusedDescription(false); handleBlur(e); }}
                   onFocus={() => setIsFocusedDescription(true)}
                   value={values.description}
+                  aria-label="enter a description of the drink between twenty-five and two hundred and fifty characters long"
                 />
 
                 { touched.description && errors.description ? <FormError>{errors.description}</FormError> : <FormError></FormError> }
@@ -195,6 +197,7 @@ const handleSelectMenuOpen = (e) => {
                     onBlur={(e) => { setIsFocusedCategorySelect(false); handleBlur(e) }}
                     styles={selectStyles('199px', '405px', '205px', selectedCategoriesOption, themeColors)}
                     placeholder=""
+                    aria-label="select a drink category from pop-up menu"
                   />
                 { touched.category && errors.category ? <FormError>{errors.category}</FormError> : <FormError></FormError> }
                 </SelectInputDiv>
@@ -220,10 +223,10 @@ const handleSelectMenuOpen = (e) => {
                     onChange={(selectedGlassesOption) => handleSelectGlassesChange(selectedGlassesOption)}
                     onFocus={() => setIsFocusedGlassesSelect(true)}
                     onBlur={(e) => { setIsFocusedGlassesSelect(false); handleBlur(e) }}
-                    onMenuOpen={ handleSelectMenuOpen }
-                    styles={selectStyles('199px', '305px' ,'205px', selectedGlassesOption, themeColors)}
+                    onMenuOpen={handleSelectMenuOpen}
+                    styles={selectStyles('199px', '305px', '205px', selectedGlassesOption, themeColors)}
                     placeholder=""
-                    
+                    aria-label="select the type of drink glass from pop-up menu"
                   />
                   { touched.glass && errors.glass ? <FormError>{errors.glass}</FormError> : <FormError></FormError> }
                 </SelectInputDiv>
@@ -240,6 +243,7 @@ const handleSelectMenuOpen = (e) => {
                     value="Alcoholic"
                     checked={values.alcoholic === 'Alcoholic'}
                     onChange={handleChange}
+                    aria-label="click the radio button if drink is alcoholic"
                   />
                   <RadioSpan></RadioSpan>
                   Alcoholic
@@ -253,6 +257,7 @@ const handleSelectMenuOpen = (e) => {
                     value="Non alcoholic"
                     checked={values.alcoholic === 'Non alcoholic'}
                     onChange={handleChange}
+                    aria-label="click the radio button if drink is non-alcoholic"
                   />
                   <RadioSpan></RadioSpan>
                   Non-alcoholic

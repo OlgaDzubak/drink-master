@@ -11,19 +11,19 @@ export const MediaLinksList = ({location}) => {
   return  <MediaList>
 
             <MediaListItem >
-              <FooterStyledLink location={location} to="https://www.facebook.com/goITclub/" {...externalLinkProps} >
+              <FooterStyledLink location={location} to="https://www.facebook.com/goITclub/" {...externalLinkProps} aria-label="visit our facebook page">
                 <StyledFacebookSVG />
               </FooterStyledLink>
             </MediaListItem>
 
             <MediaListItem>
-              <FooterStyledLink location={location} to="https://www.instagram.com/goitclub/" {...externalLinkProps} >
+              <FooterStyledLink location={location} to="https://www.instagram.com/goitclub/" {...externalLinkProps} aria-label="visit our instagram page">
                 <StyledInstagramSVG />
               </FooterStyledLink>
             </MediaListItem>
 
             <MediaListItem >
-              <FooterStyledLink location={location} to="https://www.youtube.com/c/GoIT"  {...externalLinkProps} >
+              <FooterStyledLink location={location} to="https://www.youtube.com/c/GoIT"  {...externalLinkProps} aria-label="visit our youtube channel">
                 <StyledYoutubeSVG />
               </FooterStyledLink>
             </MediaListItem>

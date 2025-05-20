@@ -32,7 +32,7 @@ export const PopularDrinks = () => {
                 popularCoctails
                     .slice(0, 4)
                     .map(({ drinkThumb={defaultImg}, drink, description, _id }, index) => 
-                              <Link key={index} to={`/drink/${_id}`}>
+                              <Link key={index} to={`/drink/${_id}`} aria-label="click to see more information about drink">
 
                                 <PopularCoctailsWrapper>
 

@@ -103,7 +103,7 @@ export const AddDrinkForm = () => {
                       setFieldValue={setFieldValue}
                     />
 
-                    <SubmitButton type="submit">Add</SubmitButton>
+                    <SubmitButton type="submit" aria-label="click button to add new drink to your own collection">Add</SubmitButton>
 
                 </Form>
               }

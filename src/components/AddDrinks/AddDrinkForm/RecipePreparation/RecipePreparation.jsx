@@ -34,6 +34,7 @@ export const RecipePreparation = ({values, errors, touched, handleChange, handle
                 onFocus={() => setIsFocusedPreparation(true)}
                 value={values.instructions}
                 placeholder=" "
+                aria-label="enter the preparation recipe"
               />
 
               { touched.instructions && errors.instructions ? <FormError>{errors.instructions}</FormError> : <FormError></FormError> }

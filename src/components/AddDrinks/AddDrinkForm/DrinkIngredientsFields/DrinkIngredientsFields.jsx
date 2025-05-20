@@ -89,6 +89,7 @@ export const DrinkIngredientsFields = ({ values, errors, touched, handleChange, 
                 type="button"
                 onClick={() => handleRemoveIngredient(values.ingredients.length - 1)}
                 disabled={isRemoveButtonDisabled}
+                aria-label='click to remove one ingredient field from the end of list'
               >
                 <ControlMinuse></ControlMinuse>
               </ControlsButton>
@@ -98,6 +99,7 @@ export const DrinkIngredientsFields = ({ values, errors, touched, handleChange, 
               <ControlsButton 
                 type="button" 
                 onClick={handleAddIngredient}
+                aria-label='click to add one ingredient field to the end of list'
               >
                 <ControlPluse></ControlPluse>
               </ControlsButton>
@@ -125,6 +127,7 @@ export const DrinkIngredientsFields = ({ values, errors, touched, handleChange, 
                           onChange={(selectedOption) => handleSelectChange(selectedOption, index)}
                           onBlur={handleBlur}
                           styles={CreatableSelectStyles(selectedOptions[index], themeColors)}
+                          aria-label="select one ingredient from pop-up menu"
                         />
                       </IngredientSelectLabel>
 
@@ -144,6 +147,7 @@ export const DrinkIngredientsFields = ({ values, errors, touched, handleChange, 
                         value={ingredient.measure || ''}
                         onChange={handleChange}
                         onBlur={handleBlur}
+                        aria-label="enter the ingredient measure, a string of maximum fifteen characters long"
                       />
 
                       {
@@ -157,7 +161,11 @@ export const DrinkIngredientsFields = ({ values, errors, touched, handleChange, 
                   <DelBtnDiv>
 
                     <BtnDiv>
-                      <IngredientsDelBtn type="button" onClick={() => handleRemoveIngredient(index)}>
+                      <IngredientsDelBtn
+                        type="button"
+                        onClick={() => handleRemoveIngredient(index)}
+                        aria-label='click to remove ingredient field'
+                      >
                         <IngredientsDelSvg/>
                       </IngredientsDelBtn>
                     </BtnDiv>
