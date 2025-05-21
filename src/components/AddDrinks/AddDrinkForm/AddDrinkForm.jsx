@@ -61,9 +61,9 @@ export const AddDrinkForm = () => {
     drinkThumb: '',
   };
 
-  return  <AddDrinkFormSection>
+  return  <AddDrinkFormSection aria-labelledby="add-drink-form-title">
     
-            <SectionTitle title={"Add drink form"} hidden={true} />
+            <SectionTitle id="add-drink-form-title" title={"Add drink form"} hidden={true} />
     
             <Formik
               initialValues={initialValues}

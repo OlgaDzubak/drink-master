@@ -7,7 +7,7 @@ const ErrorPage = () => {
   
   const { theme } = useContext(GlobalContext);
 
-  return  <ContainerError>
+  return  <ContainerError aria-label='error page'>
             <Title>4</Title>
             <GlassPictureDiv themeName={theme}/>
             <Title>4</Title>

@@ -4,8 +4,8 @@ import { Form, Field } from 'formik';
 import { Link } from 'react-router-dom';
 
 export const StyledAuthContainer = styled.div`
-  min-width: 320px;
-  max-width: 400px;
+  min-width: 367px;
+  max-width: 464px;
   width: 100%;
   padding-top: 191px;
   padding-left: 16px;
@@ -22,9 +22,8 @@ export const StyledAuthContainer = styled.div`
 
   @media screen and (min-width: 768px) {
     padding-top: 280px;
-    padding-left: 0px;
+    padding-left: 64px;
     padding-right: 0px;
-    margin-left: 64px;
     margin-right: auto;
     align-items: start;
     text-align: left;

@@ -40,9 +40,9 @@ export const DrinkIngredientsList = ({ coctailInfo }) => {
     };
   });
 
-  return  <IngredientsSection>
+  return  <IngredientsSection aria-labelledby='ingredients'>
 
-            <Title>Ingredients</Title>
+            <Title id="ingredients">Ingredients</Title>
 
             <IngredientList>
               {

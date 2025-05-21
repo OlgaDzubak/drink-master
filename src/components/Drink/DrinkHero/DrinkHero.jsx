@@ -38,13 +38,16 @@ export const DrinkHero = ({ coctailInfo }) => {
     target.blur();
   };
 
-  return  <DrinkHeroSection>
+  return  <DrinkHeroSection aria-labelledby='drink-title'>
 
             <BoxWrapper>
-              <PageTitle title={title} marginBottom='8px' />
+              <PageTitle id="drink-title" title={title} marginBottom='8px' />
               <SubTitle>{glass} / {alcoholic}</SubTitle>
               <ShortDescr>{description} </ShortDescr>
-              <AddToFavoriteBtn text={addedDrink ? String.fromCharCode(10003) +' Added to favorites' : 'Add to favorite drinks'} onClick={handleOnClick}/>
+              <AddToFavoriteBtn 
+                text={addedDrink ? String.fromCharCode(10003) + ' Added to favorites' : 'Add to favorite drinks'}
+                onClick={handleOnClick}
+              />
             </BoxWrapper>
     
             <CoctailImg photo={image} />

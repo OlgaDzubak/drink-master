@@ -39,9 +39,10 @@ import {DARK_THEME, LIGHT_THEME} from '../../../theme/theme';
 
                         <Styled_Input
                           type = "text"
-                          placeholder = "Enter the text"
+                          placeholder="Enter the text"
                           id={"inputKeyword"}  
                           onChange={handleInputChange}
+                          aria-label='filter keyword'
                         />
 
                         <LookUpSpan> 
@@ -59,6 +60,7 @@ import {DARK_THEME, LIGHT_THEME} from '../../../theme/theme';
                     onChange={handleCategoryChange}
                     styles={CreatableSelectStyles('300px','297px', category, themeColors)} 
                     name = {"categories"}
+                    aria-label='drink category'
                   />
 
                   <Select
@@ -69,6 +71,7 @@ import {DARK_THEME, LIGHT_THEME} from '../../../theme/theme';
                     onChange={handleIngredientsChange}
                     styles={CreatableSelectStyles('280px','276px', ingredient, themeColors)}
                     name = {"ingredients"}
+                    aria-label='drink ingredient'
                   />
         
               </FilterForm>

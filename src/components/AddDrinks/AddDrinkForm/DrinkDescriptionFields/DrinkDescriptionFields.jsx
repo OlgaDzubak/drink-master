@@ -145,7 +145,7 @@ const handleSelectMenuOpen = (e) => {
                   onBlur={(e) => { setIsFocused(false); handleBlur(e) }}
                   onFocus={() => setIsFocused(true)}
                   value={values.drink}
-                  aria-label="enter a drink name between two and thirty-five characters long"/>
+                  aria-label="drink name"/>
 
                 { touched.drink && errors.drink ? <FormError>{errors.drink}</FormError> : <FormError></FormError>  }
 
@@ -172,7 +172,7 @@ const handleSelectMenuOpen = (e) => {
                   onBlur={(e) => { setIsFocusedDescription(false); handleBlur(e); }}
                   onFocus={() => setIsFocusedDescription(true)}
                   value={values.description}
-                  aria-label="enter a description of the drink between twenty-five and two hundred and fifty characters long"
+                  aria-label="drink description"
                 />
 
                 { touched.description && errors.description ? <FormError>{errors.description}</FormError> : <FormError></FormError> }
@@ -198,7 +198,7 @@ const handleSelectMenuOpen = (e) => {
                     onBlur={(e) => { setIsFocusedCategorySelect(false); handleBlur(e) }}
                     styles={selectStyles('199px', '405px', '205px', selectedCategoriesOption, themeColors)}
                     placeholder=""
-                    aria-label="select a drink category from pop-up menu"
+                    aria-label="drink category"
                   />
                 { touched.category && errors.category ? <FormError>{errors.category}</FormError> : <FormError></FormError> }
                 </SelectInputDiv>
@@ -227,7 +227,7 @@ const handleSelectMenuOpen = (e) => {
                     onMenuOpen={handleSelectMenuOpen}
                     styles={selectStyles('199px', '305px', '205px', selectedGlassesOption, themeColors)}
                     placeholder=""
-                    aria-label="select the type of drink glass from pop-up menu"
+                    aria-label="drink glass type"
                   />
                   { touched.glass && errors.glass ? <FormError>{errors.glass}</FormError> : <FormError></FormError> }
                 </SelectInputDiv>
@@ -244,7 +244,7 @@ const handleSelectMenuOpen = (e) => {
                     value="Alcoholic"
                     checked={values.alcoholic === 'Alcoholic'}
                     onChange={handleChange}
-                    aria-label="click the radio button if drink is alcoholic"
+                    aria-label="alcoholic marker"
                   />
                   <RadioSpan></RadioSpan>
                   Alcoholic
@@ -258,7 +258,7 @@ const handleSelectMenuOpen = (e) => {
                     value="Non alcoholic"
                     checked={values.alcoholic === 'Non alcoholic'}
                     onChange={handleChange}
-                    aria-label="click the radio button if drink is non-alcoholic"
+                    aria-label="non-alcoholic marker"
                   />
                   <RadioSpan></RadioSpan>
                   Non-alcoholic

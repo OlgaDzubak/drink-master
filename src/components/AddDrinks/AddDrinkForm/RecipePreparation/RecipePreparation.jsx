@@ -13,8 +13,8 @@ export const RecipePreparation = ({values, errors, touched, handleChange, handle
     setHasValuePreparation(value.trim().length > 0);
   };
   
-  return  <>
-            <RecipeTitle>Recipe Preparation</RecipeTitle>
+  return  <div aria-labelledby='recipe-title'>
+            <RecipeTitle id="recipe-title">Recipe Preparation</RecipeTitle>
 
             <RecipeDiv>
 
@@ -34,12 +34,12 @@ export const RecipePreparation = ({values, errors, touched, handleChange, handle
                 onFocus={() => setIsFocusedPreparation(true)}
                 value={values.instructions}
                 placeholder=" "
-                aria-label="enter the preparation recipe"
+                aria-label="preparation recipe"
               />
 
               { touched.instructions && errors.instructions ? <FormError>{errors.instructions}</FormError> : <FormError></FormError> }
 
             </RecipeDiv>
 
-          </>
+          </div>
 };

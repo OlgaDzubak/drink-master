@@ -30,46 +30,47 @@ const SignIn = () => {
   };
 
   return  <StyledMain>
-            
-            <StyledAuthContainer>
+            <section aria-labelledby='signin'>
+              
+              <StyledAuthContainer aria-labelledby='signin'>
 
-              <StyledTitleAuth id="signin">Sign In</StyledTitleAuth>
+                <StyledTitleAuth id="signin">Sign In</StyledTitleAuth>
 
-              <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={SignInSchema}>
-                {({ errors, touched }) => (
-                  
-                  <Form style={{ width:"100%", zIndex: 3 }}>
+                <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={SignInSchema}>
+                  {({ errors, touched }) => (
+                    
+                    <Form style={{ width:"100%", zIndex: 3 }}>
 
-                    {isLoading 
-                      ? <SkeletonRows rows={3} heightArr={[56]} />
-                      : <>
-                          <FieldsInputAuthContainer>
+                      {isLoading 
+                        ? <SkeletonRows rows={3} heightArr={[56]} />
+                        : <>
+                            <FieldsInputAuthContainer>
 
-                            <FieldInputAuth name="email" placeholder="Email" errors={errors} touched={touched} showCheckIcon={true}/>
-                            <FieldInputAuthPass errors={errors} touched={touched} />
+                              <FieldInputAuth name="email" placeholder="Email" errors={errors} touched={touched} showCheckIcon={true} ariaLabel="email"/>
+                              <FieldInputAuthPass errors={errors} touched={touched} ariaLabel="password"/>
 
-                          </FieldsInputAuthContainer>
+                            </FieldsInputAuthContainer>
 
-                          <StyledButtonsContainer>
+                            <StyledButtonsContainer>
+                              
+                              <StyledButton type="submit" aria-label="sign in">Sign In</StyledButton>
+                              
+                              <StyledLink to="/signup">
+                                <StyledButton type="button" aria-label="sign up">Sign Up</StyledButton>
+                              </StyledLink>
                             
-                            <StyledButton type="submit">Sign In</StyledButton>
-                            
-                            <StyledLink to="/signup">
-                              <StyledButton type="button">Sign Up</StyledButton>
-                            </StyledLink>
-                          
-                          </StyledButtonsContainer>
-                        </>
-                    }
+                            </StyledButtonsContainer>
+                          </>
+                      }
 
-                  </Form>
-                )}
-              </Formik>
+                    </Form>
+                  )}
+                </Formik>
 
-            </StyledAuthContainer>
-    
-            {isEmailVerificationModalOpen && <EmailVerificationModal email={email} title="Authorization successful!" navigateTo="/" />}
-    
+              </StyledAuthContainer>
+      
+              {isEmailVerificationModalOpen && <EmailVerificationModal email={email} title="Authorization successful!" navigateTo="/" />}
+            </section>
           </StyledMain>
 };
 

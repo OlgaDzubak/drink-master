@@ -6,9 +6,9 @@ export const RecipePreparation = ({ coctailInfo }) => {
   const instructions = coctailInfo !== null ? coctailInfo.instructions : '';
   const description = coctailInfo !== null ? coctailInfo.description : '';
 
-  return  <RecipeSection>
+  return  <RecipeSection aria-labelledby='recipe-preparation'>
 
-            <Title>Recipe Preparation</Title>
+            <Title id="recipe-preparation">Recipe Preparation</Title>
 
             <Recipe>
 

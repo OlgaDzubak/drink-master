@@ -9,7 +9,7 @@ import defaultImg from '../../assets/images/drinkPageImg/coctailPlaceholder.png'
 export const DrinkCard = ({ location='home', _id, drink='', alcoholic='', shortDescription='', drinkThumb={defaultImg} }) => {
    
   const dispatch = useDispatch();
-  
+  const ariaLabel = drink.toLowerCase().split(" ").join("-").slice(0, 20);
   const handleBucketBtnClick = () => {
     
     switch (location) {
@@ -24,13 +24,13 @@ export const DrinkCard = ({ location='home', _id, drink='', alcoholic='', shortD
 
   }
 
-  return  <DrinkItem key={_id}>
+    return <DrinkItem key={_id} aria-labelledby={ariaLabel}>
             
             <ImageCard src={drinkThumb} alt={drink}></ImageCard>
 
             <InformWrapper location={location}>
 
-              <DrinkTitle location={location}>{drink}</DrinkTitle>
+              <DrinkTitle id={ariaLabel} location={location}>{drink}</DrinkTitle>
               
               <AlcogolMarker location={location}>{alcoholic}</AlcogolMarker>
 
@@ -38,7 +38,7 @@ export const DrinkCard = ({ location='home', _id, drink='', alcoholic='', shortD
                 
               <WrapperBtn>
                 
-                <LinkSeeMore location={location} to={`/drink/${_id}`} aria-label="see more">See more</LinkSeeMore>
+                <LinkSeeMore location={location} to={`/drink/${_id}`} aria-labelledby={ariaLabel}>See more</LinkSeeMore>
 
                 <BucketBtn location={location} type="button" onClick={handleBucketBtnClick} aria-label='remove drink'>
                   <img src={icon} alt="trash bucket icon" />

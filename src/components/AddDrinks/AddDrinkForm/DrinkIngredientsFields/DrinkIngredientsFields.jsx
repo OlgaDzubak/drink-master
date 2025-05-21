@@ -77,11 +77,11 @@ export const DrinkIngredientsFields = ({ values, errors, touched, handleChange, 
 
   const isRemoveButtonDisabled = values.ingredients.length === 1;
 
-  return <IngredientsDiv className="ingredients-fields">
+  return <IngredientsDiv className="ingredients-fields" aria-labelledby='ingredients-title'>
 
           <ControlDiv>
 
-            <IngredientsTitle>Ingredients</IngredientsTitle>
+            <IngredientsTitle id="ingredients-title">Ingredients</IngredientsTitle>
 
             <Controls>
 
@@ -89,7 +89,7 @@ export const DrinkIngredientsFields = ({ values, errors, touched, handleChange, 
                 type="button"
                 onClick={() => handleRemoveIngredient(values.ingredients.length - 1)}
                 disabled={isRemoveButtonDisabled}
-                aria-label='click to remove one ingredient field from the end of list'
+                aria-label='remove ingredient'
               >
                 <ControlMinuse></ControlMinuse>
               </ControlsButton>
@@ -99,7 +99,7 @@ export const DrinkIngredientsFields = ({ values, errors, touched, handleChange, 
               <ControlsButton 
                 type="button" 
                 onClick={handleAddIngredient}
-                aria-label='click to add one ingredient field to the end of list'
+                aria-label='add ingredient'
               >
                 <ControlPluse></ControlPluse>
               </ControlsButton>
@@ -127,7 +127,7 @@ export const DrinkIngredientsFields = ({ values, errors, touched, handleChange, 
                           onChange={(selectedOption) => handleSelectChange(selectedOption, index)}
                           onBlur={handleBlur}
                           styles={CreatableSelectStyles(selectedOptions[index], themeColors)}
-                          aria-label="select one ingredient from pop-up menu"
+                          aria-label="ingredient name"
                         />
                       </IngredientSelectLabel>
 
@@ -147,7 +147,7 @@ export const DrinkIngredientsFields = ({ values, errors, touched, handleChange, 
                         value={ingredient.measure || ''}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        aria-label="enter the ingredient measure, a string of maximum fifteen characters long"
+                        aria-label="ingredient measure"
                       />
 
                       {
@@ -164,7 +164,7 @@ export const DrinkIngredientsFields = ({ values, errors, touched, handleChange, 
                       <IngredientsDelBtn
                         type="button"
                         onClick={() => handleRemoveIngredient(index)}
-                        aria-label='click to remove ingredient field'
+                        aria-label='remove ingredient'
                       >
                         <IngredientsDelSvg/>
                       </IngredientsDelBtn>

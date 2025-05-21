@@ -46,7 +46,8 @@ const SignUp = () => {
   };
 
   return  <StyledMain>
-    
+            <section aria-labelledby='signup'>
+              
             <StyledAuthContainer>
             
               <StyledTitleAuth id="signup">Sign Up</StyledTitleAuth>
@@ -65,22 +66,22 @@ const SignUp = () => {
                       : <>
                           <FieldsInputAuthContainer>
 
-                            <FieldInputAuth id="name" name="name" placeholder="Name" errors={errors} touched={touched} showCheckIcon={true}/>
+                            <FieldInputAuth id="name" name="name" placeholder="Name" errors={errors} touched={touched} showCheckIcon={true} ariaLabel="name"/>
 
-                            <FieldInputAuthBirthdate errors={errors} touched={touched} setFieldValue={setFieldValue}/>
+                            <FieldInputAuthBirthdate errors={errors} touched={touched} setFieldValue={setFieldValue} ariaLabel="birthdate"/>
 
-                            <FieldInputAuth name="email" placeholder="Email" errors={errors} touched={touched} showCheckIcon={true}/>
+                            <FieldInputAuth name="email" placeholder="Email" errors={errors} touched={touched} showCheckIcon={true} ariaLabel="email"/>
 
-                            <FieldInputAuthPass errors={errors} touched={touched} />
+                            <FieldInputAuthPass errors={errors} touched={touched} ariaLabel="password" />
 
                           </FieldsInputAuthContainer>
 
                           <StyledButtonsContainer>
 
-                            <StyledButton type="submit">Sign Up</StyledButton>
+                            <StyledButton type="submit" aria-label="sign up">Sign Up</StyledButton>
 
                             <StyledLink to="/signin">
-                              <StyledButton type="button">Sign In</StyledButton>
+                              <StyledButton type="button" aria-label="sign in">Sign In</StyledButton>
                             </StyledLink>
 
                           </StyledButtonsContainer>
@@ -98,7 +99,8 @@ const SignUp = () => {
             {isEmailVerificationModalOpen && <EmailVerificationModal email={emailForVerification}
                                                                      title="Registration successful!"
                                                                      navigateTo="/signin" />}
-          
+            
+            </section>
           </StyledMain>
 };
 

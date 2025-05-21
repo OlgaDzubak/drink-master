@@ -7,7 +7,7 @@ export const Ingredient = ({ photo, title, measure }) => {
   return  <IngredientItem>
 
             <ImageThumb>
-              <Img src={photo ? photo : coctailPlaceholder}/>
+              <Img src={photo ? photo : coctailPlaceholder} alt={title}/>
             </ImageThumb>
 
             <InfoDiv>

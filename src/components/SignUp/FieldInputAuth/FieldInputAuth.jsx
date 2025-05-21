@@ -6,7 +6,7 @@ import {StyledFieldContainer,
         CheckIconError, 
         CheckIconOk} from './FieldInputAuth.styled';
         
-export const FieldInputAuth = ({ errors, touched, name, placeholder, id, showCheckIcon }) => {
+export const FieldInputAuth = ({ errors, touched, name, placeholder, id, showCheckIcon, ariaLabel }) => {
 
   return (
     <>
@@ -17,6 +17,7 @@ export const FieldInputAuth = ({ errors, touched, name, placeholder, id, showChe
             <StyledField id={id} name={name} placeholder={placeholder} autoComplete="off" minLength="2" maxLength="40" 
               error={errors[name] && touched[name] ? 'true' : 'false'}
               success={touched[name] && !errors[name] ? 'true' : 'false'}
+              aria-label={ariaLabel}
             />
             
             {showCheckIcon && errors[name] && touched[name] && <CheckIconError/>}

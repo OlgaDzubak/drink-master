@@ -1,8 +1,8 @@
 import { Title } from './Titles.styled';
 
-const PageTitle = ({ title, hidden, marginBottom }) => {
+const PageTitle = ({id="", title="", hidden=false, marginBottom="10px" }) => {
 
-  return <Title hidden={hidden} marginBottom={marginBottom}>{title}</Title>
+  return <Title id={id} hidden={hidden} marginBottom={marginBottom}>{title}</Title>
   
 };
 

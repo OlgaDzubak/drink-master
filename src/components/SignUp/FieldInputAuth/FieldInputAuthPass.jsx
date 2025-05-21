@@ -4,7 +4,7 @@ import {StyledFieldContainer, InputAndIconContainer, StyledField, IconButton,
         CloseEyeIcon, OpenEyeIcon } from './FieldInputAuth.styled';
 
 
-export const FieldInputAuthPass = ({ errors, touched }) => {
+export const FieldInputAuthPass = ({ errors, touched, ariaLabel }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleClickPassword = () => {
@@ -23,9 +23,10 @@ export const FieldInputAuthPass = ({ errors, touched }) => {
             type={showPassword ? 'text' : 'password'}
             error={errors.password && touched.password ? 'true' : 'false'}
             success={touched.password && !errors.password ? 'true' : 'false'}
+            aria-label={ariaLabel}
           />
 
-          <IconButton type="button" onClick={handleClickPassword}>
+          <IconButton type="button" onClick={handleClickPassword} aria-label={showPassword ? "hide pasword" : "show password"}>
             {showPassword ? <OpenEyeIcon/> : <CloseEyeIcon/>}
           </IconButton>
         
