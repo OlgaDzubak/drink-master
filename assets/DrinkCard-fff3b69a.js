@@ -1,4 +1,4 @@
-import{n as i,x as d,q as h,j as t,X as x,Y as m}from"./index-b123e104.js";import{c as g}from"./coctailPlaceholder-93585ca3.js";const p="/drink-master/assets/trash-fc07c8dc.svg",f=i.li`
+import{n as i,x as h,q as x,j as t,X as m,Y as g}from"./index-9c3c9480.js";import{c as p}from"./coctailPlaceholder-c589582a.js";const f="/drink-master/assets/trash-fc07c8dc.svg",w=i.li`
   flex-basis: 100%;
 
   @media screen and (min-width: 768px) and (max-width: 1439.9px) {
@@ -31,7 +31,7 @@ import{n as i,x as d,q as h,j as t,X as x,Y as m}from"./index-b123e104.js";impor
     width: 400px;
     height: 400px;
   }
-`,w=i.div`
+`,b=i.div`
   display: flex;
   margin-top: 14px;
   ${e=>e.location==="home"||e.location==="drinks"?` flex-direction: row;
@@ -58,23 +58,23 @@ import{n as i,x as d,q as h,j as t,X as x,Y as m}from"./index-b123e104.js";impor
                               font-size: 24px; 
                             }`}
   
-`,b=i.p`
+`,v=i.p`
   ${e=>e.location==="home"||e.location==="drinks"?" display: none;":` font-size: 14px;
               line-height: 1.28;
               margin-bottom: 18px;
               color: ${e.theme.seeMoreBtnTextColor};
               transition: color var(--transition);`}
-`,v=i.p`
+`,$=i.p`
   ${e=>e.location==="home"||e.location==="drinks"?" display: none;":` height: 96px; 
             font-size: 14px; 
             line-height: 1.28; 
             margin-bottom: 18px;
             color: ${e.theme.mainTextColor};
             transition: color var(--transition);`}
-`,$=i.div`
+`,j=i.div`
    display: flex;
    gap: 8px;
-`,j=i(d)`
+`,C=i(h)`
   ${e=>e.location==="home"||e.location==="drinks"?` font-size: 14px; 
           font-weight: 500; 
           line-height: 1.28; 
@@ -108,7 +108,7 @@ import{n as i,x as d,q as h,j as t,X as x,Y as m}from"./index-b123e104.js";impor
             background-color: ${e.theme.paginationLabelsHover}; 
             color: ${e.theme.themeSwitcherColor};
           }`}
-  `,C=i.button`
+  `,y=i.button`
   ${e=>e.location==="home"||e.location==="drinks"?"display: none;":` width: 46px; 
                       padding: 11px 32px;
                       display: flex; 
@@ -124,4 +124,4 @@ import{n as i,x as d,q as h,j as t,X as x,Y as m}from"./index-b123e104.js";impor
                       &:hover, &:focus {
                         background-color: ${e.theme.trashBucketBackgroundHover};
                       }`}
-`,z=({location:e="home",_id:n,drink:o="",alcoholic:a="",shortDescription:l="",drinkThumb:s={defaultImg:g}})=>{const r=h(),c=()=>{switch(e){case"own":r(m(n));break;case"favorite":r(x(n));break}};return t.jsxs(f,{children:[t.jsx(k,{src:s,alt:o}),t.jsxs(w,{location:e,children:[t.jsx(u,{location:e,children:o}),t.jsx(b,{location:e,children:a}),t.jsx(v,{location:e,children:l}),t.jsxs($,{children:[t.jsx(j,{location:e,to:`/drink/${n}`,"aria-label":"see more",children:"See more"}),t.jsx(C,{location:e,type:"button",onClick:c,"aria-label":"remove drink",children:t.jsx("img",{src:p,alt:"trash bucket icon"})})]})]})]},n)};export{z as D};
+`,T=({location:e="home",_id:n,drink:o="",alcoholic:l="",shortDescription:s="",drinkThumb:c={defaultImg:p}})=>{const a=x(),r=o.toLowerCase().split(" ").join("-").slice(0,20),d=()=>{switch(e){case"own":a(g(n));break;case"favorite":a(m(n));break}};return t.jsxs(w,{"aria-labelledby":r,children:[t.jsx(k,{src:c,alt:o}),t.jsxs(b,{location:e,children:[t.jsx(u,{id:r,location:e,children:o}),t.jsx(v,{location:e,children:l}),t.jsx($,{location:e,children:s}),t.jsxs(j,{children:[t.jsx(C,{location:e,to:`/drink/${n}`,"aria-labelledby":r,children:"See more"}),t.jsx(y,{location:e,type:"button",onClick:d,"aria-label":"remove drink",children:t.jsx("img",{src:f,alt:"trash bucket icon"})})]})]})]},n)};export{T as D};
