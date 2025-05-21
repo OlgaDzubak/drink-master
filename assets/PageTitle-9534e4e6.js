@@ -1,0 +1,1 @@
+import{j as o}from"./index-7c57bfb2.js";import{a}from"./coctailPlaceholder-269ebb51.js";const p=({id:r="",title:t="",hidden:e=!1,marginBottom:s="10px"})=>o.jsx(a,{id:r,hidden:e,marginBottom:s,children:t});export{p as P};
