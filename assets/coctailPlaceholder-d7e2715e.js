@@ -1,4 +1,4 @@
-import{n as e}from"./index-07bc1dfa.js";const a=e.h1`
+import{n as e}from"./index-18308ae8.js";const a=e.h1`
   
   ${({hidden:t,theme:o,marginBottom:i})=>t?` width: 1px; 
                       height: 1px; 
@@ -11,18 +11,18 @@ import{n as e}from"./index-07bc1dfa.js";const a=e.h1`
                       overflow : hidden;`:` font-size: 32px; 
                       font-weight: 600; 
                       line-height: 1.1875;
-                      margin-bottom: ${i||"40px"};
+                      margin-bottom: ${i[0]||"40px"};
                       color: ${o.mainTextColor};
                       transition: color var(--transition);
 
                       @media (min-width: 768px) and (max-width: 1279.98px) { 
                         font-size: 56px;
-                        margin-bottom: ${i||"60px"};
+                        margin-bottom: ${i[1]||"60px"};
                       }
                         
                       @media (min-width: 1280px) { 
                         font-size: 64px;
-                        margin-bottom: ${i||"60px"};
+                        margin-bottom: ${i[2]||"60px"};
                       }`}
 `,p=e.h2`
   
