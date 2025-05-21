@@ -37,6 +37,7 @@ export const SignupSchema = Yup.object().shape({
                               }
                               
                           return true;})
+                .trim()
                 .required("Birthdate is required"),
   email: Yup.string()
                 .min(6, 'Email must contain at least 6 characters')

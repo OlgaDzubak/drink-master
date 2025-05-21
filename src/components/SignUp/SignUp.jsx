@@ -26,7 +26,7 @@ const SignUp = () => {
   const handleSubmit = (values, { resetForm }) => {
     
     const name = values.name.trim();
-    const birthdate = changeDateStr(values.birthdate);
+    const birthdate = changeDateStr(values.birthdate.trim());
     const email = values.email.trim();
     const password  = values.password;
 

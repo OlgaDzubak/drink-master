@@ -38,7 +38,7 @@ const GlobalStyles = css`
     --whitefifty-color: rgba(243, 243, 243, 0.5);
     --whitefourty-color: rgba(243, 243, 243, 0.4);
     --whitetwenty-color: rgba(243, 243, 243, 0.2);
-    --modal-backdrop:  rgba(243, 243, 243, 0.1);
+    --modal-backdrop:  rgba(243, 243, 243, 0);
     --blue-color: #161f37;
     --bluefifty-color: rgba(22, 31, 55, 0.5);
     --hovergreen-color:#4070cd;
