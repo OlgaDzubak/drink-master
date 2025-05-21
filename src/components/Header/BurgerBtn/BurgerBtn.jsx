@@ -8,7 +8,7 @@ export const BurgerBtn = () => {
   const isBurgerModalOpen = useSelector(selectIsBurgerModalOpen);
   const dispatch = useDispatch();
 
-  return  <StyledBurgerBtn onClick={()=>dispatch(toggleIsBurgerModalOpen())}>
+  return <StyledBurgerBtn onClick={() => dispatch(toggleIsBurgerModalOpen())} aria-label="menu">
             {isBurgerModalOpen ? <CloseBurgerSVG /> : <BurgerSVG />}
           </StyledBurgerBtn>
 };
