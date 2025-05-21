@@ -6,7 +6,7 @@ export const EmailVerificationWrapper = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   width: 500px;
-  padding: 50px;
+  padding: 80px 50px 80px 50px;
   text-align: center;
   z-index: 2000;
   border-radius: 15px;
@@ -16,11 +16,11 @@ export const EmailVerificationWrapper = styled.div`
 
   @media screen and (max-width: 768px) {
     width: 400px;
-    padding: 30px;
+    padding: 50px 30px 50px 30px;
   }
   @media screen and (max-width: 420px) {
     width: 350px;
-    padding: 15px;
+    padding: 30px 15px 30px 15px;
   }
 `;
 export const VerificationModalTitle = styled.h2`
@@ -33,11 +33,9 @@ export const VerificationModalSubtitle = styled.p`
   margin-bottom: 20px;
   font-size: 18px;
 `;
-
 export const Emailspan = styled.span`
    color: var(--green-color);
 `;
-
 export const MessageText = styled.p`
   color: currentColor;
   margin-bottom: 30px;

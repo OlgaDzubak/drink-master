@@ -84,7 +84,7 @@ export const StyledField = styled(Field)`
   @media screen and (min-width: 768px) {
     padding-top: 13.94px;
     padding-bottom: 13.95px;
-    width: 400px;
+    //width: 400px;
     line-height: 1.56;
     font-size: 17px;
   }

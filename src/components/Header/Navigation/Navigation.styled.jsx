@@ -9,13 +9,14 @@ export const NavigationList = styled.nav`
   gap: 16px;
   z-index: 200;
   
-  @media screen and (max-width: 1279px) {
+  @media screen and (max-width: 1279.98px) {
+    padding-top: 80px;
     flex-direction: column;
     height: 100%;
   }
-  @media screen and (max-width: 1279px) and (max-height: 460px) {
+  @media screen and (max-width: 1279.98px) and (max-height: 350px) {
     flex-direction: row;
-    height: 100%;
+    flex-wrap: wrap;
   }
 `;
 

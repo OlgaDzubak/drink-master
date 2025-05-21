@@ -68,7 +68,7 @@ export const EmailVerificationModal = ({email, title, navigateTo}) => {
                     : <Formik initialValues={{verificationToken: ''}} onSubmit={handleSubmit} validationSchema={emailTokenSchema}>
                         {({ errors, touched, values }) => (
         
-                          <Form style={{ zIndex: 3, minWidth: '335px' }}>
+                          <Form>
                             <CloseBtn onClick={()=>dispatch(toogleIsEmailVerificationModalOpen())}>
                               <CloseIcon />
                             </CloseBtn>
