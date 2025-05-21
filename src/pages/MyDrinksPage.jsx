@@ -17,7 +17,7 @@ const MyDrinksPage = () => {
   }, [dispatch]);
 
   return  <>
-            <PageTitle title="My drinks" />
+            <PageTitle title="My drinks" marginBottom={["40px", "60px", "60px"]}/>
 
             { 
               isLoading

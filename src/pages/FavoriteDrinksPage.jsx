@@ -17,7 +17,7 @@ const FavoriteDrinksPage = () => {
   }, [dispatch]);
 
   return  <>
-            <PageTitle title="Favorites" />
+            <PageTitle title="Favorites" marginBottom={["40px", "60px", "60px"]} />
 
             { 
               isLoading

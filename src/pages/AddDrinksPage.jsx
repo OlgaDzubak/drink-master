@@ -3,7 +3,7 @@ import AddDrinks from '../components/AddDrinks/AddDrinks';
 
 const AddDrinksPage = () => {
   return  <>
-            <PageTitle title="Add drink" />
+            <PageTitle title="Add drink" marginBottom={["40px","60px","60px"]}/>
             <AddDrinks />
           </>
 };

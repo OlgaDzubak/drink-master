@@ -33,7 +33,7 @@ export const MyDrinks = ({ location, drinks, emptyMessage }) => {
     onClickPaginator(totalDrinks, selected, per_page, setPage);
   }
 
-	return  <>
+	return  <div>
             {
               drinks.length === 0
                 ? <NotFound text={emptyMessage} />
@@ -43,7 +43,7 @@ export const MyDrinks = ({ location, drinks, emptyMessage }) => {
             <Paginator  pageCount={Math.ceil(totalDrinks/per_page)}  
                         handlePageClick={handlePageClick} 
             />
-					</>
+					</div>
 };
 
 export default MyDrinks;

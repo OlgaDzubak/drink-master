@@ -17,18 +17,18 @@ export const Title = styled.h1`
                   : ` font-size: 32px; 
                       font-weight: 600; 
                       line-height: 1.1875;
-                      margin-bottom: ${marginBottom || '40px'};
+                      margin-bottom: ${marginBottom[0] || '40px'};
                       color: ${theme.mainTextColor};
                       transition: color var(--transition);
 
                       @media (min-width: 768px) and (max-width: 1279.98px) { 
                         font-size: 56px;
-                        margin-bottom: ${marginBottom || '60px'};
+                        margin-bottom: ${marginBottom[1] || '60px'};
                       }
                         
                       @media (min-width: 1280px) { 
                         font-size: 64px;
-                        margin-bottom: ${marginBottom || '60px'};
+                        margin-bottom: ${marginBottom[2] || '60px'};
                       }`
   }
 `;

@@ -39,7 +39,7 @@ import Drinks from '../components/Drinks/Drinks';
       }, []);
 
       return  <>
-                <PageTitle title="Drinks" />
+                <PageTitle title="Drinks" marginBottom={["40px","60px","60px"]}/>
                 <Drinks categoryList={categoryList} ingredientList={ingredientList}/>
               </>
   };
