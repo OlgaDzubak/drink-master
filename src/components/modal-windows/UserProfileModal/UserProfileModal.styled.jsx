@@ -14,6 +14,7 @@ export const ProfileModal = styled.div`
   padding: 50px 25px;
   border-radius: 16px;
   background-color: #161f37;
+  box-shadow: 0px 0px 0px 1px var(--whitefifty-color);
   color: var(--white-color);
   z-index: 2000;
   overflow: hidden;

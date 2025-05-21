@@ -10,7 +10,7 @@ export const LogOutWrapper = styled.div`
   text-align: center;
   z-index: 2000;
   border-radius: 15px;
-  box-shadow: 0px 0px 0px 1px var(--blue-color);
+  box-shadow: 0px 0px 0px 1px var(--whitefifty-color);
   background-color: var(--blue-color);
   color: var(--white-color);
 

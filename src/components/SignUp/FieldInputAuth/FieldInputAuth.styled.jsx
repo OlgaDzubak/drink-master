@@ -46,7 +46,7 @@ export const StyledField = styled(Field)`
                                             ? 'var(--red-color)'
                                             : props.success === 'true'
                                                 ? 'var(--green-color)'
-                                                : 'var(--whitetwenty-color)'};
+                                                :'var(--whitetwenty-color)'};
 
   background-color: transparent;
   border-radius: 24px;
@@ -58,7 +58,7 @@ export const StyledField = styled(Field)`
   }
 
   ::placeholder {
-    color: var(--whitefifty-color);
+    color: var(--whitetwenty-color);
     font-size: 17px;
     font-style: normal;
     font-weight: 400;
@@ -69,10 +69,10 @@ export const StyledField = styled(Field)`
   :hover,
   :focus {
     
-    border: 1px solid var(--whitefifty-color);
+    border: 1px solid var(--white-color);
     
     ::placeholder {
-      color: var(--white-color);
+      //color: var(--white-color);
     }
 
     +button {
