@@ -404,16 +404,16 @@ attempted value: ${o}
   position: relative;
   transition: color var(--transition);
 
-  :hover, 
-  :focus {
-    input {
-      border-color: var(--whitefifty-color);
-      color: var(--white-color);
-      &::placeholder{
-        color: var(--white-color);
-      }
-    }
-  }
+  // &:hover, &:focus {
+  //   input {
+  //     border-color: var(--whitefifty-color);
+  //     color: var(--white-color);
+
+  //     &::placeholder{
+  //       color: var(--white-color);
+  //     }
+  //   }
+  // }
 `,Zc=R(Kc)`
   max-width: 400px;
   width: 100%;
@@ -445,15 +445,9 @@ attempted value: ${o}
     transition: color var(--transition);
   }
 
-  :hover,
-  :focus {
+  :hover, :focus {
+    border-color: var(--white-color);
     
-    border: 1px solid var(--white-color);
-    
-    ::placeholder {
-      //color: var(--white-color);
-    }
-
     +button {
       color: var(--white-color); 
     }
@@ -463,7 +457,6 @@ attempted value: ${o}
   @media screen and (min-width: 768px) {
     padding-top: 13.94px;
     padding-bottom: 13.95px;
-    //width: 400px;
     line-height: 1.56;
     font-size: 17px;
   }
@@ -1953,7 +1946,7 @@ By accessing or using the Drink Master app, you acknowledge that you have read, 
     background-color: ${e=>e.theme.backGroundBtnColorHover};
     color: ${e=>e.theme.mainBackground};
   }
-`,EP=()=>{const{theme:e}=u.useContext($o);return b.jsxs(uP,{"aria-label":"error page",children:[b.jsx(Bg,{children:"4"}),b.jsx(_P,{themeName:e}),b.jsx(Bg,{children:"4"})]})},SP=u.lazy(()=>ca(()=>import("./HomePage-08f26c49.js"),["assets/HomePage-08f26c49.js","assets/operationsDrinks-c05c34ac.js","assets/SectionTitle-d7743d0d.js","assets/coctailPlaceholder-e30d9b79.js","assets/DrinkCard-0ed57b50.js"])),CP=u.lazy(()=>ca(()=>import("./DrinksPage-d1fca675.js"),["assets/DrinksPage-d1fca675.js","assets/operationsFilters-7db4745d.js","assets/PageTitle-38a76d09.js","assets/coctailPlaceholder-e30d9b79.js","assets/operationsDrinks-c05c34ac.js","assets/Paginator-5c8479f3.js","assets/DrinkCard-0ed57b50.js","assets/react-select.esm-2e8c8139.js"])),MP=u.lazy(()=>ca(()=>import("./AddDrinksPage-d4920c2d.js"),["assets/AddDrinksPage-d4920c2d.js","assets/PageTitle-38a76d09.js","assets/coctailPlaceholder-e30d9b79.js","assets/Hourglass-8d3b384e.js","assets/ownSelector-f04e3140.js","assets/react-select.esm-2e8c8139.js","assets/operationsFilters-7db4745d.js","assets/SectionTitle-d7743d0d.js","assets/operationsDrinks-c05c34ac.js"])),NP=u.lazy(()=>ca(()=>import("./MyDrinksPage-588f53ef.js"),["assets/MyDrinksPage-588f53ef.js","assets/ownSelector-f04e3140.js","assets/MyDrinks-03c2c4ae.js","assets/Paginator-5c8479f3.js","assets/DrinkCard-0ed57b50.js","assets/coctailPlaceholder-e30d9b79.js","assets/PageTitle-38a76d09.js"])),DP=u.lazy(()=>ca(()=>import("./FavoriteDrinksPage-e43b9d27.js"),["assets/FavoriteDrinksPage-e43b9d27.js","assets/favoriteSelectors-94e92a4d.js","assets/MyDrinks-03c2c4ae.js","assets/Paginator-5c8479f3.js","assets/DrinkCard-0ed57b50.js","assets/coctailPlaceholder-e30d9b79.js","assets/PageTitle-38a76d09.js"])),TP=u.lazy(()=>ca(()=>import("./DrinkPage-03deba16.js"),["assets/DrinkPage-03deba16.js","assets/operationsFilters-7db4745d.js","assets/coctailPlaceholder-e30d9b79.js","assets/favoriteSelectors-94e92a4d.js","assets/PageTitle-38a76d09.js","assets/operationsDrinks-c05c34ac.js","assets/Hourglass-8d3b384e.js"]));function LP(){const{pathname:e}=Sr(),t=Zt(),n=he(Sx);return u.useEffect(()=>{window.scrollTo(0,0)},[e]),u.useEffect(()=>{t(zs())},[t]),b.jsx(b.Fragment,{children:n?b.jsx(bw,{children:b.jsx(nb,{})}):b.jsxs(j5,{children:[b.jsx(Ht,{path:"/welcome",element:b.jsx(td,{redirectTo:"/",component:b.jsx(JI,{})})}),b.jsx(Ht,{path:"/signup",element:b.jsx(td,{redirectTo:"/",component:b.jsx(cP,{})})}),b.jsx(Ht,{path:"/signin",element:b.jsx(td,{redirectTo:"/",component:b.jsx(tP,{})})}),b.jsxs(Ht,{path:"/",element:b.jsx(Lr,{redirectTo:"/welcome",component:b.jsx(RI,{})}),children:[b.jsx(Ht,{index:!0,element:b.jsx(Lr,{redirectTo:"/welcome",component:b.jsx(SP,{})})}),b.jsx(Ht,{path:"/drink/:drinkId",element:b.jsx(Lr,{redirectTo:"/welcome",component:b.jsx(TP,{})})}),b.jsx(Ht,{path:"/drinks",element:b.jsx(Lr,{redirectTo:"/welcome",component:b.jsx(CP,{})})}),b.jsx(Ht,{path:"/add",element:b.jsx(Lr,{redirectTo:"/welcome",component:b.jsx(MP,{})})}),b.jsx(Ht,{path:"/my",element:b.jsx(Lr,{redirectTo:"/welcome",component:b.jsx(NP,{})})}),b.jsx(Ht,{path:"/favorites",element:b.jsx(Lr,{redirectTo:"/favorites",component:b.jsx(DP,{})})}),b.jsx(Ht,{path:"*",element:b.jsx(EP,{})})]})]})})}const OP=Dm`
+`,EP=()=>{const{theme:e}=u.useContext($o);return b.jsxs(uP,{"aria-label":"error page",children:[b.jsx(Bg,{children:"4"}),b.jsx(_P,{themeName:e}),b.jsx(Bg,{children:"4"})]})},SP=u.lazy(()=>ca(()=>import("./HomePage-30f618f7.js"),["assets/HomePage-30f618f7.js","assets/operationsDrinks-b4e9401b.js","assets/SectionTitle-c61afa3f.js","assets/coctailPlaceholder-57c2274b.js","assets/DrinkCard-4c3d7cb8.js"])),CP=u.lazy(()=>ca(()=>import("./DrinksPage-95d5f1b1.js"),["assets/DrinksPage-95d5f1b1.js","assets/operationsFilters-e4e6e4b5.js","assets/PageTitle-eab4df23.js","assets/coctailPlaceholder-57c2274b.js","assets/operationsDrinks-b4e9401b.js","assets/Paginator-459bb7fd.js","assets/DrinkCard-4c3d7cb8.js","assets/react-select.esm-e4f079d0.js"])),MP=u.lazy(()=>ca(()=>import("./AddDrinksPage-db03593c.js"),["assets/AddDrinksPage-db03593c.js","assets/PageTitle-eab4df23.js","assets/coctailPlaceholder-57c2274b.js","assets/Hourglass-31ddaf78.js","assets/ownSelector-f04e3140.js","assets/react-select.esm-e4f079d0.js","assets/operationsFilters-e4e6e4b5.js","assets/SectionTitle-c61afa3f.js","assets/operationsDrinks-b4e9401b.js"])),NP=u.lazy(()=>ca(()=>import("./MyDrinksPage-258161c6.js"),["assets/MyDrinksPage-258161c6.js","assets/ownSelector-f04e3140.js","assets/MyDrinks-936795f4.js","assets/Paginator-459bb7fd.js","assets/DrinkCard-4c3d7cb8.js","assets/coctailPlaceholder-57c2274b.js","assets/PageTitle-eab4df23.js"])),DP=u.lazy(()=>ca(()=>import("./FavoriteDrinksPage-4f3bb070.js"),["assets/FavoriteDrinksPage-4f3bb070.js","assets/favoriteSelectors-94e92a4d.js","assets/MyDrinks-936795f4.js","assets/Paginator-459bb7fd.js","assets/DrinkCard-4c3d7cb8.js","assets/coctailPlaceholder-57c2274b.js","assets/PageTitle-eab4df23.js"])),TP=u.lazy(()=>ca(()=>import("./DrinkPage-8e61c1ee.js"),["assets/DrinkPage-8e61c1ee.js","assets/operationsFilters-e4e6e4b5.js","assets/coctailPlaceholder-57c2274b.js","assets/favoriteSelectors-94e92a4d.js","assets/PageTitle-eab4df23.js","assets/operationsDrinks-b4e9401b.js","assets/Hourglass-31ddaf78.js"]));function LP(){const{pathname:e}=Sr(),t=Zt(),n=he(Sx);return u.useEffect(()=>{window.scrollTo(0,0)},[e]),u.useEffect(()=>{t(zs())},[t]),b.jsx(b.Fragment,{children:n?b.jsx(bw,{children:b.jsx(nb,{})}):b.jsxs(j5,{children:[b.jsx(Ht,{path:"/welcome",element:b.jsx(td,{redirectTo:"/",component:b.jsx(JI,{})})}),b.jsx(Ht,{path:"/signup",element:b.jsx(td,{redirectTo:"/",component:b.jsx(cP,{})})}),b.jsx(Ht,{path:"/signin",element:b.jsx(td,{redirectTo:"/",component:b.jsx(tP,{})})}),b.jsxs(Ht,{path:"/",element:b.jsx(Lr,{redirectTo:"/welcome",component:b.jsx(RI,{})}),children:[b.jsx(Ht,{index:!0,element:b.jsx(Lr,{redirectTo:"/welcome",component:b.jsx(SP,{})})}),b.jsx(Ht,{path:"/drink/:drinkId",element:b.jsx(Lr,{redirectTo:"/welcome",component:b.jsx(TP,{})})}),b.jsx(Ht,{path:"/drinks",element:b.jsx(Lr,{redirectTo:"/welcome",component:b.jsx(CP,{})})}),b.jsx(Ht,{path:"/add",element:b.jsx(Lr,{redirectTo:"/welcome",component:b.jsx(MP,{})})}),b.jsx(Ht,{path:"/my",element:b.jsx(Lr,{redirectTo:"/welcome",component:b.jsx(NP,{})})}),b.jsx(Ht,{path:"/favorites",element:b.jsx(Lr,{redirectTo:"/favorites",component:b.jsx(DP,{})})}),b.jsx(Ht,{path:"*",element:b.jsx(EP,{})})]})]})})}const OP=Dm`
 *,
 *::before,
 *::after {
