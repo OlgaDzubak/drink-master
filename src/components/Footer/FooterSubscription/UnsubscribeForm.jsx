@@ -4,6 +4,8 @@ import { SubscriptionContainer, StyledSubBtn, StyledText, StyledSubField, Styled
 import { unsubscribeUser } from '../../../redux/auth/authOperations';
 import { selectIsLoading, selectUser } from '../../../redux/auth/authSelectors';
 import { SkeletonRows } from '../../Skeletons/SkeletonRows';
+import { scrollToBottom } from "../../../helpers/scrollToBottom";
+
 
 export const UnsubscribeForm = () => {
   
@@ -11,17 +13,16 @@ export const UnsubscribeForm = () => {
   const { email } = useSelector(selectUser);
   const dispatch = useDispatch();
 
-  const handleSubmit = async (values, { resetForm }) => {
-
-    await dispatch(unsubscribeUser({subscriptionEmail: values.email}));
-    resetForm();
+  const handleSubmit = async (values) => {
+    scrollToBottom();
+    await dispatch(unsubscribeUser({ subscriptionEmail: values.email }));
   };
 
   return <SubscriptionContainer>
           <StyledText>You are subscribed to our newsletter.</StyledText>
               
           {isLoading
-            ? <SkeletonRows rows={2} heightArr={[56, 56]} />
+            ? <SkeletonRows rows={2} heightArr={[56, 56]} gap={"12px"} />
             : <Formik initialValues={{ email }} onSubmit={handleSubmit}>
                 {({ errors, touched }) => <StyledSubForm>
                   

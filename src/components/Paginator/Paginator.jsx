@@ -1,15 +1,7 @@
 import { StyledReactPaginate } from './Paginator.styled';
-import { MdOutlineArrowBackIos, MdOutlineArrowForwardIos} from 'react-icons/md';
-import { animateScroll } from 'react-scroll';
+import { MdOutlineArrowBackIos, MdOutlineArrowForwardIos } from 'react-icons/md';
+import { scrollToTop } from '../../helpers/scrollToTop';
 
-const scrollToTop = () => {
-
-  const options = {
-    duration: 1500,
-    smooth: true,
-  };
-  animateScroll.scrollToTop(options);
-}
 
 const Paginator = ({ pageCount, handlePageClick }) => {
 

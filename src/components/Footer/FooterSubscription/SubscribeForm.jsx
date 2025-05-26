@@ -5,6 +5,8 @@ import { subscribeUser } from '../../../redux/auth/authOperations';
 import { selectIsLoading, selectUser, selectVerifiedForSubscription } from '../../../redux/auth/authSelectors';
 import { SkeletonRows } from '../../Skeletons/SkeletonRows';
 import { SubscriptionContainer, StyledSubBtn, StyledText, StyledSubField, StyledSubForm, StyledSubLabel, SubFormContenWrapper, } from './FooterSubscription.styled';
+import { scrollToBottom } from "../../../helpers/scrollToBottom";
+
 
 export const SubscribeForm = () => {
   
@@ -20,6 +22,7 @@ export const SubscribeForm = () => {
   },[verifiedForSubscription]);
 
   const handleSubmit = () => {
+    scrollToBottom();
     dispatch(subscribeUser());
   };
 
@@ -27,7 +30,7 @@ export const SubscribeForm = () => {
           <StyledText>Subscribe up to our newsletter. Be in touch with latest news and special offers, etc.</StyledText>
     
           {isLoading
-            ? <SkeletonRows rows={2} heightArr={[56, 56]} />
+            ? <SkeletonRows rows={2} heightArr={[56, 56]} gap={"12px"}/>
             : <Formik initialValues={{ email }} onSubmit={handleSubmit}>
                 {({ errors, touched }) => <StyledSubForm>
                                                 
