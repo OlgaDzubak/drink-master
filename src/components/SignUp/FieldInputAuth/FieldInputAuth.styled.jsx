@@ -18,16 +18,16 @@ export const InputAndIconContainer = styled.div`
   position: relative;
   transition: color var(--transition);
 
-  :hover, 
-  :focus {
-    input {
-      border-color: var(--whitefifty-color);
-      color: var(--white-color);
-      &::placeholder{
-        color: var(--white-color);
-      }
-    }
-  }
+  // &:hover, &:focus {
+  //   input {
+  //     border-color: var(--whitefifty-color);
+  //     color: var(--white-color);
+
+  //     &::placeholder{
+  //       color: var(--white-color);
+  //     }
+  //   }
+  // }
 `;
 
 //інпут
@@ -46,7 +46,7 @@ export const StyledField = styled(Field)`
                                             ? 'var(--red-color)'
                                             : props.success === 'true'
                                                 ? 'var(--green-color)'
-                                                :'var(--whitetwenty-color)'};
+                                                : 'var(--whitetwenty-color)'};
 
   background-color: transparent;
   border-radius: 24px;
@@ -66,15 +66,9 @@ export const StyledField = styled(Field)`
     transition: color var(--transition);
   }
 
-  :hover,
-  :focus {
+  :hover, :focus {
+    border-color: var(--white-color);
     
-    border: 1px solid var(--white-color);
-    
-    ::placeholder {
-      //color: var(--white-color);
-    }
-
     +button {
       color: var(--white-color); 
     }
@@ -84,7 +78,6 @@ export const StyledField = styled(Field)`
   @media screen and (min-width: 768px) {
     padding-top: 13.94px;
     padding-bottom: 13.95px;
-    //width: 400px;
     line-height: 1.56;
     font-size: 17px;
   }
