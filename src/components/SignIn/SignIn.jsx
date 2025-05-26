@@ -54,10 +54,7 @@ const SignIn = () => {
                             <StyledButtonsContainer>
                               
                               <StyledButton type="submit" aria-label="sign in">Sign In</StyledButton>
-                              
-                              <StyledLink to="/signup">
-                                <StyledButton type="button" aria-label="sign up">Sign Up</StyledButton>
-                              </StyledLink>
+                              <StyledLink to="/signup" aria-label="sign up">Sign Up</StyledLink>
                             
                             </StyledButtonsContainer>
                           </>

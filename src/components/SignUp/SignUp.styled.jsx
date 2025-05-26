@@ -110,6 +110,25 @@ export const StyledButtonsContainer = styled.div`
 
 export const StyledLink = styled(Link)`
   width: 100%;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.28;
+  border-radius: 42px;
+  text-decoration: underline;
+  border: none;
+  text-align: center;
+  color:var(--white-color);
+  background-color: transparent;
+  transition: background-color var(--transition), color var(--transition);
+
+  &:hover, &:focus {
+    background-color: var(--white-color);
+    color: var(--blue-color);
+  }
+  }
 `;
 
 export const StyledButton = styled.button`

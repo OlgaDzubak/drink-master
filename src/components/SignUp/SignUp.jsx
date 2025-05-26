@@ -79,10 +79,7 @@ const SignUp = () => {
                           <StyledButtonsContainer>
 
                             <StyledButton type="submit" aria-label="sign up">Sign Up</StyledButton>
-
-                            <StyledLink to="/signin">
-                              <StyledButton type="button" aria-label="sign in">Sign In</StyledButton>
-                            </StyledLink>
+                            <StyledLink to="/signin" aria-label="sign in">Sign In</StyledLink>
 
                           </StyledButtonsContainer>
                         </>

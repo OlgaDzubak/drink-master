@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-
+import { Link } from 'react-router-dom';
 import welcomeMobile_1x from '../../assets/images/welcomePage/welcome-background-mobile@1x.jpg'
 import welcomeMobile_2x from '../../assets/images/welcomePage/welcome-background-mobile@2x.jpg'
 import welcomeMobile_3x from '../../assets/images/welcomePage/welcome-background-mobile@3x.jpg'
@@ -142,7 +142,7 @@ export const StyledText = styled.p`
 `;
 
 
-export const StyledButtonBox = styled.div`
+export const StyledLinksBox = styled.div`
   display: flex;
   gap: 14px;
   justify-content: center;
@@ -151,7 +151,7 @@ export const StyledButtonBox = styled.div`
     justify-content: left;
   }
 `;
-export const StyledButton = styled.button`
+export const StyledLink = styled(Link)`
   font-family: inherit;
   font-weight: 600;
   font-size: 16px;

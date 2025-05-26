@@ -1,5 +1,5 @@
-import { StyledMain, StyledWelcomeContainer, StyledTitle, StyledText, StyledButtonBox, StyledButton } from './Welcome.styled';
-import { Link } from 'react-router-dom';
+import { StyledMain, StyledWelcomeContainer, StyledTitle, StyledText, StyledLinksBox, StyledLink } from './Welcome.styled';
+// import { Link } from 'react-router-dom';
 
 const Welcome = () => {
   
@@ -16,17 +16,12 @@ const Welcome = () => {
                     retrieve your own recipes at any time.
                   </StyledText>
 
-                  <StyledButtonBox>
+                  <StyledLinksBox>
 
-                    <Link to="/signup" aria-label='sign up'>
-                      <StyledButton type="button">Sign Up</StyledButton>
-                    </Link>
-                    
-                    <Link to="/signin" aria-label='sign in'>
-                      <StyledButton type="button">Sign In</StyledButton>
-                    </Link>
+                    <StyledLink to="/signup" aria-label='sign up'>Sign Up</StyledLink>
+                    <StyledLink to="/signin" aria-label='sign in'>Sign In</StyledLink>
 
-                  </StyledButtonBox>
+                  </StyledLinksBox>
                   
                 </StyledWelcomeContainer>
                 
