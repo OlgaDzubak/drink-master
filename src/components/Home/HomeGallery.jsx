@@ -5,31 +5,23 @@ import { GallerySection, GalleryList, CategoryTitle, DrinkList, LinkDrinks } fro
 import SectionTitle from '../Titles/SectionTitle';
 import Loader from '../Loader/Loader';
 import { DrinkCard } from '../DrinkCard/DrinkCard';
+import { mathPerPage } from "../../helpers/mathPerPage";
 
 
 const HomeGallery = () => {
   
   const { screenBreakPoint } = useContext(GlobalContext);
   const [drinks, setDrinks] = useState([]);
-  const [per_page, setPerPage] = useState(3);
+  const [per_page, setPerPage] = useState(mathPerPage(screenBreakPoint));
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   
   useEffect(() => {
-
-    const mathPerPage = (bp) => {
-      switch (bp) {
-        case 1280: return 3;
-        case 768: return 2;
-        case 375: return 1;
-        default: return 1;  
-      }
-    }
     setPerPage(mathPerPage(screenBreakPoint));
   }, [screenBreakPoint]);
     
+
   useEffect(() => {
-    
     const abortCtrl = new AbortController();
     setIsLoading(true);
 
