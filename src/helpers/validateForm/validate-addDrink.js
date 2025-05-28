@@ -25,6 +25,6 @@ export const addDrinkSchema = Yup.object().shape({
                     .required('Select the type of drink'),
       drinkThumb: Yup.mixed()
                      .required('Drink photo is required!')
-                     .test("is-valid-type", "Wrong file format! Only jpg, jpeg, png files are allowed", value => isValidFileType(value && value.name.toLowerCase(), "image"))
+                     .test("is-valid-type", "Wrong file format! Only jpg, jpeg, png, avif, bmp, webp files are allowed", value => isValidFileType(value && value.name.toLowerCase(), "image"))
                      .test("is-valid-size", "Max allowed size is 100KB", value => value && value.size <= 102400)
     });
