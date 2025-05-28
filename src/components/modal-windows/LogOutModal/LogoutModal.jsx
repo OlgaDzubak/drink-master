@@ -6,6 +6,7 @@ import { ModalBackdrop } from '../../SharedLayout/SharedLayout.styled';
 import { LogOutWrapper,  MessageText, ButtonsWrapper, ModalBtn } from './LogoutModal.styled';
 import { CloseBtn, CloseIcon } from '../UserProfileModal/UserProfileModal.styled';
 import { SkeletonLogout } from '../../Skeletons/SkeletonLogout';
+import { BlurStyledBar6 } from '../../BlurStyledBars/BlurStyledBars.styled';
 
 export const LogoutModal = () => {
   
@@ -46,6 +47,7 @@ export const LogoutModal = () => {
                         </ButtonsWrapper>
                       </>
               }
+                <BlurStyledBar6/>
             </LogOutWrapper>
-          </ModalBackdrop>
+         </ModalBackdrop>
 };

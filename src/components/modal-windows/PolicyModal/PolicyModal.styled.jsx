@@ -11,9 +11,8 @@ export const TermsModal = styled.div`
   background-color: var(--blue-color);
   border-radius: 10px;  
   box-shadow: 0px 0px 0px 1px var(--whitefifty-color);
-  overflow: auto;
-  z-index: 2000;
-
+  overflow: hidden;
+  
   &::-webkit-scrollbar {
     width: 6px;
   }
@@ -30,13 +29,13 @@ export const TermsModal = styled.div`
   }
 
   h3 {
-    color: var(--whitefifty-color);
+    color: var(--whiteeighty-color);
   }
 
   ul{
     list-style-type: numeric;
     font-size: 15px;
-    color: var(--whitefifty-color);
+    color: var(--whiteeighty-color);
 
     li{
       :not(:last-child) {

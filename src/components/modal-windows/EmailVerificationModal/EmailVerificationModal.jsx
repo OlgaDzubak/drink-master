@@ -10,7 +10,7 @@ import { ButtonsWrapper, ModalBtn } from '../LogOutModal/LogoutModal.styled';
 import { EmailVerificationWrapper, VerificationModalTitle, VerificationModalSubtitle, MessageText, Emailspan } from './EmailVerificationModal.styled';
 import { ModalBackdrop } from '../../SharedLayout/SharedLayout.styled';
 import { CloseBtn, CloseIcon } from '../UserProfileModal/UserProfileModal.styled';
-
+import { BlurStyledBar6, BlurStyledBar7 } from '../../BlurStyledBars/BlurStyledBars.styled';
 
 
 export const EmailVerificationModal = ({email, title, navigateTo}) => {
@@ -65,8 +65,8 @@ export const EmailVerificationModal = ({email, title, navigateTo}) => {
                             
                             <VerificationModalTitle>{title}</VerificationModalTitle>
                             <VerificationModalSubtitle>Please confirm your email! <Emailspan>{email}</Emailspan></VerificationModalSubtitle>
-                            <MessageText>We have sent you a letter to your email with verification code.
-                                          Enter this code to the field below and click "Verify".</MessageText>
+                            <MessageText>We have sent a letter to your email with verification code.
+                                         Enter this code to the field below and click "Verify".</MessageText>
                                           
                             <StyledField id="verificationToken"
                               name="verificationToken"
@@ -86,6 +86,8 @@ export const EmailVerificationModal = ({email, title, navigateTo}) => {
                         )}
                       </Formik>
               }
+              <BlurStyledBar6/>
+              <BlurStyledBar7/>
             </EmailVerificationWrapper>
          </ModalBackdrop>
 };

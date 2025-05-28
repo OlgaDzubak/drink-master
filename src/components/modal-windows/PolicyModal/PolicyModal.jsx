@@ -3,6 +3,7 @@ import { toggleIsPolicyModalOpen } from '../../../redux/modal/modalSlice';
 import { CloseBtn, CloseIcon } from '../UserProfileModal/UserProfileModal.styled';
 import { ModalBackdrop } from '../../SharedLayout/SharedLayout.styled';
 import { TermsModal } from './PolicyModal.styled';
+import { BlurStyledBar6, BlurStyledBar7 } from '../../BlurStyledBars/BlurStyledBars.styled';
 
 export const PolicyModal = () => {
   
@@ -36,7 +37,11 @@ export const PolicyModal = () => {
                   Contact us: If you have any questions or concerns regarding this Privacy Policy or your information, please contact us using the contact details provided on our website.`
                   .split('\n').map((str, idx) => <li key={idx}> {str} </li>)}
               </ul>
-                      
-              </TermsModal>
+              
+              <BlurStyledBar6/>
+              <BlurStyledBar7/> 
+              
+            </TermsModal>
+            
           </ModalBackdrop>
 };

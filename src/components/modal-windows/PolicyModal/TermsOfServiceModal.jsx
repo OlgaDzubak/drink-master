@@ -3,6 +3,8 @@ import { toggleIsTermsOfServiceModalOpen } from '../../../redux/modal/modalSlice
 import { CloseBtn, CloseIcon } from '../UserProfileModal/UserProfileModal.styled';
 import { ModalBackdrop } from '../../SharedLayout/SharedLayout.styled';
 import { TermsModal } from './PolicyModal.styled';
+import { BlurStyledBar6, BlurStyledBar7 } from '../../BlurStyledBars/BlurStyledBars.styled';
+
 
 export const TermsOfServiceModal = () => {
   
@@ -40,6 +42,9 @@ export const TermsOfServiceModal = () => {
                   .split('\n').map((str, idx) => <li key={idx}> {str} </li>)}
               </ul>
                       
+              <BlurStyledBar6/>
+              <BlurStyledBar7/>
+              
             </TermsModal>
           </ModalBackdrop>
 };

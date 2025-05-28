@@ -9,6 +9,7 @@ export const LogOutWrapper = styled.div`
   padding: 50px;
   text-align: center;
   z-index: 2000;
+  overflow: hidden;
   border-radius: 15px;
   box-shadow: 0px 0px 0px 1px var(--whitefifty-color);
   background-color: var(--blue-color);
@@ -50,6 +51,7 @@ export const ModalBtn = styled.button`
   border: 1px solid var(--white-color);
   border-radius: 22px;
   transition: color var(--transition), background-color var(--transition), border-color var(--transition);
+  z-index: 2100;
 
   &:hover, &:focus {
     color: var(--white-color);

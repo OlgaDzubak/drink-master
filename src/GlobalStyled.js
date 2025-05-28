@@ -35,6 +35,7 @@ const GlobalStyles = css`
   :root {
     --mainbackground-color: #0A0A11;
     --white-color: #F3F3F3;
+    --whiteeighty-color: rgba(243, 243, 243, 0.8);
     --whitefifty-color: rgba(243, 243, 243, 0.5);
     --whitefourty-color: rgba(243, 243, 243, 0.4);
     --whitetwenty-color: rgba(243, 243, 243, 0.2);

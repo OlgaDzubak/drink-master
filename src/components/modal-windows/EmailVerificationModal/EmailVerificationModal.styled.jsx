@@ -13,6 +13,7 @@ export const EmailVerificationWrapper = styled.div`
   box-shadow: 0px 0px 0px 1px var(--whitefifty-color);
   background-color: var(--blue-color);
   color: var(--white-color);
+  overflow: hidden;
 
   @media screen and (max-width: 768px) {
     width: 400px;
