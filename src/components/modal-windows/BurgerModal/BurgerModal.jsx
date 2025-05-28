@@ -5,7 +5,7 @@ import { BlurStyledBar8, BlurStyledBar9, BlurStyledBar10} from '../../BlurStyled
 export const BurgerModal = () => {
   
   return  <MobileMenuBackdrop className="mobile-menu-backdrop">
-            <BurgerModalWrapper >
+            <BurgerModalWrapper className="modal">
                 <Navigation /> 
                 <BlurStyledBar8 className="blur8"/>
                 <BlurStyledBar9 className="blur9"/>

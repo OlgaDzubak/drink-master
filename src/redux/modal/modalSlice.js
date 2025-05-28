@@ -9,7 +9,8 @@ const modalSlice = createSlice({
     isPolicyModalOpen: false,
     isTermsOfServiceModalOpen: false,
   },
-  reducers: { toggleIsBurgerModalOpen(state, action){ state.isBurgerModalOpen = !state.isBurgerModalOpen},
+  reducers: {
+    toggleIsBurgerModalOpen(state, action) { console.log("ghghghg");  state.isBurgerModalOpen = !state.isBurgerModalOpen},
               toggleIsUserProfileModalOpen(state, action){ state.isUserProfileModalOpen = !state.isUserProfileModalOpen},
               toggleIsLogoutModalOpen(state, action) { state.isLogoutModalOpen = !state.isLogoutModalOpen },
               toggleIsPolicyModalOpen(state, action) { state.isPolicyModalOpen = !state.isPolicyModalOpen },
