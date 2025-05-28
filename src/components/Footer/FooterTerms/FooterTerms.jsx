@@ -1,19 +1,10 @@
-import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { LoweLiner, TermsButtons, TermsWrapper, StyledPar } from './FooterTerms.styled';
-import { FooterModal } from './FooterModal/FooterModal';
+import { toggleIsPolicyModalOpen, toggleIsTermsOfServiceModalOpen} from '../../../redux/modal/modalSlice';
 
 export const FooterTerms = () => {
-  
-  const [isPrivacyPolicyOpen, setIsPrivacyPolicyOpen] = useState(false);
-  const [isTermsOfServiceOpen, setIsTermsOfServiceOpen] = useState(false);
-
-  const handlePrivacyPolicyModal = () => {
-    setIsPrivacyPolicyOpen((prev) => !prev);
-  };
-
-  const handleTermsOfServiceModal = () => {
-    setIsTermsOfServiceOpen((prev) => !prev);
-  };
+ 
+  const dispatch = useDispatch();
 
   return  <LoweLiner>
 
@@ -21,29 +12,10 @@ export const FooterTerms = () => {
 
             <TermsWrapper>
 
-              <TermsButtons onClick={handlePrivacyPolicyModal}>
-                Privacy Policy
-              </TermsButtons>
-              
-              <TermsButtons onClick={handleTermsOfServiceModal}>
-                Terms of Service
-              </TermsButtons>
+              <TermsButtons onClick={() => dispatch(toggleIsPolicyModalOpen())}>Privacy Policy</TermsButtons>
+              <TermsButtons onClick={() => dispatch(toggleIsTermsOfServiceModalOpen())}>Terms of Service</TermsButtons>
 
             </TermsWrapper>
-
-            {isPrivacyPolicyOpen && <FooterModal
-                                      isModalOpen={isPrivacyPolicyOpen}
-                                      setIsModalOpen={setIsPrivacyPolicyOpen}
-                                      modalTextKey="privacyPolicyText"
-                                    />
-            }
-            
-            {isTermsOfServiceOpen &&  <FooterModal
-                                        isModalOpen={isTermsOfServiceOpen}
-                                        setIsModalOpen={setIsTermsOfServiceOpen}
-                                        modalTextKey="termsOfServiceText"
-                                      />
-            }
 
           </LoweLiner>
 };

@@ -5,3 +5,7 @@ export const selectIsUserProfileModalOpen = (state) => state.modal.isUserProfile
 export const selectIsLogoutModalOpen = (state) => state.modal.isLogoutModalOpen;
 
 export const selectIsEmailVerificationModalOpen = (state) => state.modal.IsEmailVerificationModalOpen;
+
+export const selectIsPolicyModalOpen = (state) => state.modal.isPolicyModalOpen;
+
+export const selectIsTermsOfServiceModalOpen = (state) => state.modal.isTermsOfServiceModalOpen;

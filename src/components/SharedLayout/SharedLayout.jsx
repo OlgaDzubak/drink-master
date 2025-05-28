@@ -9,12 +9,15 @@ import { BurgerModal } from '../modal-windows/BurgerModal/BurgerModal';
 import { UserProfileModal } from '../modal-windows/UserProfileModal/UserProfileModal';
 import { LogoutModal } from '../modal-windows/LogOutModal/LogoutModal';
 import { EmailVerificationModal } from '../modal-windows/EmailVerificationModal/EmailVerificationModal';
+import { PolicyModal } from '../modal-windows/PolicyModal/PolicyModal';
+import { TermsOfServiceModal } from '../modal-windows/PolicyModal/TermsOfServiceModal';
+import { disableTab, enableTab } from '../../helpers/blockTab';
 
 import { selectUser, selectIsEmailVerificationModalOpen } from '../../redux/auth/authSelectors';
 import { toogleIsEmailVerificationModalOpen } from '../../redux/auth/authOperations';
 
-import { selectIsBurgerModalOpen, selectIsUserProfileModalOpen, selectIsLogoutModalOpen } from '../../redux/modal/modalSelectors';
-import { toggleIsBurgerModalOpen, toggleIsUserProfileModalOpen, toggleIsLogoutModalOpen } from '../../redux/modal/modalSlice';
+import { selectIsBurgerModalOpen, selectIsUserProfileModalOpen, selectIsLogoutModalOpen, selectIsPolicyModalOpen, selectIsTermsOfServiceModalOpen } from '../../redux/modal/modalSelectors';
+import { toggleIsBurgerModalOpen, toggleIsUserProfileModalOpen, toggleIsLogoutModalOpen, toggleIsPolicyModalOpen, toggleIsTermsOfServiceModalOpen } from '../../redux/modal/modalSlice';
 
 import { Main, Container } from './SharedLayout.styled';
 import { BlurStyledBar1, BlurStyledBar2 } from '../BlurStyledBars/BlurStyledBars.styled';
@@ -40,6 +43,8 @@ const SharedLayout = () => {
   const isUserProfileModalOpen = useSelector(selectIsUserProfileModalOpen);
   const isLogoutModalOpen = useSelector(selectIsLogoutModalOpen);
   const isEmailVerificationModalOpen = useSelector(selectIsEmailVerificationModalOpen);
+  const isPolicyModalOpen = useSelector(selectIsPolicyModalOpen);
+  const isTermsOfServiceModalOpen= useSelector(selectIsTermsOfServiceModalOpen); 
 
   const dispatch = useDispatch();
   
@@ -56,11 +61,14 @@ const SharedLayout = () => {
         isUserProfileModalOpen && dispatch(toggleIsUserProfileModalOpen());
         isLogoutModalOpen && dispatch(toggleIsLogoutModalOpen());
         isEmailVerificationModalOpen && dispatch(toogleIsEmailVerificationModalOpen());
+        isPolicyModalOpen && dispatch(toggleIsPolicyModalOpen());
+        isTermsOfServiceModalOpen && dispatch(toggleIsTermsOfServiceModalOpen());
       }
-    };
-
-    if (isBurgerModalOpen || isUserProfileModalOpen || isLogoutModalOpen || isEmailVerificationModalOpen) {
+    };      
+    
+    if (isBurgerModalOpen || isUserProfileModalOpen || isLogoutModalOpen || isEmailVerificationModalOpen || isPolicyModalOpen || isTermsOfServiceModalOpen) {
       blockScroll.disabledScroll();
+      disableTab();
       document.addEventListener('keydown', handleKeyDown);
     } else {
       blockScroll.enabledScroll();
@@ -69,8 +77,9 @@ const SharedLayout = () => {
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
+      enableTab();
     };
-  }, [isBurgerModalOpen, isUserProfileModalOpen, isLogoutModalOpen, isEmailVerificationModalOpen]);
+  }, [isBurgerModalOpen, isUserProfileModalOpen, isLogoutModalOpen, isEmailVerificationModalOpen, isPolicyModalOpen, isTermsOfServiceModalOpen]);
 
   let theme;
   switch (currentTheme) {
@@ -116,6 +125,8 @@ const SharedLayout = () => {
             { isUserProfileModalOpen && <UserProfileModal /> }
             { isLogoutModalOpen && <LogoutModal /> }
             { isEmailVerificationModalOpen && <EmailVerificationModal email={email} title="Verify your email before subscribing!" navigateTo="/"/>}
+            { isPolicyModalOpen && <PolicyModal /> }
+            { isTermsOfServiceModalOpen && <TermsOfServiceModal />}
     
           </ThemeProvider>
 };

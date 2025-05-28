@@ -1,5 +1,5 @@
 import { Formik, Form } from 'formik';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser, selectIsLoading } from '../../../redux/auth/authSelectors';
 import { updateUser } from '../../../redux/auth/authOperations';
@@ -14,7 +14,6 @@ import { ProfileModal, CloseBtn, CloseIcon,
          NameBox, NameInputLabel, NameInput, Edit_icon, 
          SubmitButton, FormError } from './UserProfileModal.styled';
 import { BlurStyledBar6, BlurStyledBar7 } from '../../BlurStyledBars/BlurStyledBars.styled';
-import { disableTab, enableTab } from '../../../helpers/blockTab';
 
 export const UserProfileModal = () => {
 
@@ -24,11 +23,6 @@ export const UserProfileModal = () => {
   const isLoading= useSelector(selectIsLoading);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    disableTab();
-    return ()=>{enableTab()}
-  }, []) 
-  
   const initialValues = {name, avatar: ''};  // initial form values
  
 

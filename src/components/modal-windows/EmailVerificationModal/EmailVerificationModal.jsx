@@ -1,20 +1,17 @@
-import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Formik, Form } from 'formik';
-
 import { selectIsLoadingVerifyModal, selectShouldBeVerifiedForSubscription } from '../../../redux/auth/authSelectors';
 import { toogleIsLoggedIn, verify, toogleIsEmailVerificationModalOpen, toogleShouldBeVerifiedForSubscription } from '../../../redux/auth/authOperations';
-
 import { SkeletonVerify } from '../../Skeletons/SkeletonVerify';
 import { emailTokenSchema } from '../../../helpers/validateForm/validate-verificationToken';
-import { disableTab, enableTab } from '../../../helpers/blockTab';
-
 import { StyledField } from '../../SignUp/FieldInputAuth/FieldInputAuth.styled';
 import { ButtonsWrapper, ModalBtn } from '../LogOutModal/LogoutModal.styled';
 import { EmailVerificationWrapper, VerificationModalTitle, VerificationModalSubtitle, MessageText, Emailspan } from './EmailVerificationModal.styled';
 import { ModalBackdrop } from '../../SharedLayout/SharedLayout.styled';
 import { CloseBtn, CloseIcon } from '../UserProfileModal/UserProfileModal.styled';
+
+
 
 export const EmailVerificationModal = ({email, title, navigateTo}) => {
   
@@ -23,13 +20,6 @@ export const EmailVerificationModal = ({email, title, navigateTo}) => {
   const location = useLocation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    disableTab();
-    return () => {
-      enableTab();
-    }
-  }, []);
   
   const handleSubmit = (values, { resetForm }) => {
     dispatch(verify({ verificationToken: values.verificationToken.trim() }));

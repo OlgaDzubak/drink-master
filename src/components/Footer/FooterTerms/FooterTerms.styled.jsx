@@ -38,11 +38,12 @@ export const TermsModal = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  padding: 40px 40px 40px 50px;  
   width: 80%;
   height: 90vh;
   background-color: var(--blue-color);
-  border-radius: 10px;
-  padding: 40px 40px 40px 50px;
+  border-radius: 10px;  
+  box-shadow: 0px 0px 0px 1px var(--whitefifty-color);
   overflow: auto;
   z-index: 2000;
 
