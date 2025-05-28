@@ -1,13 +1,10 @@
 import { useRef, useEffect } from 'react';
-import { StyledModalText, TermsModal } from '../FooterTerms.styled';
-import { modalText } from '../../../../helpers/policytermscontent';
+import { StyledModalUl, TermsModal } from '../FooterTerms.styled';
+import { modalTitles, modalTexts } from '../../../../helpers/policytermscontent';
 
-const modalTexts = {
-  privacyPolicyText: modalText.privacyPolicyText,
-  termsOfServiceText: modalText.termsOfServiceText,
-};
 
 export const FooterModal = ({ isModalOpen, setIsModalOpen, modalTextKey }) => {
+  
   const modalRef = useRef(null);
 
   useEffect(() => {
@@ -40,9 +37,19 @@ export const FooterModal = ({ isModalOpen, setIsModalOpen, modalTextKey }) => {
     };
   }, [isModalOpen, setIsModalOpen]);
 
-  return (
-    <TermsModal ref={modalRef}>
-      <StyledModalText>{modalTexts[modalTextKey]}</StyledModalText>
-    </TermsModal>
-  );
+  return  <TermsModal ref={modalRef}>
+
+            <h3>{modalTitles[modalTextKey]}</h3>
+            
+            <br />
+            <br />
+            
+            <StyledModalUl>
+              { modalTexts[modalTextKey]
+                                .split('\n')
+                                .map((str, idx) => <li key={idx}> {str} </li>)
+              }
+            </StyledModalUl>
+            
+          </TermsModal>
 };

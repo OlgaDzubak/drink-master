@@ -42,8 +42,9 @@ export const TermsModal = styled.div`
   height: 90vh;
   background-color: var(--blue-color);
   border-radius: 10px;
-  padding: 20px;
+  padding: 40px 40px 40px 50px;
   overflow: auto;
+  z-index: 2000;
 
   &::-webkit-scrollbar {
     width: 6px;
@@ -59,9 +60,21 @@ export const TermsModal = styled.div`
   &::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
+
+  h3 {
+    color: var(--whitefifty-color);
+  }
 `;
 
-export const StyledModalText = styled.p`
+export const StyledModalUl = styled.ul`
+  list-style-type: numeric;
   font-size: 15px;
   color: var(--whitefifty-color);
+
+  li{
+    :not(:last-child) {
+      margin-bottom: 15px;
+    }
+  }
 `;
+
